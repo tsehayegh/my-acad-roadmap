@@ -1,7 +1,6 @@
 {
   "name": "myacadroadmap",
   "version": "0.1.0",
-  "proxy": "https://my-acad-roadmap.herokuapp.com/",
   "engine": {
     "node": "8.9.4"
   },
@@ -10,6 +9,8 @@
   "dependencies": {
     "connected-react-router": "^4.3.0",
     "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "heroku": "^7.0.98",
     "immutable": "^3.8.2",
     "jwt-decode": "^2.2.0",
     "npm": "^6.1.0",
@@ -33,6 +34,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:8080/",
   "devDependencies": {
     "react-script": "^2.0.5",
     "react-scripts": "^1.1.4"
