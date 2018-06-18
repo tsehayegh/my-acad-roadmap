@@ -1,0 +1,91 @@
+import React from 'react';
+import {BrowserRouter as Router, withRouter} from 'react-router-dom';
+import {clearAuth} from '../actions/auth';
+import {clearAuthToken} from '../local-storage';
+import requiresLogin from './auth/requires-login';
+
+import {fetchAcadPlans} from '../actions/catalogActions';
+
+import {fetchCatalog} from '../actions/catalogActions';
+
+import { Link, Redirect, NavLink } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+
+import './navbar.css';
+
+class Navbar extends React.Component {
+	logOut(e) {
+		e.preventDefault();
+        this.props.dispatch(clearAuth());
+        clearAuthToken();
+    }
+
+
+	componentDidMount() {
+		
+		const searchQuery= `?username=${this.props.currentUser.username}`;
+
+	}
+
+
+	handleOnClick(e) {
+		e.preventDefault();
+		let programcode = this.props.currentUser.programcode.split(',');
+		if (programcode.length > 1) {
+			programcode = programcode[1].trim();
+		} 
+		this.props.dispatch(fetchCatalog(`${programcode}`));
+	}
+
+	render() {
+		return(
+			
+			<div className="container">
+				<nav className="navbar navbar-expand-md navbar-dark bg-info">
+				  <Link className="navbar-brand text-white" data-toggle="collapse" to="/dashboard">My Acad Roadmap</Link>
+				  <button type="button" className="navbar-toggler navbar-toggler-righ collapsed"  
+				  		data-toggle="collapse" data-target="#navbarSupportedContent" 
+				  		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span className="navbar-toggler-icon"></span>
+				  </button>
+				  <div className="collapse navbar-collapse text-white" id="navbarSupportedContent">
+				    <ul className="nav navbar-nav mr-auto">
+				      <li className="nav-item">
+				        <Link className="nav-link text-white" to="/plan" onClick={e => this.handleOnClick(e.target)}>Plan my program</Link>
+				      </li>
+				      <li className="nav-item">
+				        <Link className="nav-link text-white" to="/dashboard">Dashboard</Link>
+				      </li>
+				    </ul>
+				        <ul className="nav navbar-nav navbar-right">
+					      <li className="nav-item">
+					      	<Link className="nav-link text-white" to="/profile">Profile ({this.props.username})</Link>
+					      </li>
+					      <li className="nav-item">
+					      	<Link className="nav-link text-white" to ='/' onClick={e => this.logOut(e)}>Log out</Link>
+					      </li>
+					    </ul>
+				  </div>
+				</nav>
+			</div>
+		
+		)
+	}
+}
+
+const mapStateToProps = (state, ownProps) => {
+    const {currentUser} = state.auth;
+    const searchQuery = `?username=${currentUser.username}`;
+
+    
+    return {
+    	currentUser: state.auth.currentUser,
+        username: state.auth.currentUser.username,
+        name: `${currentUser.firstName} ${currentUser.lastName}`,
+        acadplans: state.catalogReducer.acadplans,
+       	coursecatalog: state.catalogReducer.coursecatalog
+    };
+};
+
+export default requiresLogin()(connect(mapStateToProps)(Navbar));

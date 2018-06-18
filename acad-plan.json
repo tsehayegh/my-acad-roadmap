@@ -1,0 +1,22 @@
+
+{
+	"username": "peace",
+	"firstname": "John",
+	"lastname": "David",
+	"programcode": "Accounting and Finance, A25800A",
+	"plan": [
+		"Fall 2018, Writing and Inquiry,ENG 111,3",
+		"Fall 2018, Principles of Financial Accounting,ACC 120,4",
+		"Fall 2018, Principles of Managerial Accounting,ACC 121,4",
+		"Fall 2018,Individual Income Taxes,ACC 129,3",
+		"Spring 2019, Business Law I,BUS 115,3",
+		"Spring 2019, Music Appreciation,MUS 110,3",
+		"Summer 2019, American History II,HIS 132,3",
+		"Summer 2019, Payroll Accounting,ACC 140,3",
+		"Fall 2020, Auditing & Assurance Services,ACC 269,3",
+		"Fall 2020, Business Law I,BUS 115,3",
+		"Fall 2020, Introduction to Computers,CIS 110,3",
+		"Spring 2021, Statistical Methods I,MAT 152,3",
+		"Spring 2021, Principles of Microeconomics,ECO 251,3",
+	]
+}

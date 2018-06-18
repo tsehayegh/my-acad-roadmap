@@ -1,0 +1,17 @@
+
+
+.form-ckeck {
+	border: 1px solid black;
+
+}
+
+.form-check-label {
+	margin-left: 20px;
+	
+}
+
+.form-check-input{
+	background-color: azure;
+	border: 4px solid black;
+	transform: scale(1.5);
+}
