@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const passport = require('passport');
 
+const path = require('path');
 
 require('dotenv').config();
 
@@ -24,11 +25,8 @@ const cors = require('cors');
 // Logging
 app.use(morgan('common'));
 
-
-app.use(express.static('../build'));
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// ... other app.use middleware setups
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 
 app.use(cors({
@@ -76,10 +74,16 @@ app.get('/api/protected', jwtAuth, (req, res) => {
 
 //
 
-
+/*
 //Requests made to non-existent endpoint
 app.use('*', function(req, res) {
 	res.status(404).json({message: 'Not Found'});
+});
+*/
+
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {  
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 //run server
