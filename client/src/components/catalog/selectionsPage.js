@@ -15,6 +15,7 @@ import SelectionPage from './selectionPage';
 
 import CheckboxApp from './checkboxapp'
 
+import './selectionsPage.css';
 
 class SelectionsPage extends React.Component {
 
@@ -53,7 +54,7 @@ class SelectionsPage extends React.Component {
 
 	render() {
 		return (
-			<div className="container">
+			<div className="container" id="selections-page">
 			<h3>Program: {this.props.currentUser.programcode} </h3>
 				<div className="row">
 					<div className="col-sm-5">

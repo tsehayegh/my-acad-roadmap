@@ -15,6 +15,7 @@ import SelectionsPage from './selectionsPage';
 
 import requiresLogin from '../auth/requires-login';
 
+import './selectionPage.css';
 
 class SelectionPage extends React.Component {
  	componentDidMount() {

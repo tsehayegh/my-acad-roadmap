@@ -31,7 +31,8 @@ class SelectionList extends React.Component {
 	}
 	render() {
 		return (
-			<ul className="list-group form-control-lg">
+			<div className="selection-list">
+			<ul className="list-group form-control-lg" id="selection-list">
 			<label>Select a Group to Plan </label>
 				{this.props.groups.map((group,index) => 
 					<li className="list-group-item" key={index}>
@@ -42,6 +43,7 @@ class SelectionList extends React.Component {
 					</li>
 				)}
 			</ul>
+			</div>
 		)
 	}
 }

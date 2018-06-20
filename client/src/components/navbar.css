@@ -4,22 +4,23 @@ html {
   	width: 100%;
   	height: 100%; 
   	min-height: 100%;
-  	background: linear-gradient(90deg,#ece5d7 3%,transparent 3%,transparent 96%,#ece5d7 97%,#ece5d7),
-  				linear-gradient(180deg,#ece5d7 3%,transparent 3%,transparent 96%,#ece5d7 97%,#ece5d7);
-  	background-color: #ece5d7;
+  	background: linear-gradient(90deg,#C8CFD6 15%,transparent 3%,transparent 96%,#C8CFD6 97%,#C8CFD6),
+  				linear-gradient(180deg,#C8CFD6 0%,transparent 3%,transparent 100%,#C8CFD6 97%,#C8CFD6);
+  	
   	padding-top: 30px;
   	margin-top: 30px;
   	font-size: 18px;
 }
 
 .navbar {
-	background-color: #283e4a;
+	background-color: #C8CFD6;
 	font-size: 1.3em;
 	padding: 5px; 
 }
 
 .navbar-nav .navbar-nav .nav-link {
     color: rgba(255,255,255,.5);
+    
 }
 
 /* change the color of active or hovered links */
