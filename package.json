@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "engines": {
-    "node": "8.9.4"
-  },
   "scripts": {
     "test": "mocha --exit",
     "start": "node server.js",
