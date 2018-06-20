@@ -59,7 +59,6 @@ acadPlanRouter.get('/api/testing', (req, res) => {
 
 
 acadPlanRouter.get('/api/dashboard/:id', (req, res) => {
-	console.log(req.params.id);
 	if(req.params.id.match(/^[0-9a-fA-F]{24}$/)){
 	Acadplan
 		.findById(req.params.id)
@@ -130,7 +129,7 @@ acadPlanRouter.put('/api/acadplan/:id', (req, res) => {
 			toUpdate[field] = req.body[field];
 		}
 	});
-	console.log(toUpdate);
+
 	Acadplan
 		.findByIdAndUpdate(req.params.id, { $set: toUpdate}, {new: true})
 		.then(acadplans => res.status(204).end())

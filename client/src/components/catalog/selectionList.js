@@ -35,9 +35,9 @@ class SelectionList extends React.Component {
 			<label>Select a Group to Plan </label>
 				{this.props.groups.map((group,index) => 
 					<li className="list-group-item" key={index}>
-						Group{group}: 
+						Group {group}:  
 						<Link to={'/plan/' + group} className={this.state.linkstatus}> 
-							Take <span className="badge badge-info badge-pill">{this.props.coursecatalog[0].selection[index]}</span> courses from...
+							{ } Take <span className="badge badge-info badge-pill"> {this.props.coursecatalog[0].selection[index]}</span> courses from...
 						</Link>
 					</li>
 				)}

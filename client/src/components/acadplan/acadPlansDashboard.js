@@ -149,7 +149,7 @@ class AcadPlanDashboard extends React.Component {
 		let semesterTotalCredits = 0;
 
 		return (
-			<div className="container">
+			<div className="container" id="portfolio">
 				<h3>Program: {this.props.currentUser.programcode} </h3>
 				<div className="row">
 						{semesters.map(semester =>

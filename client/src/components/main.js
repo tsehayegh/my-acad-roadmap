@@ -32,10 +32,9 @@ export class Main extends React.Component {
 	render() {
 		const loggedIn = this.currentUser !== null;
 		return(
-			<Router >
+			<Router>
 				<div>
 					<Navbar />
-
 						<Route exact path='/' component={LoginForm}/>
 
 						<Route exact path='/dashboard' component={AcadPlansDashboard} />
@@ -47,7 +46,6 @@ export class Main extends React.Component {
 						<Route exact path='/plan' component={SelectionsPage} /> 
 
 						<Route exact path='/plan/:group' component={CheckboxApp}/>
-
 				</div>
 			</Router>
 		);

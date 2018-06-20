@@ -14,6 +14,9 @@ import {fetchCatalog,
       fetchAcadPlansAndUpdate,
       setPlan} from '../../actions/catalogActions'
 
+import { ToastContainer, toast } from 'react-toastify';
+import '../alerts.css';
+
 
 import {API_BASE_URL} from '../../config';
 
@@ -47,8 +50,7 @@ class CheckboxApp extends React.Component {
   }
 
   componentDidMount(){
-      const searchQuery = `?username=${this.props.currentUser.username}`;
-      console.log(searchQuery);
+    const searchQuery = `?username=${this.props.currentUser.username}`;
     fetch(`${API_BASE_URL}/dashboard/${searchQuery}`, {method: 'GET'})
       .then(res => {
         if(!res.ok){
@@ -117,7 +119,6 @@ class CheckboxApp extends React.Component {
 
     for (let checkbox of this.selectedCheckboxes) {
       console.log(`${this.state.semester} ${this.state.year}, ${label}`, 'is selected.'); 
-      console.log(this.state.plan)
     }
   }
 
@@ -135,6 +136,29 @@ class CheckboxApp extends React.Component {
     })
   }
 
+  notify(type){
+    return () => {
+      switch (type) {
+        case 'info':
+          toast.info('Info message', {
+            autoClose: 3000
+          });
+          break;
+        case 'success':
+          toast.success('Success message', {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          break;
+        case 'warning':
+          toast.warn('Warning message');
+          break;
+        case 'error':
+          toast.error('Error message');
+          break;
+      }
+    };
+  };
+
 
 
   handleButton = () => {
@@ -142,7 +166,6 @@ class CheckboxApp extends React.Component {
         buttonStatus: true
       }); 
     for (let checkbox of this.selectedCheckboxes) {
-      console.log(this.state.semester );
       if(checkbox && ((this.state.semester !== '')) && this.state.year.trim().length === 4){
         this.setState({
           buttonStatus: false
@@ -175,6 +198,9 @@ class CheckboxApp extends React.Component {
                       this.props.dispatch(fetchAcadPlans(searchQuery));
                     })
                     .then(() => {
+
+                        this.notify('success');
+
                         this.props.history.push({
                           pathname: '/dashboard',
                           state: {detail: plans}
@@ -266,8 +292,17 @@ class CheckboxApp extends React.Component {
                 <label>Select Courses</label>
 
                   {this.createCheckboxes()}
-                  <button className={`btn btn-lg btn-success`} disabled={this.state.buttonStatus} type="submit">Save</button>
-                  
+                  <button className={`btn btn-lg btn-success`} 
+                          disabled={this.state.buttonStatus} 
+                          type="submit"
+                          >Save</button>
+          
+                  <ToastContainer
+                  hideProgressBar={true}
+                  newestOnTop={true}
+                  autoClose={5000}
+                />
+
               </form>
             </div>
           </div>

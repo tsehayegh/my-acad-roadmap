@@ -15,6 +15,18 @@ import { connect } from 'react-redux';
 import './navbar.css';
 
 class Navbar extends React.Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			dropdownOpen: false
+		}
+	}
+
+	toggle(){
+		this.setState({
+			dropdownOpen: !this.state.dropdownOpen
+		})
+	}
 	logOut(e) {
 		e.preventDefault();
         this.props.dispatch(clearAuth());
@@ -41,14 +53,20 @@ class Navbar extends React.Component {
 	render() {
 		return(
 			
-			<div className="container">
-				<nav className="navbar navbar-expand-md navbar-dark bg-info">
+			
+				
+				<nav className="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+					<div className="container ">
 				  <Link className="navbar-brand text-white" data-toggle="collapse" to="/dashboard">My Acad Roadmap</Link>
+
 				  <button type="button" className="navbar-toggler navbar-toggler-righ collapsed"  
 				  		data-toggle="collapse" data-target="#navbarSupportedContent" 
 				  		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				    <span className="navbar-toggler-icon"></span>
 				  </button>
+
+
+
 				  <div className="collapse navbar-collapse text-white" id="navbarSupportedContent">
 				    <ul className="nav navbar-nav mr-auto">
 				      <li className="nav-item">
@@ -58,18 +76,19 @@ class Navbar extends React.Component {
 				        <Link className="nav-link text-white" to="/dashboard">Dashboard</Link>
 				      </li>
 				    </ul>
-				        <ul className="nav navbar-nav navbar-right">
-					      <li className="nav-item">
-					      	<Link className="nav-link text-white" to="/profile">Profile ({this.props.username})</Link>
-					      </li>
-					      <li className="nav-item">
-					      	<Link className="nav-link text-white" to ='/' onClick={e => this.logOut(e)}>Log out</Link>
-					      </li>
-					    </ul>
+
+			        <ul className="nav navbar-nav navbar-right">
+				      <li className="nav-item">
+				      	<Link className="nav-link text-white" to="/profile">Profile ({this.props.username})</Link>
+				      </li>
+				      <li className="nav-item">
+				      	<Link className="nav-link text-white" to ='/' onClick={e => this.logOut(e)}>Log out</Link>
+				      </li>
+				    </ul>
+
+				  </div>
 				  </div>
 				</nav>
-			</div>
-		
 		)
 	}
 }

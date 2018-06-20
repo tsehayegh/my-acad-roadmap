@@ -74,8 +74,9 @@ class EditAcadPlans extends React.Component {
 
 		return(
 		
-		<div className="container">
-		  <div className="row edit-form">
+		<div className="container edit-form">
+		<h2>Delete a course </h2>
+		  <div className="row">
 		    <div className="form-group col-md-4">
 		      <label htmlFor="inputSemester">Semester</label>
 		      <select id="inputSemester" 

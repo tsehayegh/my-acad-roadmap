@@ -2,9 +2,55 @@ body,
 html {
   	display: table;
   	width: 100%;
-  	height: 100%; /* For at least Firefox */
+  	height: 100%; 
   	min-height: 100%;
-
+  	background: linear-gradient(90deg,#ece5d7 3%,transparent 3%,transparent 96%,#ece5d7 97%,#ece5d7),
+  				linear-gradient(180deg,#ece5d7 3%,transparent 3%,transparent 96%,#ece5d7 97%,#ece5d7);
+  	background-color: #ece5d7;
+  	padding-top: 30px;
+  	margin-top: 30px;
+  	font-size: 18px;
 }
 
+.navbar {
+	background-color: #283e4a;
+	font-size: 1.3em;
+	padding: 5px; 
+}
 
+.navbar-nav .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+}
+
+/* change the color of active or hovered links */
+.navbar-nav .nav-item:active .nav-link,
+.navbar-nav .nav-item:hover .nav-link {
+    border-bottom: 2px solid black;
+    background-color: lightblue; 
+}
+
+.nav-link:global(.active) {
+  background-color: green;
+}
+
+html {
+  font-size: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
