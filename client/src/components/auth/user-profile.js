@@ -2,13 +2,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 
+import './user-profile.css';
 
 export class UserProfile extends React.Component {
 
     render() {
         console.log(this.props);
         return (
-            <div className="container">
+            <div className="container user-profile">
                 <div>
                     Username: {this.props.username}
                 </div>

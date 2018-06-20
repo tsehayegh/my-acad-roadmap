@@ -55,7 +55,7 @@ class SelectionsPage extends React.Component {
 	render() {
 		return (
 			<div className="container" id="selections-page">
-			<h3>Program: {this.props.currentUser.programcode} </h3>
+			<h3 className="program">Program: {this.props.currentUser.programcode} </h3>
 				<div className="row">
 					<div className="col-sm-5">
 						<SelectionList />
