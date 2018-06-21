@@ -30,8 +30,8 @@ const seedDocuments = {
 				"Introduction to Accounting Spreadsheets,ACC 149,2,1,10",
 				"Intermediate Accounting I,ACC 220,4,1,10"
 				],
-	"programcode": ["Accounting and Finance, A25800A"],
-	"plan": ["Fall 2018, Writing and Inquiry,ENG 111,3",
+	programcode: ["Accounting and Finance, A25800A"],
+	plan: ["Fall 2018, Writing and Inquiry,ENG 111,3",
 			"Fall 2018, Principles of Financial Accounting,ACC 120,4",
 			"Fall 2018, Principles of Managerial Accounting,ACC 121,4",
 			"Fall 2018,Individual Income Taxes,ACC 129,3"
@@ -44,8 +44,8 @@ function generateCourseCatalogData() {
 	programCode: generateRandomValues(seedDocuments.programCode),
 	programTitle: generateRandomValues(seedDocuments.programTitle),
 	totalReqCredit: generateRandomValues(seedDocuments.totalReqCredit),
-	selection: generateRandomValues(seedDocuments.course),
-	courses: generateRandomValues(seedDocuments.credithours),
+	selection: generateRandomValues(seedDocuments.selection),
+	courses: generateRandomValues(seedDocuments.courses),
   };
 }
 
@@ -143,9 +143,11 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 				.then(function(count) {
 					expect(res.body.coursecatalog).to.have.lengthOf(count);
 				});
+
 		});
 		
-})
+	})
+});
 
 
 
