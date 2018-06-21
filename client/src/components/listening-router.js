@@ -5,7 +5,7 @@
 import React from "react";
 import {pick} from "lodash/fp";
 import {connect} from "react-redux";
-import {withRouter, Route as RRoute, Switch as RSwitch} from "react-router-dom";
+import {withRouter, Route as Route, Switch as RSwitch} from "react-router-dom";
 
 const UPDATE_LOCATION = "UPDATE_LOCATION";
 const updateLocation = location => ({type: UPDATE_LOCATION, location});

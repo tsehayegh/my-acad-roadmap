@@ -82,7 +82,7 @@ class Navbar extends React.Component {
 				      	<Link className="nav-link text-white" to="/profile">Profile ({this.props.username})</Link>
 				      </li>
 				      <li className="nav-item">
-				      	<Link className="nav-link text-white" to ='/' onClick={e => this.logOut(e)}>Log out</Link>
+				      	<Link className="nav-link text-white" to ='/login' onClick={e => this.logOut(e)}>Log out</Link>
 				      </li>
 				    </ul>
 

@@ -16,12 +16,15 @@ import SelectionPage from './catalog/selectionPage';
 import CheckboxApp from './catalog/checkboxapp';
 
 import AcadPlansDashboard from './acadplan/acadPlansDashboard';
+
 import LoginForm from './auth/login-form';
 
 import RegistrationForm from './auth/registration-form';
 import RegistrationPage from './auth/registration-page';
 import App from './auth/app';
 import HeaderBar from './auth/header-bar';
+
+import Home from './home';
 
 import UserProfile from './auth/user-profile';
 
@@ -34,8 +37,11 @@ export class Main extends React.Component {
 		return(
 			<Router>
 				<div>
-					<Navbar />
-						<Route exact path='/' component={LoginForm}/>
+					<Navbar />	
+
+						<Route exact path='/' component={Home}/>
+
+						<Route exact path='/login' component={LoginForm}/>
 
 						<Route exact path='/dashboard' component={AcadPlansDashboard} />
 

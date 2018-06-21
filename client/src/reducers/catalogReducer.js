@@ -3,7 +3,7 @@ import * as actions from '../actions/catalogActions';
 import initialState from './initialState';
 
 
-const catalogReducer = (state=initialState, action ) => {
+const catalogReducer = (state=initialState, action) => {
 	if (action.type === actions.FETCH_CATALOG_SUCCESS){
 		return action.coursecatalog
 	}else if(action.type === actions.DISABLE_LINK){

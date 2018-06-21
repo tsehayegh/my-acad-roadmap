@@ -1,0 +1,16 @@
+
+#home {
+	padding: 20px;
+	font-size: 20px;
+	font-family: 'Lato', sans-serif;
+}
+
+#home h1{
+	margin: auto;
+	text-align: center;
+	font-weight: bold;
+	text-shadow: 1px 2px;
+	color: green;
+	display: block;
+	background-color: azure;
+}

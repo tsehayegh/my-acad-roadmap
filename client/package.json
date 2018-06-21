@@ -1,14 +1,14 @@
 {
   "name": "myacadroadmap",
   "version": "0.1.0",
-  "engine": {
-    "node": "8.9.4"
-  },
   "main": "index.js",
   "private": true,
+  "proxy":"http://localhost:8080",
   "dependencies": {
     "connected-react-router": "^4.3.0",
     "dotenv": "^6.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.3",
     "heroku": "^7.0.98",
     "immutable": "^3.8.2",

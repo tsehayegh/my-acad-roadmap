@@ -77,7 +77,7 @@ export class LoginForm extends React.Component {
                     <button className="btn btn-lg btn-primary" disabled={this.props.pristine || this.props.submitting}>
                         Log in
                     </button>
-
+                    <label> Not registered yet, Register Now </label>
                     <Link to="/register" className="btn btn-lg btn-primary btn-Link" disabled={this.props.pristine || this.props.submitting}>Register</Link>
                 </form>
                 </div>
