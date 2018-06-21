@@ -18,26 +18,27 @@ class Navbar extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			dropdownOpen: false
+			dropdownOpen: false,
+			selectedMenuBar: 0
 		}
 	}
 
-	toggle(){
-		this.setState({
-			dropdownOpen: !this.state.dropdownOpen
-		})
-	}
+
 	logOut(e) {
 		e.preventDefault();
         this.props.dispatch(clearAuth());
         clearAuthToken();
     }
 
+    setSelectedMenuBar(e){
+    	e.preventDefault();
+    	this.setState({
+    		selectedMenuBar: e
+    	})
+    }
 
 	componentDidMount() {
-		
 		const searchQuery= `?username=${this.props.currentUser.username}`;
-
 	}
 
 
@@ -50,45 +51,51 @@ class Navbar extends React.Component {
 		this.props.dispatch(fetchCatalog(`${programcode}`));
 	}
 
+
 	render() {
+		if (this.state.selectedMenuBar === 1) {
+          	this.props.history.push({
+          		pathname: '/dashboard'
+        	});
+        } else if (this.state.selectedMenuBar === 2) {
+        	this.props.history.push({
+          		pathname: '/profile'
+        	});
+        }
+
 		return(
-			
-			
-				
-				<nav className="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-					<div className="container ">
-				  <Link className="navbar-brand text-white" data-toggle="collapse" to="/dashboard">My Acad Roadmap</Link>
+			<nav className="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+				<div className="container ">
+			  <Link className="navbar-brand text-white" data-toggle="collapse" to="/dashboard">My Acad Roadmap</Link>
 
-				  <button type="button" className="navbar-toggler navbar-toggler-righ collapsed"  
-				  		data-toggle="collapse" data-target="#navbarSupportedContent" 
-				  		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				    <span className="navbar-toggler-icon"></span>
-				  </button>
+			  <button type="button" className="navbar-toggler navbar-toggler-righ collapsed"  
+			  		data-toggle="collapse" data-target="#navbarSupportedContent" 
+			  		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span className="navbar-toggler-icon"></span>
+			  </button>
 
+			  <div className="collapse navbar-collapse text-white" id="navbarSupportedContent">
+			    <ul className="nav navbar-nav mr-auto">
+			      <li className="nav-item">
+			        <Link className="nav-link text-white" to="/plan" onClick={e => this.handleOnClick(e.target)}>Plan my program</Link>
+			      </li>
+			      <li className="nav-item">
+			        <Link className="nav-link text-white" to="/dashboard">Dashboard</Link>
+			      </li>
+			    </ul>
 
+		        <ul className="nav navbar-nav navbar-right">
+			      <li className="nav-item">
+			      	<Link className="nav-link text-white" to="/profile">Profile ({this.props.username})</Link>
+			      </li>
+			      <li className="nav-item">
+			      	<Link className="nav-link text-white" to ='/login' onClick={e => this.logOut(e)}>Log out</Link>
+			      </li>
+			    </ul>
 
-				  <div className="collapse navbar-collapse text-white" id="navbarSupportedContent">
-				    <ul className="nav navbar-nav mr-auto">
-				      <li className="nav-item">
-				        <Link className="nav-link text-white" to="/plan" onClick={e => this.handleOnClick(e.target)}>Plan my program</Link>
-				      </li>
-				      <li className="nav-item">
-				        <Link className="nav-link text-white" to="/dashboard">Dashboard</Link>
-				      </li>
-				    </ul>
-
-			        <ul className="nav navbar-nav navbar-right">
-				      <li className="nav-item">
-				      	<Link className="nav-link text-white" to="/profile">Profile ({this.props.username})</Link>
-				      </li>
-				      <li className="nav-item">
-				      	<Link className="nav-link text-white" to ='/login' onClick={e => this.logOut(e)}>Log out</Link>
-				      </li>
-				    </ul>
-
-				  </div>
-				  </div>
-				</nav>
+			  </div>
+			  </div>
+			</nav>
 		)
 	}
 }

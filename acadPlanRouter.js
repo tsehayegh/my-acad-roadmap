@@ -35,29 +35,6 @@ acadPlanRouter.get('/api/dashboard', (req, res) => {
 		})
 });
 
-acadPlanRouter.get('/api/testing', (req, res) => {
-	const searchFields = ['username']
-	const queryFields = {};
-	for(let i = 0; i < searchFields.length; i++) {
-		const searchField = searchFields[i];
-		if(req.query[searchField]) {
-			queryFields[searchField] = req.query[searchField]; 
-			
-		}
-	};
-	Acadplan
-		.find(queryFields)
-		.then(acadplans => {
-			res.send({acadplans: acadplans.map(acadplan => acadplan.serialize()) 
-			});
-		})
-		.catch(err => {
-			console.log(err);
-			res.status(500).json({message: 'Internal server error'});
-		})
-});
-
-
 acadPlanRouter.get('/api/dashboard/:id', (req, res) => {
 	if(req.params.id.match(/^[0-9a-fA-F]{24}$/)){
 	Acadplan

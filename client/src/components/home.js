@@ -1,12 +1,19 @@
 
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
+import { connect  } from 'react-redux';
 
 import './home.css';
 
 
 class Home extends React.Component {
+
 	render() {
+
+		if (this.props.loggedIn) {
+            return <Redirect to="/dashboard" />;
+        }
+
 		const information = 
 				<label>
 					Welcome to My Acad Raodmap!
@@ -21,6 +28,7 @@ class Home extends React.Component {
 						<li>See your program plan for all semesters</li>
 						<li>Delete a course from any semester</li>
 					</ol>
+					Ready to use the app? Click the <em>Start</em> button bellow!
 				</label>
 
 		return(
@@ -36,4 +44,9 @@ class Home extends React.Component {
 	}
 }
 
-export default Home;
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(Home);
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import './alerts.css';
-import { Button } from 'mdbreact';
+
 
 class AlertPage extends React.Component {
   notify(type){
@@ -18,7 +18,9 @@ class AlertPage extends React.Component {
           });
           break;
         case 'warning':
-          toast.warn('Warning message');
+          toast.warn('Warning message', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+          });
           break;
         case 'error':
           toast.error('Error message');
@@ -27,23 +29,10 @@ class AlertPage extends React.Component {
     };
   };
   render(){
+    console.log(this.props.alert);
     return (
       <div>
-        <button className='btn btn-info'
-          onClick={this.notify('info')}>Info
-        </button>
-        <hr/>
-        <button className='btn btn-success'
-          onClick={this.notify('success')}>Success
-        </button>
-        <hr/>
-        <button className='btn btn-warning'
-          onClick={this.notify('warning')}>Warning
-        </button>
-        <hr/>
-        <button className='btn btn-danger'
-          onClick={this.notify('error')}>Error
-        </button>
+        {this.notify(this.props.alert)}
         <ToastContainer
           hideProgressBar={true}
           newestOnTop={true}

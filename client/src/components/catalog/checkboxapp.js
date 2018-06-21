@@ -32,6 +32,8 @@ import './checkboxapp.css'
 
 import AcadPlansDashboard from '../acadplan/acadPlansDashboard';
 
+import AlertPage from '../alerts';
+
 class CheckboxApp extends React.Component {
   constructor(props){
     super(props);
@@ -272,7 +274,6 @@ class CheckboxApp extends React.Component {
     })
     this.handleButton();
   }
-
 
   render() {
     return (

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import { ToastContainer, toast } from 'react-toastify';
 
+
 import {connect} from 'react-redux';
 
 import {fetchAcadPlans} from '../../actions/catalogActions'
@@ -19,6 +20,8 @@ import EditAcadPlans from './editAcadPlans';
 import {API_BASE_URL} from '../../config';
 
 import './acadPlansDashboard.css';
+
+import AlertPage from '../alerts';
 
 class AcadPlanDashboard extends React.Component {
 	constructor(props){
@@ -83,16 +86,6 @@ class AcadPlanDashboard extends React.Component {
 	 	};
 	 };
 
-	 showAlert(type){
-	 	console.log(type);
-	 	this.notify(type);
-	      <ToastContainer
-	        hideProgressBar={true}
-	        newestOnTop={true}
-	        autoClose={5000}
-	      />
-	 }
-
 	handleSubmit = () => {
 		let tempPlan = this.state.newPlan;
         const newPlanArray = [].concat.apply([], tempPlan);
@@ -132,7 +125,12 @@ class AcadPlanDashboard extends React.Component {
 	    }
 	}
 
+
+
+
+
 	render(){
+
 		const programcode= this.props.acadplans.map(plan => plan.programcode);
 
 		const semesters = Array.from(new Set(this.props.acadplans.map(plans => 
@@ -147,6 +145,25 @@ class AcadPlanDashboard extends React.Component {
 		})
 
 		let semesterTotalCredits = 0;
+
+		let edit = '';
+		if(semesters.length > 0) {
+				edit =	
+				<div>
+					<EditAcadPlans acadplans={this.props.acadplans} 
+										currentUser={this.props.currentUser}
+										setNewPlan={this.setNewPlan} 
+										handleButton={this.handleButton}/>
+					<button className={`btn btn-lg btn-success`} 
+							type="submit"
+							onClick={e => this.handleSubmit(e.target)}
+							disabled={this.state.buttonStatus}
+							>
+
+							Delete
+					</button>
+				</div>
+		}
 
 		return (
 			<div className="container" id="dashboard">
@@ -171,21 +188,8 @@ class AcadPlanDashboard extends React.Component {
 							</div>
 						
 						)}
-					
-				
-				<EditAcadPlans acadplans={this.props.acadplans} 
-								currentUser={this.props.currentUser}
-								setNewPlan={this.setNewPlan} 
-								handleButton={this.handleButton}/>
+						{edit}
 
-				<button className={`btn btn-lg btn-success`} 
-						type="submit"
-						onClick={e => this.handleSubmit(e.target)}
-						disabled={this.state.buttonStatus}
-						>
-
-						Delete
-				</button>
 				</div>
 			</div>
 		)

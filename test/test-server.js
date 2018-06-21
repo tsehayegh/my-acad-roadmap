@@ -31,6 +31,7 @@ const seedDocuments = {
 				"Intermediate Accounting I,ACC 220,4,1,10"
 				],
 	programcode: ["Accounting and Finance, A25800A"],
+	username:['test', 'segen'],
 	plan: ["Fall 2018, Writing and Inquiry,ENG 111,3",
 			"Fall 2018, Principles of Financial Accounting,ACC 120,4",
 			"Fall 2018, Principles of Managerial Accounting,ACC 121,4",
@@ -51,7 +52,7 @@ function generateCourseCatalogData() {
 
 function generateAcadPlansData() {
   return {
-  	username: faker.name.firstName(),
+  	username: generateRandomValues(seedDocuments.username),
   	firstname: faker.name.firstName(),
   	lastname: faker.name.lastName(),
 	programcode: generateRandomValues(seedDocuments.programcode),
@@ -145,8 +146,58 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 				});
 
 		});
-		
-	})
+
+		it('should return course catalog with right fields', function(){
+			let resCoursecatalog;
+			return chai.request(app)
+				.get('/api/catalog')
+				.then(function(res) {
+					expect(res).to.have.status(200);
+					expect(res.body.coursecatalog).to.be.a('array');
+					expect(res.body.coursecatalog).to.have.lengthOf.at.least(1);
+					res.body.coursecatalog.forEach(function(coursecatalog) {
+						expect(coursecatalog).to.be.a('object');
+						expect(coursecatalog).to.include.keys(
+							'id', 'programCode', 'programTitle', 'totalReqCredit', 'selection', 'courses'
+							);
+					});
+					resCoursecatalog = res.body.coursecatalog[0];
+					return Coursecatalog.findById(resCoursecatalog.id);
+				})
+				.then(function(coursecatalog) {
+					expect(resCoursecatalog.id).to.equal(coursecatalog.id);
+
+				})
+			});
+		});
+
+
+
+
+	describe('GET endpoint - academic plans', function(){
+		this.timeout(30000);
+		it('should return all academic plans', function(){
+			let res;
+			return chai.request(app)
+				.get(`/api/dashboard/?username=segen`)
+				.then(function(_res) {
+					res = _res;
+					expect(res).to.have.status(200);
+					return Acadplan.count();
+				})
+				.then(function(count) {
+					expect(res.body.acadplans).to.have.lengthOf.at.least(1);
+				});
+
+		});
+
+
+		});
+
+
+
+
+
 });
 
 
