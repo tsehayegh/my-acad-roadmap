@@ -29,7 +29,7 @@ export class LoginForm extends React.Component {
         let error;
         if (this.props.error) {
             error = (
-                <div className="container form-error" aria-live="polite">
+                <div className="form-error" aria-live="polite">
                     {this.props.error}
                 </div>
             );
@@ -74,11 +74,15 @@ export class LoginForm extends React.Component {
                         id="password"
                         validate={[required, nonEmpty]}
                     />
-                    <button className="btn btn-lg btn-primary" disabled={this.props.pristine || this.props.submitting}>
-                        Log in
-                    </button>
+                    <div className="col-lg text-center">
+                        <button className="btn btn-lg btn-primary" disabled={this.props.pristine || this.props.submitting}>
+                            Log in
+                        </button>
+                    </div>
                     <label> Not registered yet, Register Now </label>
-                    <Link to="/register" className="btn btn-lg btn-primary btn-Link" disabled={this.props.pristine || this.props.submitting}>Register</Link>
+                    <div className="col-lg text-center">
+                        <Link to="/register" className="btn btn-lg btn-primary btn-Link" disabled={this.props.pristine || this.props.submitting}>Register</Link>
+                    </div>
                 </form>
                 </div>
                </div>

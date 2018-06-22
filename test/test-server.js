@@ -132,7 +132,7 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 
 	describe('GET endpoint - course catalog', function(){
 		this.timeout(15000);
-		it('should return all course catalog', function(){
+		it('should return all course catalogs', function(){
 			let res;
 			return chai.request(app)
 				.get('/api/catalog')
@@ -147,7 +147,7 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 
 		});
 
-		it('should return course catalog with right fields', function(){
+		it('should return course catalogs with right fields', function(){
 			let resCoursecatalog;
 			return chai.request(app)
 				.get('/api/catalog')
@@ -168,11 +168,8 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 					expect(resCoursecatalog.id).to.equal(coursecatalog.id);
 
 				})
-			});
 		});
-
-
-
+	});
 
 	describe('GET endpoint - academic plans', function(){
 		this.timeout(30000);
@@ -191,10 +188,82 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 
 		});
 
+		it('should return course catalog with right fields', function(){
+			let resAcadplans;
+			return chai.request(app)
+				.get('/api/dashboard/?username=segen')
+				.then(function(res) {
+					expect(res).to.have.status(200);
+					expect(res.body.acadplans).to.be.a('array');
+					expect(res.body.acadplans).to.have.lengthOf.at.least(1);
+					res.body.acadplans.forEach(function(acadplan) {
+						expect(acadplan).to.be.a('object');
+						expect(acadplan).to.include.keys(
+							'id', 'username', 'firstname', 'lastname', 'programcode', 'plan'
+							);
+					});
+					resAcadplans = res.body.acadplans[0];
+					return Acadplan.findById(resAcadplans.id);
+				})
+				.then(function(acadplan) {
+					expect(resAcadplans.id).to.equal(acadplan.id);
 
+				})
 		});
 
+	});
 
+
+	describe('POST endpoint - academic plans', function(){
+		it('should add a new plan', function(){
+			const newAcadplan =  generateAcadPlansData();
+			return chai.request(app)
+				.post('/api/acadplan')
+				.send(newAcadplan)
+				.then(function(res){
+					expect(res).to.have.status(200);
+					expect(res).to.be.json;
+					expect(res.body).to.be.a('object');
+					expect(res.body).to.have.include.keys(
+						'id', 'username', 'firstname', 'lastname', 'programcode',
+						'plan');
+					expect(res.body.id).to.not.be.null;
+					expect(res.body.username).to.equal(newAcadplan.username);
+					expect(res.body.firstname).to.equal(newAcadplan.firstname);
+					expect(res.body.lastname).to.equal(newAcadplan.lastname);
+					expect(res.body.programcode).to.equal(newAcadplan.programcode);
+					console.log(res.body.plan, newAcadplan.plan);
+					expect(res.body.plan).to.contains(newAcadplan.plan);
+				});
+		});
+	});
+
+
+	describe('PUT endpoint - academic plan', function(){
+		it('should update fields you send over', function(){
+
+			const updateData = generateAcadPlansData();
+			const updateAcadPlan = [updateData.plan];
+
+			return Acadplan
+				.findOne()
+				.then(function(acadplans){
+					console.log(acadplans.id);
+					updateData.id = acadplans.id;
+					return chai.request(app)
+						.put(`/api/acadplan/${acadplans.id}`)
+						.send(updateData) 
+				})
+				.then(function(res){
+					expect(res).to.have.status(204);
+					return Acadplan.findById(updateData.id);
+				})
+				.then(function(acadplans){
+					console.log(updateAcadPlan, acadplans.plan);
+					expect(JSON.stringify(updateAcadPlan)).to.equal(JSON.stringify(acadplans.plan));
+				})	
+		});
+	});
 
 
 

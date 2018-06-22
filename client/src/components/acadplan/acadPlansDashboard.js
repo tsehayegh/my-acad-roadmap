@@ -118,15 +118,11 @@ class AcadPlanDashboard extends React.Component {
 	                        pathname: '/dashboard',
 	                        state: {detail: plans}
 	                        });
-	        	//window.location.reload();
 
 	        	})
-	        .then(() => this.showAlert('success'))
+	        .then(() => console.log('successful'))
 	    }
 	}
-
-
-
 
 
 	render(){
@@ -149,20 +145,22 @@ class AcadPlanDashboard extends React.Component {
 		let edit = '';
 		if(semesters.length > 0) {
 				edit =	
-				<div>
-					<EditAcadPlans acadplans={this.props.acadplans} 
-										currentUser={this.props.currentUser}
-										setNewPlan={this.setNewPlan} 
-										handleButton={this.handleButton}/>
-					<button className={`btn btn-lg btn-success`} 
-							type="submit"
-							onClick={e => this.handleSubmit(e.target)}
-							disabled={this.state.buttonStatus}
-							>
+					<div className="col-lg text-center">
+						<EditAcadPlans acadplans={this.props.acadplans} 
+											currentUser={this.props.currentUser}
+											setNewPlan={this.setNewPlan} 
+											handleButton={this.handleButton}/>
+						
+						<button className={`btn btn-lg btn-success`} 
+								type="submit"
+								onClick={e => this.handleSubmit(e.target)}
+								disabled={this.state.buttonStatus}
+								>
 
-							Delete
-					</button>
-				</div>
+								Delete
+						</button>
+						
+					</div>
 		}
 
 		return (
@@ -171,7 +169,7 @@ class AcadPlanDashboard extends React.Component {
 				<div className="row">
 						{semesters.map(semester =>
 							<div className="col-sm-6" key={semester}>
-								<ul className="list-group" key={semester}>
+								<ul className="list-group" key={semester} id="semester-plan">
 									<h3>{semester}</h3> 
 									{this.props.acadplans.map(plans => 
 											plans.plan.map(courses => 
@@ -188,9 +186,10 @@ class AcadPlanDashboard extends React.Component {
 							</div>
 						
 						)}
-						{edit}
+						
 
 				</div>
+				{edit}
 			</div>
 		)
 	}

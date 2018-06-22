@@ -11,7 +11,7 @@ export const fetchCatalogSuccess = (coursecatalog) => ({
 })
 
 export const fetchCatalog = (programcode) => dispatch => {
-	fetch(`${API_BASE_URL}/catalog/${programcode}`, {method: 'GET'})
+	return fetch(`${API_BASE_URL}/catalog/${programcode}`)
 		.then(res => {
 			if(!res.ok){
 				return Promise.reject(res.statusText);
@@ -23,18 +23,15 @@ export const fetchCatalog = (programcode) => dispatch => {
 		})
 }
 
-
-
 export const FETCH_ACAD_PLANS_SUCCESS = 'FETCH_ACAD_PLANS_SUCCESS';
 export const fetchAcadPlansSuccess = (acadplans) => ({
 	type: FETCH_ACAD_PLANS_SUCCESS,
 	acadplans	
 })
 
-
 export const FETCH_ACAD_PLANS = 'FETCH_ACAD_PLANS';
 export const fetchAcadPlans = (searchQuery) => dispatch => {
-	fetch(`${API_BASE_URL}/dashboard/${searchQuery}`, {method: 'GET'})
+	return fetch(`${API_BASE_URL}/dashboard/${searchQuery}`)
 		.then(res => {
 			if(!res.ok){
 				return Promise.reject(res.statusText);
@@ -125,9 +122,9 @@ export const setSemesterSelection = semesterSelection => ({
 });
 
 export const SET_YEAR = 'SET_YEAR';
-export const setYear = setYear => ({
+export const setYear = year => ({
     type: SET_YEAR,
-    setYear
+    year
 });
 
 

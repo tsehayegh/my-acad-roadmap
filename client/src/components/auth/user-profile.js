@@ -11,10 +11,17 @@ export class UserProfile extends React.Component {
         return (
             <div className="container user-profile">
                 <div>
-                    Username: {this.props.username}
+                    <img className="sample-img" src = './backgroundimage.jpg' />
                 </div>
-                <div>Name: {this.props.name}</div>
-                <div>Academic Program: {this.props.programcode} </div>
+                <div>
+                    <strong>Username:</strong> {this.props.username}
+                </div>
+                <div>
+                    <strong>Name:</strong> {this.props.name}
+                </div>
+                <div>
+                    <strong>Academic Program:</strong> {this.props.programcode} 
+                </div>
             </div>
         )
     }

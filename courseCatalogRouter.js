@@ -15,7 +15,7 @@ courseCatalogRouter.use(bodyParser.json());
 
 
 courseCatalogRouter.get('/api/catalog', (req, res) => {
-	const searchFields = ['programCode', 'programTitle']
+	const searchFields = ['programCode']
 	const queryFields = {};
 	for(let i = 0; i < searchFields.length; i++) {
 		const searchField = searchFields[i];

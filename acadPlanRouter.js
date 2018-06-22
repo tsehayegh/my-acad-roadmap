@@ -52,15 +52,10 @@ acadPlanRouter.get('/api/dashboard/:id', (req, res) => {
 acadPlanRouter.post('/api/acadplan', (req, res) => {
 
 	const requiredFields = ['username', 'firstname', 'lastname', 'programcode', 'plan'];
-
 	for(let i = 0; i < requiredFields.length; i++){
-
 		const field = requiredFields[i];
-
 		if(!(field in req.body)){
-
-			const message = `Missing \`${field}\` in request body`;
-			
+			const message = `Missing \`${field}\` in request body`;			
 			return res.status(400).send(message);
 		}
 	}
@@ -72,6 +67,7 @@ acadPlanRouter.post('/api/acadplan', (req, res) => {
 			programcode: req.body.programcode,
 			plan: req.body.plan
 	}
+	console.log(newData);
 
 	Acadplan
 		.create({
