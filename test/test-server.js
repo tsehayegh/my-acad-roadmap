@@ -232,7 +232,6 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 					expect(res.body.firstname).to.equal(newAcadplan.firstname);
 					expect(res.body.lastname).to.equal(newAcadplan.lastname);
 					expect(res.body.programcode).to.equal(newAcadplan.programcode);
-					console.log(res.body.plan, newAcadplan.plan);
 					expect(res.body.plan).to.contains(newAcadplan.plan);
 				});
 		});
