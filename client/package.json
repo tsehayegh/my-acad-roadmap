@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "main": "index.js",
   "private": true,
-  "proxy": "http://localhost:8080",
   "dependencies": {
     "connected-react-router": "^4.3.0",
     "dotenv": "^6.0.0",
