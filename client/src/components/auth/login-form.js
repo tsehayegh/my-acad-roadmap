@@ -1,13 +1,9 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
-import { withRouter, Link, Redirect, BrowserRouter as Router, NavLink } from 'react-router-dom';
+import { Link, Redirect} from 'react-router-dom';
 
 import { connect  } from 'react-redux';
 
-import {clearAuthToken} from './local-storage';
-import {clearAuth} from '../../actions/auth';
-
-import Navbar from '../navbar';
 import Input from './input';
 import {login} from '../../actions/auth';
 import {required, nonEmpty} from './validators';
@@ -52,8 +48,6 @@ export class LoginForm extends React.Component {
                 <div className="col-12">
                     <h1 className="app-name">My Acad Roadmap </h1>
                     <Home />
-                    
-
                 <div className="col-12">
                 <form
                     className="form-signin"

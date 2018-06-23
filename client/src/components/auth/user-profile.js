@@ -7,20 +7,25 @@ import './user-profile.css';
 export class UserProfile extends React.Component {
 
     render() {
-        console.log(this.props);
         return (
             <div className="container user-profile">
-                <div>
-                    <img className="sample-img" src = './tse.jpg' />
+                <h4><strong>User Profile </strong></h4>
+                <div className="row">
+
+                <div className="col">
+                    <div>
+                        <strong>Username:</strong> {this.props.username}
+                    </div>
+                    <div>
+                        <strong>Name:</strong> {this.props.name}
+                    </div>
+                    <div>
+                        <strong>Academic Program:</strong> {this.props.programcode} 
+                    </div>
                 </div>
-                <div>
-                    <strong>Username:</strong> {this.props.username}
+                <div className="col text-center">
+                    <img className="sample-img" src='./backgroundimage.jpg' alt={this.props.name} />
                 </div>
-                <div>
-                    <strong>Name:</strong> {this.props.name}
-                </div>
-                <div>
-                    <strong>Academic Program:</strong> {this.props.programcode} 
                 </div>
             </div>
         )
@@ -28,7 +33,6 @@ export class UserProfile extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state);
     const {currentUser} = state.auth;
     return {
         username: currentUser.username,

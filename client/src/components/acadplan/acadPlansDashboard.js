@@ -1,10 +1,8 @@
 
 
 import React from 'react';
-import {withRouter} from 'react-router-dom';
-import PropTypes from 'prop-types';
 
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 
 
 import {connect} from 'react-redux';
@@ -38,11 +36,10 @@ class AcadPlanDashboard extends React.Component {
 	componentDidMount() {
 		const searchQuery= `?username=${this.props.currentUser.username}`;
 		this.props.dispatch(fetchAcadPlans(searchQuery));
-
+		console.log(this.props.acadplans);
 		this.setState({
-			existingPlan: this.props.acadplans.map(plans => plans.plan)
+			existingPlan: this.props.acadplans
 		})
-		console.log(this.state.existingPlan);
 	}
 
 
@@ -53,7 +50,6 @@ class AcadPlanDashboard extends React.Component {
 	}
 
 	  handleButton = (nPlan) => {
-	  	console.log(nPlan);
 	    if(nPlan.length > 0) {
 	        this.setState({
 	          buttonStatus: false
@@ -97,9 +93,10 @@ class AcadPlanDashboard extends React.Component {
         }
         const searchQuery = `?username=${plans.username}`;
         const userId = this.props.acadplans.map(plans => plans.id)[0];
-        const sPlan = this.props.acadplans.map(plans => plans.plan)
-        plans.id = userId;
         
+
+        plans.id = userId;
+
         if(plans.plan.length !== this.state.existingPlan.length){
 	        return fetch(`${API_BASE_URL}/acadplan/${userId}`, {
 	          method: 'PUT',
@@ -112,11 +109,15 @@ class AcadPlanDashboard extends React.Component {
 	          this.props.dispatch(fetchAcadPlans(searchQuery));
 	        })
 	        .then(() => {
+	        	this.setState({
+	        		buttonStatus: true
+	        	});
 
 	        	this.props.history.push({
 	                        pathname: '/dashboard',
 	                        state: {detail: plans}
 	                        });
+	        	//window.location.reload()
 
 	        	})
 	        .then(() => console.log('successful'))
@@ -125,8 +126,8 @@ class AcadPlanDashboard extends React.Component {
 
 
 	render(){
-
-		const programcode= this.props.acadplans.map(plan => plan.programcode);
+		console.log(this.state.existingPlan);
+		console.log(this.props.acadplans);
 
 		const semesters = Array.from(new Set(this.props.acadplans.map(plans => 
 						plans.plan.map(semester => 
@@ -138,8 +139,6 @@ class AcadPlanDashboard extends React.Component {
 			const yp = y.substr(-4);
 			return xp === yp ? 0 : xp < yp ? -1 : 1;
 		})
-
-		let semesterTotalCredits = 0;
 
 		let edit = '';
 		if(semesters.length > 0) {
@@ -155,7 +154,6 @@ class AcadPlanDashboard extends React.Component {
 								onClick={e => this.handleSubmit(e.target)}
 								disabled={this.state.buttonStatus}
 								>
-
 								Delete
 						</button>
 						
@@ -164,7 +162,8 @@ class AcadPlanDashboard extends React.Component {
 
 		return (
 			<div className="container" id="dashboard">
-				<h3>Program: {this.props.currentUser.programcode} </h3>
+				<h3><strong>Program </strong>: {this.props.currentUser.programcode} </h3>
+				<h4><strong>Dashboard </strong></h4>
 				<div className="row">
 						{semesters.map(semester =>
 							<div className="col-sm-6" key={semester}>
@@ -185,8 +184,6 @@ class AcadPlanDashboard extends React.Component {
 							</div>
 						
 						)}
-						
-
 				</div>
 				{edit}
 			</div>

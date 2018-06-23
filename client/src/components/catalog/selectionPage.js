@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Link, Prompt, withRouter} from 'react-router-dom';
 
 
 import {connect} from 'react-redux';
 
-import {fetchCatalog, fetchAcadPlans} from '../../actions/catalogActions'
+import {fetchCatalog} from '../../actions/catalogActions'
 
-
-import * as actions from '../../actions/catalogActions';
 
 import SelectionsPage from './selectionsPage';
 

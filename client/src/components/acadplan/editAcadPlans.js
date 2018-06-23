@@ -1,16 +1,6 @@
 
 
 import React from 'react';
-import {withRouter} from 'react-router-dom';
-import PropTypes from 'prop-types';
-
-import {connect} from 'react-redux';
-
-import {fetchAcadPlans} from '../../actions/catalogActions'
-
-//import AcadPlansList from './acadPlansList';
-
-import requiresLogin from '../auth/requires-login';
 
 import './editAcadPlans.css'
 class EditAcadPlans extends React.Component {
@@ -38,39 +28,30 @@ class EditAcadPlans extends React.Component {
 		this.flattenArray(event);
 	}
 
-	handleButtonStatus = () => {
-		this.setState({
-		    buttonStatus: true
-		 }); 
-		  if(this.state.semester.trim() !== '' && this.state.courseToDelete.trim() !== '') {
-		    this.setState({
-		      buttonStatus: false
-		    });
-		  }
-		
-	  }
-
-	  flattenArray = (courseToDelete) => {
-	      let tempPlan = this.props.acadplans.map(plans => plans.plan);
-	      let newPlanArray = [].concat.apply([], tempPlan);
-	      const i = newPlanArray.indexOf(courseToDelete);
-	      if(i !== -1){
-	        const deletePlan = newPlanArray.splice(i, 1);
-	        console.log(deletePlan);
-	        this.props.setNewPlan(newPlanArray);
-	        this.props.handleButton(newPlanArray);
-
-	        this.setState({
-	          plan: newPlanArray
-	        })
-	      };
-	  }
+	flattenArray = (courseToDelete) => {
+      let tempPlan = this.props.acadplans.map(plans => plans.plan);
+      let newPlanArray = [].concat.apply([], tempPlan);
+      const i = newPlanArray.indexOf(courseToDelete);
+      if(i !== -1){
+        const deletePlan = newPlanArray.splice(i, 1);
+        this.props.setNewPlan(newPlanArray);
+        this.props.handleButton(newPlanArray);
+        this.setState({
+          plan: newPlanArray
+        })
+      };
+	}
 
 	render(){
 		const semesters = Array.from(new Set(this.props.acadplans.map(plans => 
 						plans.plan.map(semester => 
 						semester.split(',')[0]
 					))[0]));				
+
+		let enableButton = true;
+		if(this.state.semester !== null && this.state.courseToDelete !== null){
+			enableButton = (this.state.semester.includes('Choose') && this.state.courseToDelete.includes('Choose'));
+		} 
 
 		return(
 		
@@ -112,7 +93,8 @@ class EditAcadPlans extends React.Component {
 							))					
 						}
 			      </select>
-			    </div>		    
+			    </div>
+		    
 			  </div>
 		  </div>
 		);

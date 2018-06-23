@@ -1,19 +1,16 @@
 
 
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {fetchCatalog, fetchAcadPlans} from '../../actions/catalogActions'
+import {fetchCatalog} from '../../actions/catalogActions'
 
 import requiresLogin from '../auth/requires-login';
 
 
 import SelectionList from './selectionList';
-import SelectionPage from './selectionPage';
-
-import CheckboxApp from './checkboxapp'
 
 import './selectionsPage.css';
 
@@ -55,7 +52,8 @@ class SelectionsPage extends React.Component {
 	render() {
 		return (
 			<div className="container" id="selections-page">
-			<h3 className="program">Program: {this.props.currentUser.programcode} </h3>
+			<h3 className="program"><strong>Program</strong>: {this.props.currentUser.programcode} </h3>
+			<h4 className="text-center"><strong>Plan my Program </strong></h4>
 				<div className="row">
 					<div className="col-sm-5">
 						<SelectionList />

@@ -12,6 +12,7 @@ body {
   background-color: rgb(176, 224, 230);
   border: 1px solid black;
   margin-bottom: 50px;
+  margin-top: 20px;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {

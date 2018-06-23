@@ -1,15 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Redirect, withRouter} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 export default () => Component => {
     function RequiresLogin(props) {
         const {authenticating, loggedIn, error, ...passThroughProps} = props;
-        console.log(props);
         if (authenticating) {
             return <div className="container">Logging in...</div>;
         } else if (!loggedIn || error) {
-            return <Redirect to="/login" />
+            return <Redirect to="/" />
             
         }
         return <Component {...passThroughProps} />;
@@ -24,6 +23,6 @@ export default () => Component => {
         error: state.auth.error,
         anyTouch: state.auth.anyTouch
     });
-
+ 
     return connect(mapStateToProps)(RequiresLogin);
 };

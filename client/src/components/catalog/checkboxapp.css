@@ -1,4 +1,9 @@
 
 .btn {
-	margin: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.selection {
+	margin-top: 15px;
 }

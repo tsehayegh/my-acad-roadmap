@@ -3,20 +3,11 @@ import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 import thunk from 'redux-thunk';
 
-import { createBrowserHistory } from 'history';
-import { connectRouter, routerMiddleware } from 'connected-react-router'
-
-
-import {loadAuthToken} from '../local-storage';
-
 import authReducer from '../reducers/auth';
 import protectedDataReducer from '../reducers/protected-data';
 
-import {setAuthToken, refreshAuthToken} from '../actions/auth';
-import initialState from '../reducers/initialState';
 
 import catalogReducer from '../reducers/catalogReducer';
-const history = createBrowserHistory()
 
 const reducers = combineReducers({
 	catalogReducer,

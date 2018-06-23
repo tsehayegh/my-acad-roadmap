@@ -1,12 +1,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withRouter} from 'react-router'
 
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {fetchCatalog, fetchAcadPlans} from '../../actions/catalogActions'
+import {fetchCatalog} from '../../actions/catalogActions'
 
 import requiresLogin from '../auth/requires-login';
 
@@ -39,18 +38,20 @@ class SelectionList extends React.Component {
 
 	render() {
 		return (
+			<div className="container">
 			<div className="selection-list">
-			<ul className="list-group form-control-lg" id="selection-list">
-			<label>Select a Group to Plan </label>
-				{this.props.groups.map((group,index) => 
-					<li className="list-group-item" onClick={() => this.setKey(index)} key={index}>
-						Group {group}:  
-						<Link to={'/plan/' + group} className={this.state.linkstatus} id={index === this.state.key ? 'active' : '' }> 
-							{ } Take <span className="badge badge-info badge-pill"> {this.props.coursecatalog[0].selection[index]}</span> courses from...
-						</Link>
-					</li>
-				)}
-			</ul>
+				<ul className="list-group form-control-lg" id="selection-list">
+					<label>Select a Group of Courses</label>
+					{this.props.groups.map((group,index) => 
+						<li className="list-group-item" onClick={() => this.setKey(index)} key={index}>
+							Group {group}:  
+							<Link to={'/plan/' + group} className={this.state.linkstatus} id={index === this.state.key ? 'active' : '' }> 
+								{ } Take <span className="badge badge-info badge-pill"> {this.props.coursecatalog[0].selection[index]}</span> courses from...
+							</Link>
+						</li>
+					)}
+				</ul>
+			</div>
 			</div>
 		)
 	}

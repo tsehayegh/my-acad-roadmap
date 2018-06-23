@@ -1,14 +1,13 @@
 import React from 'react';
-import {BrowserRouter as Router, withRouter} from 'react-router-dom';
+
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import requiresLogin from './auth/requires-login';
 
-import {fetchAcadPlans} from '../actions/catalogActions';
 
 import {fetchCatalog} from '../actions/catalogActions';
 
-import { Link, Redirect, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
@@ -37,11 +36,6 @@ class Navbar extends React.Component {
     	})
     }
 
-	componentDidMount() {
-		const searchQuery= `?username=${this.props.currentUser.username}`;
-	}
-
-
 	handleOnClick(e) {
 		e.preventDefault();
 		let programcode = this.props.currentUser.programcode.split(',');
@@ -50,7 +44,6 @@ class Navbar extends React.Component {
 		} 
 		this.props.dispatch(fetchCatalog(`${programcode}`));
 	}
-
 
 	render() {
 		return(
@@ -69,14 +62,19 @@ class Navbar extends React.Component {
 			      <li className="nav-item">
 			        <Link className="nav-link text-white" to="/plan" onClick={e => this.handleOnClick(e.target)}>Plan my program</Link>
 			      </li>
-			      <li className="nav-item">
+			      <li className="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent">
 			        <Link className="nav-link text-white" to="/dashboard">Dashboard</Link>
 			      </li>
 			    </ul>
 
 		        <ul className="nav navbar-nav navbar-right">
-			      <li className="nav-item">
-			      	<Link className="nav-link text-white" to="/profile">Profile ({this.props.username})</Link>
+			      <li className="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent" >
+			      	
+			      	<Link className="nav-link text-white" id="profile"
+			      			to="/profile">
+			      			Profile ({this.props.username})
+			      	</Link>
+
 			      </li>
 			      <li className="nav-item">
 			      	<Link className="nav-link text-white" to ='/login' onClick={e => this.logOut(e)}>Log out</Link>
@@ -92,9 +90,6 @@ class Navbar extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     const {currentUser} = state.auth;
-    const searchQuery = `?username=${currentUser.username}`;
-
-    
     return {
     	currentUser: state.auth.currentUser,
         username: state.auth.currentUser.username,

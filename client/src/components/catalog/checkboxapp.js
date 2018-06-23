@@ -1,18 +1,11 @@
 import React from 'react';
 
-import {BrowserRouter as Router, 
-      Redirect, 
-      Route, withRouter} from 'react-router-dom';
-
 import {connect} from 'react-redux';
 
 
-import {fetchCatalog, 
+import { 
       createNewPlan, 
-      fetchAcadPlans, 
-      submissionSuccessful,
-      fetchAcadPlansAndUpdate,
-      setPlan} from '../../actions/catalogActions'
+      fetchAcadPlans} from '../../actions/catalogActions'
 
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -29,7 +22,6 @@ import InputGroupList from './inputGroupList';
 
 import './checkboxapp.css'
 
-import AcadPlansDashboard from '../acadplan/acadPlansDashboard';
 
 
 class CheckboxApp extends React.Component {
@@ -37,6 +29,7 @@ class CheckboxApp extends React.Component {
     super(props);
     this.state = {
       buttonStatus: true,
+      checkboxStatus: true,
       clearSelection: false,
       year: '',
       semester: '',
@@ -116,10 +109,6 @@ class CheckboxApp extends React.Component {
         plan: flatPlan
       });
     }
-
-    for (let checkbox of this.selectedCheckboxes) {
-      console.log(`${this.state.semester} ${this.state.year}, ${label}`, 'is selected.'); 
-    }
   }
 
   setNewPlan(nPlan){
@@ -128,7 +117,6 @@ class CheckboxApp extends React.Component {
     })
   };
 
-//
 
   handleChange(e){
     this.setState({
@@ -159,14 +147,12 @@ class CheckboxApp extends React.Component {
     };
   };
 
-
-
   handleButton = () => {
       this.setState({
         buttonStatus: true
       }); 
     for (let checkbox of this.selectedCheckboxes) {
-      if(checkbox && ((this.state.semester !== '')) && this.state.year.trim().length === 4){
+      if(checkbox && this.state.semester !== '' && this.state.year.trim().length === 4){
         this.setState({
           buttonStatus: false
         });
@@ -174,13 +160,10 @@ class CheckboxApp extends React.Component {
     }
   }
 
-
   handleFormSubmit = formSubmitEvent => {
     formSubmitEvent.preventDefault();
     this.onSubmit();
   }
-
-
 
   onSubmit = () => {
     if((this.state.existingPlan.length === 0 && this.state.semester.trim() !== '' && this.state.year.trim() !== '')){
@@ -198,13 +181,13 @@ class CheckboxApp extends React.Component {
                       this.props.dispatch(fetchAcadPlans(searchQuery));
                     })
                     .then(() => {
-
-                        this.notify('success');
-
                         this.props.history.push({
                           pathname: '/dashboard',
                           state: {detail: plans}
                         });
+                        this.setState({
+                          buttonStatus: true
+                        })
                     })
                     .catch(err => {
                       console.log(err);
@@ -222,7 +205,7 @@ class CheckboxApp extends React.Component {
         }
         const searchQuery = `?username=${plans.username}`;
         const userId = this.state.existingPlan.map(plans => plans.id)[0];
-        const sPlan = this.state.existingPlan.map(plans => plans.plan)
+        
         plans.id = userId;
         return fetch(`${API_BASE_URL}/acadplan/${userId}`, {
           method: 'PUT',
@@ -250,8 +233,11 @@ class CheckboxApp extends React.Component {
       handleCheckboxChange={this.toggleCheckbox}
       key={label}
       handleButtonStatus={this.handleButton}
+      checkboxStatus={this.state.checkboxStatus}
     />
   )
+
+
 
   createCheckboxes = () => (
     this.props.groupcourses.map(courseLists => 
@@ -264,12 +250,17 @@ class CheckboxApp extends React.Component {
       semester: event
     });
     this.handleButton();
+
   }
 
   setYear = (event) =>{
     this.setState({
       year: event
     })
+    console.log(event);
+    this.setState({
+      checkboxStatus: event.trim() === ''
+    });
     this.handleButton();
   }
 
@@ -280,7 +271,7 @@ class CheckboxApp extends React.Component {
           <div className="row">
             <div className="col-sm-12">
               <form onSubmit={this.handleFormSubmit}>
-                <label>Enter a year, select a semester and courses to plan</label>
+                <label>Enter a year (YYYY), select a semester and courses to plan your program</label>
                 <InputGroupList 
                   setYear={this.setYear}
                   yearValue={this.state.year} 
@@ -288,19 +279,12 @@ class CheckboxApp extends React.Component {
                   semesterValue={this.state.semester}
                   semesterSelection={this.state.semesterSelection}
                 />
-                <label>Select Courses</label>
-
+                <label className="selection">Select Courses from the Group</label>
                   {this.createCheckboxes()}
                   <button className={`btn btn-lg btn-success`} 
                           disabled={this.state.buttonStatus} 
                           type="submit"
                           >Save</button>
-          
-                  <ToastContainer
-                  hideProgressBar={true}
-                  newestOnTop={true}
-                  autoClose={5000}
-                />
 
               </form>
             </div>

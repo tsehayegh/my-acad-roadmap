@@ -1,8 +1,4 @@
 import React from 'react';
-import { withRouter} from 'react-router-dom';
-import PropTypes from 'prop-types'
-
-import {SelectionList} from './selectionList';
 
 import './checkbox.css';
 class Checkbox extends React.Component {
@@ -40,6 +36,7 @@ class Checkbox extends React.Component {
               key={label}
               checked={isChecked}
               onChange={this.toggleCheckboxChange}
+              disabled={this.props.checkboxStatus}
             />
             {label}
           </label>

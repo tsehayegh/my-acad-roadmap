@@ -1,7 +1,6 @@
 
 import {API_BASE_URL} from '../config';
 
-import {normalizeResponseErrors} from './utils';
 
 export const FETCH_CATALOG_SUCCESS = 'FETCH_CATALOG_SUCCESS';
 export const fetchCatalogSuccess = (coursecatalog) => ({
@@ -66,7 +65,7 @@ export const fetchAcadPlansAndUpdate = (id, plan) => dispatch => {
 		})
 		.catch(err => {
 			const {reason, message, location} = err;
-			console.log(message);
+			console.log(message, reason, location);
 		})
 }
 
@@ -92,7 +91,7 @@ export const createNewPlan = acadplans => dispatch => {
 		})
 		.catch(err => {
 			const {reason, message, location} = err;
-			console.log(message);
+			console.log(reason, message, location);
 		})
 }
 

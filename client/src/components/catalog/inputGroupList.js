@@ -1,17 +1,19 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+
+import './inputGroupList.css';
 
 class InputGroupList extends React.Component {
 	render(){
 		return(
-		  <div className="form-row">
+		<div className="container" id="input-group-list">
+		  <div className="form-row" id="input-group-row">
 
-		    <div className="form-group col-md-4">
+		    <div className="form-group col-md-6">
+
 		      <label htmlFor="inputSemester">Semester</label>
 		      <select id="inputSemester" 
 		      			className="form-control"
 		      			onChange={e => this.props.setSemester(e.target.value)}
-		      			required
 		      			type="select">
 		        	<option defaultValue>Choose...</option>
 		        	{this.props.semesterSelection.map((semester, index) => 
@@ -20,17 +22,19 @@ class InputGroupList extends React.Component {
 		      </select>
 		    </div>
 
-		    <div className="form-group col-md-4">
+		    <div className="form-group col-md-6">
 		      	<label htmlFor="inputYear">Year (YYYY)</label>
 		      	<input type="text" 
 		      		className="form-control" 
 		      		id="inputYear" 
 		      		onChange={e => this.props.setYear(e.target.value)}
 		      		required	
+		      		placeholder="Enter a year, Ex. 2018"
 		      	/>
 		    </div>
 		  </div>
-		);
+		  </div>
+		)
 
 	}
 }

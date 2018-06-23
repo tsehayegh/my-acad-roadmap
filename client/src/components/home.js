@@ -1,6 +1,6 @@
 
 import React from "react";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import { connect  } from 'react-redux';
 
 import './home.css';
@@ -12,7 +12,7 @@ class Home extends React.Component {
         }
 
         const infoTop = <label>
-					The app, My Acad Roadmap, short for My Academic Roadmap, is an app that helps you to plan your program of study. 
+					The app, My Acad Roadmap, short for My Academic Roadmap, helps you to plan your program of study. 
         </label>
 
         const infoBotton = 
@@ -31,7 +31,6 @@ class Home extends React.Component {
 				    <div className="card-header" id="headingOne">
 				      	<div className="mb-0">
 					      	{infoTop}
-					      	<br />
 					        <button className="btn btn-lg btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 					          <strong>Features...</strong> 
 					        </button>
