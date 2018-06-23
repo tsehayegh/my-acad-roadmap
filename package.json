@@ -11,8 +11,7 @@
     "test": "mocha --exit",
     "start": "node server.js",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
-    "build": "check-node-version --package && ...",
-    "watch": "check-node-version --package && ..."
+    "build": "check-node-version --package && npm run build"
   },
   "author": "",
   "license": "ISC",
