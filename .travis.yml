@@ -9,8 +9,6 @@
  script:
    - npm run build
    - npm test
- env:
-   - CI=true
 
  deploy:
    provider: script
