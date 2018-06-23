@@ -6,7 +6,7 @@ html {
   	min-height: 100%;
 
   	background: linear-gradient(90deg,#F0F8FF 5%,transparent 5%,transparent 95%,#F0F8FF 95%,#F0F8FF),
-  				      linear-gradient(180deg,#F0F8FF 3%,transparent 0%,transparent 99%,#F0F8FF 100%,#F0F8FF);
+  				      linear-gradient(180deg,#F0F8FF 4%,transparent 5%,transparent 90%,#F0F8FF 100%,#F0F8FF);
   	
   	padding-top: 20px;
   	
@@ -35,13 +35,21 @@ html {
   background-color: green;
 }
 
-html {
+html, body {
   font-size: 1rem;
+}
+@media (max-width: 575.98px) {
+  html, body {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
 }
 
 @include media-breakpoint-up(sm) {
-  html {
+  html, body {
     font-size: 1.2rem;
+    margin-top: 20px;
+    padding-top: 20px;
   }
 }
 

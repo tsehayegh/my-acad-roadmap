@@ -97,7 +97,7 @@ class AcadPlanDashboard extends React.Component {
 
         plans.id = userId;
 
-        if(plans.plan.length !== this.state.existingPlan.length){
+        if(plans.plan.length !== this.state.existingPlan.length || this.props.acadplans.map(sPlan => sPlan.plan.length === 1)){
 	        return fetch(`${API_BASE_URL}/acadplan/${userId}`, {
 	          method: 'PUT',
 	          body: JSON.stringify(plans),
@@ -106,18 +106,16 @@ class AcadPlanDashboard extends React.Component {
 	          }
 	        })
 	        .then(() => {
-	          this.props.dispatch(fetchAcadPlans(searchQuery));
+	          return this.props.dispatch(fetchAcadPlans(searchQuery));
 	        })
 	        .then(() => {
 	        	this.setState({
 	        		buttonStatus: true
 	        	});
-
-	        	this.props.history.push({
+	        	return this.props.history.push({
 	                        pathname: '/dashboard',
 	                        state: {detail: plans}
 	                        });
-	        	//window.location.reload()
 
 	        	})
 	        .then(() => console.log('successful'))

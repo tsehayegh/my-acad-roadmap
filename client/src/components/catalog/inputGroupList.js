@@ -14,7 +14,8 @@ class InputGroupList extends React.Component {
 		      <select id="inputSemester" 
 		      			className="form-control"
 		      			onChange={e => this.props.setSemester(e.target.value)}
-		      			type="select">
+		      			type="select"
+		      			disabled={this.props.selectedCount > 0}>
 		        	<option defaultValue>Choose...</option>
 		        	{this.props.semesterSelection.map((semester, index) => 
 		        		<option key={index} value={semester}>{semester}</option>
@@ -30,6 +31,7 @@ class InputGroupList extends React.Component {
 		      		onChange={e => this.props.setYear(e.target.value)}
 		      		required	
 		      		placeholder="Enter a year, Ex. 2018"
+		      		disabled={this.props.inputBoxStatus || this.props.selectedCount > 0}
 		      	/>
 		    </div>
 		  </div>

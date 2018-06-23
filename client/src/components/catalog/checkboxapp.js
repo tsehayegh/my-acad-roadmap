@@ -30,7 +30,9 @@ class CheckboxApp extends React.Component {
     this.state = {
       buttonStatus: true,
       checkboxStatus: true,
+      inputBoxStatus: true,
       clearSelection: false,
+      selectedCount: 0,
       year: '',
       semester: '',
       semesterSelection:['Spring', 'Summer', 'Fall'],
@@ -57,7 +59,6 @@ class CheckboxApp extends React.Component {
             this.setState({
               plan: [...existPlan]
             }) 
-            
           this.setState({
             existingPlan: acadplans.acadplans
           })
@@ -97,6 +98,10 @@ class CheckboxApp extends React.Component {
         })
       };
 
+      this.setState({
+        selectedCount: this.state.selectedCount - 1
+      })
+
     } else {
       this.selectedCheckboxes.add(label);
       checkedPlan = checkedPlan.concat(`${this.state.semester} ${this.state.year}, ${label}`);
@@ -108,6 +113,10 @@ class CheckboxApp extends React.Component {
       this.setState({
         plan: flatPlan
       });
+
+      this.setState({
+        selectedCount: this.state.selectedCount + 1
+      })
     }
   }
 
@@ -247,39 +256,60 @@ class CheckboxApp extends React.Component {
 
   setSemester = (event) => {
     this.setState({
-      semester: event
+      semester: event,
+      inputBoxStatus: event.trim() === 'Choose...'
     });
+
     this.handleButton();
 
   }
 
   setYear = (event) =>{
     this.setState({
-      year: event
+      year: event,
+      checkboxStatus: (event < new Date().getFullYear() || isNaN(event.trim()) || event.trim().length !== 4)
     })
-    console.log(event);
-    this.setState({
-      checkboxStatus: event.trim() === ''
-    });
+
+
     this.handleButton();
   }
 
+  countSelectedCourses(){
+    this.setState({
+      selectedCount: this.state.selectedCount + 1
+    })
+  }
+
   render() {
+    console.log(this.state.selectedCount);
     return (
       <SelectionsPage>
         <div className="container">
           <div className="row">
             <div className="col-sm-12">
               <form onSubmit={this.handleFormSubmit}>
-                <label>Enter a year (YYYY), select a semester and courses to plan your program</label>
+                <label>
+                  Enter a year (YYYY), select a semester and courses to plan your program
+                  
+                </label>
                 <InputGroupList 
                   setYear={this.setYear}
                   yearValue={this.state.year} 
                   setSemester={this.setSemester}
                   semesterValue={this.state.semester}
                   semesterSelection={this.state.semesterSelection}
+                  inputBoxStatus={this.state.inputBoxStatus}
+                  selectedCount={this.state.selectedCount}
                 />
-                <label className="selection">Select Courses from the Group</label>
+                <h5>
+                <label className="selection">
+                  Select Courses from the Group (Count:
+                  <span className="badge badge-warning badge-pill">
+                     {this.state.selectedCount}
+                  </span>
+                  )
+                </label>
+                </h5>
                   {this.createCheckboxes()}
                   <button className={`btn btn-lg btn-success`} 
                           disabled={this.state.buttonStatus} 
