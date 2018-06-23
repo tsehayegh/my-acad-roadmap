@@ -14,18 +14,19 @@ import {required, nonEmpty} from './validators';
 
 import './login-form.css';
 
-export class LoginForm extends React.Component {
+import Home from '../home';
 
+
+export class LoginForm extends React.Component {
     onSubmit(values) {
         return this.props.dispatch(login(values.username, values.password));
     }
 
-    render() {
-         
+    render() { 
+
         if (this.props.loggedIn) {
             return <Redirect to="/dashboard" />;
         }
-
         let error;
         if (this.props.error) {
             error = (
@@ -36,7 +37,7 @@ export class LoginForm extends React.Component {
         }
 
         const renderField = ({ input, label, type, meta: { touched, error } }) => (
-          <div>
+          <div className="container">
             <label>{label}</label>
             <div>
               <input {...input} placeholder={label} type={type}/>
@@ -46,18 +47,21 @@ export class LoginForm extends React.Component {
         )
 
         return (
-            
-            <div className="container">
-            <div className="row">
-            <div className="col-md-10 col-md-offset-1">
+            <div className="container" id="login-form">
+                <div className="row">
+                <div className="col-12">
+                    <h1 className="app-name">My Acad Roadmap </h1>
+                    <Home />
+                    
+
+                <div className="col-12">
                 <form
                     className="form-signin"
                     onSubmit={this.props.handleSubmit(values =>
                         this.onSubmit(values)
                     )}>
-                    {error}
-                    
-                    <h2>My Acad Roadmap</h2>
+                    <label className="warning">{error}</label>
+                     
                     <label htmlFor="username">Username</label>
                     <Field
                         component={Input}
@@ -85,9 +89,10 @@ export class LoginForm extends React.Component {
                     </div>
                 </form>
                 </div>
+                </div>
                </div>
-               </div>
-        
+            </div>
+
         )
     }
 }

@@ -5,13 +5,13 @@ import {Redirect, withRouter} from 'react-router-dom';
 export default () => Component => {
     function RequiresLogin(props) {
         const {authenticating, loggedIn, error, ...passThroughProps} = props;
+        console.log(props);
         if (authenticating) {
-            return <div>Logging in...</div>;
+            return <div className="container">Logging in...</div>;
         } else if (!loggedIn || error) {
-            return <Redirect to="/" />;
+            return <Redirect to="/login" />
             
         }
-
         return <Component {...passThroughProps} />;
     }
 
@@ -21,7 +21,8 @@ export default () => Component => {
     const mapStateToProps = (state, props) => ({
         authenticating: state.auth.loading,
         loggedIn: state.auth.currentUser !== null,
-        error: state.auth.error
+        error: state.auth.error,
+        anyTouch: state.auth.anyTouch
     });
 
     return connect(mapStateToProps)(RequiresLogin);

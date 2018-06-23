@@ -21,7 +21,6 @@ import {API_BASE_URL} from '../../config';
 
 import './acadPlansDashboard.css';
 
-import AlertPage from '../alerts';
 
 class AcadPlanDashboard extends React.Component {
 	constructor(props){

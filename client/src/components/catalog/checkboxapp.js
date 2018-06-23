@@ -15,7 +15,6 @@ import {fetchCatalog,
       setPlan} from '../../actions/catalogActions'
 
 import { ToastContainer, toast } from 'react-toastify';
-import '../alerts.css';
 
 
 import {API_BASE_URL} from '../../config';
@@ -32,7 +31,6 @@ import './checkboxapp.css'
 
 import AcadPlansDashboard from '../acadplan/acadPlansDashboard';
 
-import AlertPage from '../alerts';
 
 class CheckboxApp extends React.Component {
   constructor(props){

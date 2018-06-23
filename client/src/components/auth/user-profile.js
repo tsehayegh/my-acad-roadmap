@@ -11,7 +11,7 @@ export class UserProfile extends React.Component {
         return (
             <div className="container user-profile">
                 <div>
-                    <img className="sample-img" src = './backgroundimage.jpg' />
+                    <img className="sample-img" src = './tse.jpg' />
                 </div>
                 <div>
                     <strong>Username:</strong> {this.props.username}

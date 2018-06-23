@@ -5,21 +5,17 @@ import { connect  } from 'react-redux';
 
 import './home.css';
 
-
 class Home extends React.Component {
-
 	render() {
-
 		if (this.props.loggedIn) {
             return <Redirect to="/dashboard" />;
         }
 
-		const information = 
-				<label>
-					Welcome to My Acad Raodmap!
-					<br />
+        const infoTop = <label>
 					The app, My Acad Roadmap, short for My Academic Roadmap, is an app that helps you to plan your program of study. 
-					<h2> Features </h2>
+        </label>
+
+        const infoBotton = 
 					<ol>
 						<li>Select a group of courses</li>
 						<li>Select a semester that you want to take a course</li>
@@ -28,18 +24,26 @@ class Home extends React.Component {
 						<li>See your program plan for all semesters</li>
 						<li>Delete a course from any semester</li>
 					</ol>
-					Ready to use the app? Click the <em>Start</em> button bellow!
-				</label>
 
 		return(
-			<div className="container" id="home">
-				<h1 className="app-name">My Acad Roadmap </h1>
-				<br />
-				{information}
-				<div className="col-lg text-center">
-				<Link to="/login" className="btn btn-lg btn-primary btn-Link">Start</Link>
+				<div id="accordion" className="home">
+				  <div className="card">
+				    <div className="card-header" id="headingOne">
+				      	<div className="mb-0">
+					      	{infoTop}
+					      	<br />
+					        <button className="btn btn-lg btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					          <strong>Features...</strong> 
+					        </button>
+				      	</div>
+				    </div>
+				    <div id="collapseOne" className="collapse hide infoBotton" aria-labelledby="headingOne" data-parent="#accordion">
+				      <div className="card-body">
+				        {infoBotton}
+				      </div>
+				    </div>
+				  </div>
 				</div>
-			</div>
 		)
 	}
 }

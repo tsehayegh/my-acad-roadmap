@@ -53,16 +53,6 @@ class Navbar extends React.Component {
 
 
 	render() {
-		if (this.state.selectedMenuBar === 1) {
-          	this.props.history.push({
-          		pathname: '/dashboard'
-        	});
-        } else if (this.state.selectedMenuBar === 2) {
-        	this.props.history.push({
-          		pathname: '/profile'
-        	});
-        }
-
 		return(
 			<nav className="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
 				<div className="container ">

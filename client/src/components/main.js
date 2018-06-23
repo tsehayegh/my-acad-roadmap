@@ -29,9 +29,7 @@ import Home from './home';
 import UserProfile from './auth/user-profile';
 
 
-
 export class Main extends React.Component {
-
 	render() {
 		const loggedIn = this.currentUser !== null;
 		return(
