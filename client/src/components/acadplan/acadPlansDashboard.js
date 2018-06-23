@@ -97,7 +97,7 @@ class AcadPlanDashboard extends React.Component {
 
         plans.id = userId;
 
-        if(plans.plan.length !== this.state.existingPlan.length || this.props.acadplans.map(sPlan => sPlan.plan.length === 1)){
+        if(plans.plan.length !== this.state.existingPlan.length){
 	        return fetch(`${API_BASE_URL}/acadplan/${userId}`, {
 	          method: 'PUT',
 	          body: JSON.stringify(plans),
@@ -124,8 +124,6 @@ class AcadPlanDashboard extends React.Component {
 
 
 	render(){
-		console.log(this.state.existingPlan);
-		console.log(this.props.acadplans);
 
 		const semesters = Array.from(new Set(this.props.acadplans.map(plans => 
 						plans.plan.map(semester => 
