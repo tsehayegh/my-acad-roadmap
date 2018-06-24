@@ -81,7 +81,7 @@ export class RegistrationForm extends React.Component {
                 </div>
                 <label>Already registered? Click log in below!</label>
                 <div className="col-lg text-center">
-                    <Link to='/login' className="btn btn-lg btn-primary btn-Link">Log in</Link>
+                    <Link to='/' className="btn btn-lg btn-primary btn-Link">Log in</Link>
                 </div>
             </form>
             </div>
