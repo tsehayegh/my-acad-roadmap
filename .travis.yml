@@ -15,4 +15,6 @@
    skip_cleanup: true
    on:
      branch: master
-
+  
+  install:
+    - npm ci
