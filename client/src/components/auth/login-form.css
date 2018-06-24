@@ -78,10 +78,19 @@ body {
   border: 1px solid brown;
   font-size: 20px;
 }
+
+#form-signin {
+  max-width: 330px;
+}
+
 @media (max-width: 575.98px) {
   html, body {
     margin-top: 0;
     padding-top: 0;
+  }
+    #login-form {
+    margin-bottom: 0;
+    height: 100%;
   }
 }
 
@@ -91,6 +100,7 @@ body {
     margin-top: 20px;
     padding-top: 20px;
   }
+
 }
 
 @include media-breakpoint-up(md) {
@@ -120,6 +130,7 @@ body {
 
 @media only screen and (min-width: 992px){
   #login-form {
+
     position: absolute;
     top: 50%;
     left: 50%;

@@ -53,6 +53,7 @@ export class LoginForm extends React.Component {
 
                 <form
                     className="form-signin"
+                    id="form-signin"
                     onSubmit={this.props.handleSubmit(values =>
                         this.onSubmit(values)
                     )}>

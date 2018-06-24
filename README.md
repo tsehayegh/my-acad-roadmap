@@ -36,7 +36,48 @@ If this is your first time using the app, then click the 'Register' button and i
 
 <img width="453" alt="registration page" src="https://user-images.githubusercontent.com/34139675/41820504-e1d675f2-77a0-11e8-945c-81068542937c.png">
 
-If you register and login successfully, then, you will see a navigation bar and the default page is Dashboard. Dashboard page displays all of the courses planned for each semester and an option to delete a course from the plan if you changed your mind. 
+If you register and login successfully, then, you will see the main page with a navigation bar and the default page is Dashboard. 
+
+## Main Page
+You will be able to navigate to several pages. 
+<img width="461" alt="main page" src="https://user-images.githubusercontent.com/34139675/41823028-fdaf86bc-77c6-11e8-8089-16a5b2c74b2c.png">
+
+## Dashboard Page
+It displays all of the courses planned for each semester and an option to delete a course from the plan if you changed your mind. If you decided to delete a course, select a semester, a course and click the 'Delete' button. The course will be deleted and the new academic plan will be reloaded.
+
+<img width="457" alt="dashboard page" src="https://user-images.githubusercontent.com/34139675/41823076-8c795198-77c7-11e8-873a-607e81f8f03f.png">
+
+## Plan my program Page
+In the 'Plan my Program' page, you will be able to select courses from any group, select a semester and enter a year, and select the courses you want to take for the selected semester. Click the 'Save' and it will take you to the Dashboard page. Note that, you can't enter a year before you select a semester and you can't select courses before you selected a semester. Moreover, you will not be able to change semester and year if you have selected at least one course.
+
+<img width="453" alt="plan my program page 1" src="https://user-images.githubusercontent.com/34139675/41823153-035c2064-77c9-11e8-8088-cac0c504df57.png">
+
+<img width="451" alt="plan my program page 2" src="https://user-images.githubusercontent.com/34139675/41823166-55afca6e-77c9-11e8-9697-1e811ea14252.png">
+
+## Profile Page
+The profile page displays your username, full name, and photo. At this time, the photo displayed will be the programmers/developer's picture. But for the future, more features can be added the possibility of uploading a user's photo during registration.
+
+<img width="449" alt="profile page" src="https://user-images.githubusercontent.com/34139675/41823218-6dcca544-77ca-11e8-8c26-cbd8df797c21.png">
+
+# Technologies Used:
+HTML, CSS, Responsive Design, JAVASCRIPT, jQuery, AJAX, node.js, Implement REST API, mocha, heroku, mLab, express, testing, modulirzation, router, chai, http-chai, heroku, TravisCI, React, and Redux. 
+
+# Future work
+More features can be added to the app. For example, photo uploading feature can be added to the up during registration or after login. In addition to this, the dashboard can be modified to show the total credit hours registered for each semester and total credit hours planned. 
+
+#Note
+1. The app may not work in Internet Explorer 11 because of some modern techniques used in developing the app.
+2. The app was forced to refresh the 'Plan my Program' page in order to reload course catalog data. The actions and reducers would have been designed differently to avoid such forced refresh of a page.
+
+
+
+
+
+
+
+
+
+
 
 
 
