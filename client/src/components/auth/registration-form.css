@@ -5,6 +5,7 @@
 	margin-top: 0;
 	padding-bottom: 5px; 
 }
+
 .program-selection {
 	border: 1px solid brown;
 
@@ -43,7 +44,8 @@
   html {
     font-size: 1.4rem;
   }
-  .form-signin {
+  .reg-form {
+    max-width: 600px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -52,7 +54,8 @@
 }
 
 @media only screen and (min-width: 992px){
-  .form-signin {
+  .reg-form {
+
     position: absolute;
     top: 50%;
     left: 50%;
