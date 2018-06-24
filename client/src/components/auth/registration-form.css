@@ -2,6 +2,8 @@
 
 .form-signin {
 	max-width: 600px;
+	margin-top: 0;
+	padding-bottom: 5px; 
 }
 .program-selection {
 	border: 1px solid brown;
@@ -21,6 +23,7 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+
 }
 
 @include media-breakpoint-up(md) {
@@ -33,4 +36,26 @@
   html {
     font-size: 1.6rem;
   }
+}
+
+@media only screen and (min-width: 768px) 
+  and (orientation: portrait) {
+  html {
+    font-size: 1.4rem;
+  }
+  .form-signin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+  }
+}
+
+@media only screen and (min-width: 992px){
+  .form-signin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+  } 
 }

@@ -43,7 +43,7 @@ export class RegistrationForm extends React.Component {
                     <label htmlFor="programcode">Academic Program</label>
                     <div>
                         <Field name="programcode"
-                                className="program-selection col-12" 
+                                className="program-selection" 
                                 component="select"
                                 validate={[required, nonEmpty]}
                                 type="select">
