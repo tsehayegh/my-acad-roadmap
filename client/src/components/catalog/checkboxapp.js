@@ -3,7 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 
-import { 
+import { fetchCatalog,
       createNewPlan, 
       fetchAcadPlans} from '../../actions/catalogActions'
 
@@ -184,23 +184,25 @@ class CheckboxApp extends React.Component {
         plan: this.state.plan
       }
       const searchQuery = `?username=${plans.username}`;
-      return this.props
-                    .dispatch(createNewPlan(plans))
-                    .then(() => {
-                      this.props.dispatch(fetchAcadPlans(searchQuery));
-                    })
-                    .then(() => {
-                        this.props.history.push({
-                          pathname: '/dashboard',
-                          state: {detail: plans}
-                        });
-                        this.setState({
-                          buttonStatus: true
-                        })
-                    })
-                    .catch(err => {
-                      console.log(err);
-                    })
+      this.props
+              .dispatch(createNewPlan(plans))
+              .then(() => {
+                this.props.dispatch(fetchAcadPlans(searchQuery));
+              })
+              .then(() => {
+                  this.setState({
+                    buttonStatus: true
+                  })  
+                                      
+                  this.props.history.push({
+                    pathname: '/dashboard',
+                    state: {detail: plans}
+                  });
+
+              })
+              .catch(err => {
+                console.log(err);
+              })
     } else {
       if(this.state.existingPlan.length > 0 && this.state.semester.trim() !== '' && this.state.year.trim() !== ''){
         let tempPlan = this.state.plan;
@@ -216,7 +218,7 @@ class CheckboxApp extends React.Component {
         const userId = this.state.existingPlan.map(plans => plans.id)[0];
         
         plans.id = userId;
-        return fetch(`${API_BASE_URL}/acadplan/${userId}`, {
+        fetch(`${API_BASE_URL}/acadplan/${userId}`, {
           method: 'PUT',
           body: JSON.stringify(plans),
           headers: {
@@ -226,10 +228,14 @@ class CheckboxApp extends React.Component {
         .then(() => {
           this.props.dispatch(fetchAcadPlans(searchQuery));
         })
-        .then(this.props.history.push({
+        .then( () => {
+              
+              this.props.history.push({
                         pathname: '/dashboard',
                         state: {detail: plans}
-                        }))
+                        })
+              
+        })
         .then(() => console.log('Updated!'))
                     
         }
@@ -281,7 +287,6 @@ class CheckboxApp extends React.Component {
   }
 
   render() {
-    console.log(this.state.selectedCount);
     return (
       <SelectionsPage>
         <div className="container" id="checkbox-creator">
@@ -332,18 +337,23 @@ function mapStateToProps(state, ownProps){
   if(ownProps.match) {
     groupId = ownProps.match.params.group;
   }
+
+  let courses =[];
+  let programcode = '';
   
-  const courses = state.catalogReducer.coursecatalog.map(catalog => 
+  if(state.catalogReducer.coursecatalog){
+    courses = state.catalogReducer.coursecatalog.map(catalog => 
               catalog.courses.map(courses => 
               courses.split(','))).map(course => 
               course.filter(elem => 
               Number(elem[3]) === Number(groupId)));
-
+    programcode= state.catalogReducer.coursecatalog.map(catalog => `${catalog.programTitle}`);
+  }
   return {
           coursecatalog: state.catalogReducer.coursecatalog,
           groupcourses: courses,
           currentUser: state.auth.currentUser,
-          programcode: state.catalogReducer.coursecatalog.map(catalog => `${catalog.programTitle}`),
+          programcode: programcode,
           plan: state.catalogReducer.plan
     }
 

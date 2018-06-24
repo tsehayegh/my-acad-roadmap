@@ -44,44 +44,44 @@ class Navbar extends React.Component {
 		if (programcode.length > 1) {
 			programcode = programcode[1].trim();
 		} 
-		this.props.dispatch(fetchCatalog(`${programcode}`));
+		return this.props.dispatch(fetchCatalog(`${programcode}`));
 	}
 
 	render() {
 		return(
 			<nav className="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
 				<div className="container ">
-					<Link className="navbar-brand text-white" data-toggle="collapse" to="/home">My Acad Roadmap</Link>
+				  <Link className="navbar-brand text-white" data-toggle="collapse" to="/home">My Acad Roadmap</Link>
 
-					<button type="button" className="navbar-toggler navbar-toggler-righ collapsed"  
-					  		data-toggle="collapse" data-target="#navbarSupportedContent" 
-					  		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					    <span className="navbar-toggler-icon"></span>
-					</button>
+				  <button type="button" className="navbar-toggler navbar-toggler-righ collapsed"  
+				  		data-toggle="collapse" data-target="#navbarSupportedContent" 
+				  		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span className="navbar-toggler-icon"></span>
+				  </button>
 
 				  <div className="collapse navbar-collapse text-white" id="navbarSupportedContent">
-					    <ul className="nav navbar-nav mr-auto">
-					      <li className="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent">
-					        <Link className="nav-link text-white" to="/plan" onClick={e => this.handleOnClick(e.target)}>Plan my program</Link>
-					      </li>
-					      <li className="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent">
-					        <Link className="nav-link text-white" to="/dashboard">Dashboard</Link>
-					      </li>
-					    </ul>
+				    <ul className="nav navbar-nav mr-auto">
+				      <li className="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent">
+				        <Link className="nav-link text-white" to="/plan" onClick={e => this.handleOnClick(e.target)}>Plan my program</Link>
+				      </li>
+				      <li className="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent">
+				        <Link className="nav-link text-white" to="/dashboard">Dashboard</Link>
+				      </li>
+				    </ul>
 
-				        <ul className="nav navbar-nav navbar-right">
-					      <li className="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent" >
-					      	
-					      	<Link className="nav-link text-white" id="profile"
-					      			to="/profile">
-					      			Profile ({this.props.username})
-					      	</Link>
+			        <ul className="nav navbar-nav navbar-right">
+				      <li className="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent" >
+				      	
+				      	<Link className="nav-link text-white" id="profile"
+				      			to="/profile">
+				      			Profile ({this.props.username})
+				      	</Link>
 
-					      </li>
-					      <li className="nav-item">
-					      	<Link className="nav-link text-white" to ='/login' onClick={e => this.logOut(e)}>Log out</Link>
-					      </li>
-					    </ul>
+				      </li>
+				      <li className="nav-item">
+				      	<Link className="nav-link text-white" to ='/login' onClick={e => this.logOut(e)}>Log out</Link>
+				      </li>
+				    </ul>
 
 				  	</div>
 			  </div>

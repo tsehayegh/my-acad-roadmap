@@ -69,13 +69,12 @@ class SelectionsPage extends React.Component {
 
 SelectionsPage.defaultProps = {
 	groups: [],
-	catalogReducer: {},
 	coursecatalog: []
 }
 
 
-const mapStateToProps = (state, ownProps) => ({
-
+function mapStateToProps(state, ownProps){
+	return {
 	coursecatalog: state.catalogReducer.coursecatalog,
 	groups: state.catalogReducer.coursecatalog.map(catalog => 
 							catalog.courses.map(courses => 
@@ -91,8 +90,8 @@ const mapStateToProps = (state, ownProps) => ({
 	linkstatus: state.catalogReducer.linkstatus,
 	acadplans: state.catalogReducer.acadplans,
 	currentUser: state.auth.currentUser
-
-});
+}
+};
 
 export default requiresLogin()(connect(mapStateToProps)(SelectionsPage));
 

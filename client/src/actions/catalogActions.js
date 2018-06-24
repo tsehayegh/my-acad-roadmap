@@ -91,9 +91,6 @@ export const createNewPlan = acadplans => dispatch => {
 			}
 			return res.json();
 		})
-		.then(() => {
-			dispatch(submissionSuccessful(true));
-		})
 		.catch(err => {
 			const {reason, message, location} = err;
 			console.log(reason, message, location);

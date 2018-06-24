@@ -36,7 +36,6 @@ class AcadPlanDashboard extends React.Component {
 	componentDidMount() {
 		const searchQuery= `?username=${this.props.currentUser.username}`;
 		this.props.dispatch(fetchAcadPlans(searchQuery));
-		console.log(this.props.acadplans);
 		this.setState({
 			existingPlan: this.props.acadplans
 		})

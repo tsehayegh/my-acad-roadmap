@@ -27,13 +27,21 @@ You can also click 'Features...' and it will list some features of the app. You 
 
 <img width="479" alt="landing page 2" src="https://user-images.githubusercontent.com/34139675/41820334-48d3fa70-779e-11e8-9d7f-7f24607c8fbc.png">
 
-If you have already registered for the app, enter your user name and password. Note that the password encrypted so using modern encryption techniques so your password is less valunarable hacking.
+If you have already registered for the app, enter your user name and password. Note that the password encrypted so using modern encryption techniques so your password is less valunarable hacking. If you entered wrong user name or password, a warning message in red color will be displayed. 
 
-<img width="479" alt="landing page 2" src="https://user-images.githubusercontent.com/34139675/41820334-48d3fa70-779e-11e8-9d7f-7f24607c8fbc.png">
+<img width="465" alt="login page" src="https://user-images.githubusercontent.com/34139675/41821219-4d0ff668-77ab-11e8-8bf2-dc2b1e9118b1.png">
 
-If this is your first time using the app, then click the 'Register' button and it will take you to the registration page. In the registration page, you will be able to enter your first name, last name, choose your academic program, username, 10 character password and confirm your password. Once you click 'Register' button, it will take you to a dashboard page.
+
+If this is your first time using the app, then click the 'Register' button and it will take you to the registration page. In the registration page, you will be able to enter your first name, last name, choose your academic program, username, 10 character password and confirm your password. Once you click 'Register' button, it will take you to a dashboard page. You can also go back to 'Log in' page if you realized that you have already registered for the app.
 
 <img width="453" alt="registration page" src="https://user-images.githubusercontent.com/34139675/41820504-e1d675f2-77a0-11e8-945c-81068542937c.png">
+
+If you register and login successfully, then, you will see a navigation bar and the default page is Dashboard. Dashboard page displays all of the courses planned for each semester and an option to delete a course from the plan if you changed your mind. 
+
+
+
+
+
 
 
 
