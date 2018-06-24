@@ -24,7 +24,7 @@ export class UserProfile extends React.Component {
                     </div>
                 </div>
                 <div className="col text-center">
-                    <img className="sample-img" src='./backgroundimage.jpg' alt={this.props.name} />
+                    <img className="sample-img" src={require('./tse.jpeg')} alt={this.props.name} />
                 </div>
                 </div>
             </div>

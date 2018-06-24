@@ -59,7 +59,7 @@ class EditAcadPlans extends React.Component {
 			<h2>Delete a course </h2>
 			  <div className="row">
 			    <div className="form-group col-md-4">
-			      <label htmlFor="inputSemester">Semester</label>
+			      <label htmlFor="inputSemester">From Semester</label>
 			      <select id="inputSemester" 
 			      			className="form-control"
 			      			onChange={e => this.setSemester(e.target.value)}
@@ -71,8 +71,8 @@ class EditAcadPlans extends React.Component {
 			        	)}
 			      </select>
 			    </div>
-			    <div className="form-group col-md-4">
-			      <label htmlFor="courseToDelete">Select a course</label>
+			    <div className="form-group col-md-6">
+			      <label htmlFor="courseToDelete">Select a course to delete</label>
 			      <select id="courseToDelete" 
 			      			className="form-control"
 			      			onChange={e => this.setCourseToDelete(e.target.value)}

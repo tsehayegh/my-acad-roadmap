@@ -15,7 +15,7 @@ class Home extends React.Component {
 					The app, My Acad Roadmap, short for My Academic Roadmap, helps you to plan your program of study. 
         </label>
 
-        const infoBotton = 
+        const infoBottom = 
 					<ol>
 						<li>Select a group of courses</li>
 						<li>Select a semester that you want to take a course</li>
@@ -38,7 +38,7 @@ class Home extends React.Component {
 				    </div>
 				    <div id="collapseOne" className="collapse hide infoBotton" aria-labelledby="headingOne" data-parent="#accordion">
 				      <div className="card-body">
-				        {infoBotton}
+				        {infoBottom}
 				      </div>
 				    </div>
 				  </div>

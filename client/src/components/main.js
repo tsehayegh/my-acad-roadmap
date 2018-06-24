@@ -20,6 +20,7 @@ import RegistrationPage from './auth/registration-page';
 
 import UserProfile from './auth/user-profile';
 
+import Home from './home';
 
 export class Main extends React.Component {
 	render() {
@@ -28,6 +29,8 @@ export class Main extends React.Component {
 				<div>
 					<Navbar />	
 						<Route exact path='/' component={LoginForm}/>
+						
+						<Route exact path='/home' component={Home}/>
 
 						<Route exact path='/dashboard' component={AcadPlansDashboard} />
 

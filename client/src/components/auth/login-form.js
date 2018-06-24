@@ -48,7 +48,9 @@ export class LoginForm extends React.Component {
                 <div className="col-12">
                     <h1 className="app-name">My Acad Roadmap </h1>
                     <Home />
+
                 <div className="col-12">
+
                 <form
                     className="form-signin"
                     onSubmit={this.props.handleSubmit(values =>

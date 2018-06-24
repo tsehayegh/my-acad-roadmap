@@ -284,7 +284,7 @@ class CheckboxApp extends React.Component {
     console.log(this.state.selectedCount);
     return (
       <SelectionsPage>
-        <div className="container">
+        <div className="container" id="checkbox-creator">
           <div className="row">
             <div className="col-sm-12">
               <form onSubmit={this.handleFormSubmit}>

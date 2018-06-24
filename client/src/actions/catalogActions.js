@@ -70,6 +70,12 @@ export const fetchAcadPlansAndUpdate = (id, plan) => dispatch => {
 }
 
 
+export const SUBMISSION_SUCCESSFUL = 'SUBMISSION_SUCCESSFUL'
+export const submissionSuccessful = isSuccessful => ({
+	type: SUBMISSION_SUCCESSFUL,
+	isSuccessful
+})
+
 
 export const createNewPlan = acadplans => dispatch => {
 	return fetch(`${API_BASE_URL}/acadplan`, {
@@ -85,7 +91,6 @@ export const createNewPlan = acadplans => dispatch => {
 			}
 			return res.json();
 		})
-		.then(res =>res.json())
 		.then(() => {
 			dispatch(submissionSuccessful(true));
 		})
@@ -95,11 +100,7 @@ export const createNewPlan = acadplans => dispatch => {
 		})
 }
 
-export const SUBMISSION_SUCCESSFUL = 'SUBMISSION_SUCCESSFUL'
-export const submissionSuccessful = isSuccessful => ({
-	type: SUBMISSION_SUCCESSFUL,
-	isSuccessful
-})
+
 
 
 export const DISABLE_LINK = 'DISABLE_LINK';

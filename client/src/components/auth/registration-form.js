@@ -6,8 +6,12 @@ import {registerUser} from '../../actions/users';
 import {login} from '../../actions/auth';
 import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from './validators';
+
+import './registration-form.css';
+
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
+
 
 export class RegistrationForm extends React.Component {
     
@@ -21,7 +25,7 @@ export class RegistrationForm extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container" id="reg-form">
             <div className="row">
             
             <form
@@ -38,7 +42,8 @@ export class RegistrationForm extends React.Component {
                 <div>
                     <label htmlFor="programcode">Academic Program</label>
                     <div>
-                        <Field name="programcode" 
+                        <Field name="programcode"
+                                className="program-selection col-12" 
                                 component="select"
                                 validate={[required, nonEmpty]}
                                 type="select">
@@ -79,7 +84,7 @@ export class RegistrationForm extends React.Component {
                         Register
                     </button>
                 </div>
-                <label>Already registered? Click log in below!</label>
+                <label>Already registered? Click log in</label>
                 <div className="col-lg text-center">
                     <Link to='/' className="btn btn-lg btn-primary btn-Link">Log in</Link>
                 </div>
