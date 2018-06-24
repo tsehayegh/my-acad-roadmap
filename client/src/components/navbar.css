@@ -6,7 +6,7 @@ html {
   	min-height: 100%;
 
   	background: linear-gradient(90deg,#F0F8FF 5%,transparent 5%,transparent 95%,#F0F8FF 95%,#F0F8FF),
-  				      linear-gradient(180deg,#F0F8FF 4%,transparent 5%,transparent 90%,#F0F8FF 100%,#F0F8FF);
+  				      linear-gradient(180deg,#F0F8FF 5%,transparent 5%,transparent 95%,#F0F8FF 95%,#F0F8FF);
   	
   	padding-top: 20px;
   	
@@ -41,6 +41,7 @@ html, body {
 @media (max-width: 575.98px) {
   html, body {
     margin-top: 0;
+    margin-bottom: 0;
     padding-top: 0;
   }
 }

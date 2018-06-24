@@ -39,8 +39,12 @@ If this is your first time using the app, then click the 'Register' button and i
 If you register and login successfully, then, you will see the main page with a navigation bar and the default page is Dashboard. 
 
 ## Main Page
-You will be able to navigate to several pages. 
+From this page, you will be able to navigate to several pages. 
+
 <img width="461" alt="main page" src="https://user-images.githubusercontent.com/34139675/41823028-fdaf86bc-77c6-11e8-8089-16a5b2c74b2c.png">
+
+<img width="461" alt="main page" src="https://user-images.githubusercontent.com/34139675/41823028-fdaf86bc-77c6-11e8-8089-16a5b2c74b2c.png">
+
 
 ## Dashboard Page
 It displays all of the courses planned for each semester and an option to delete a course from the plan if you changed your mind. If you decided to delete a course, select a semester, a course and click the 'Delete' button. The course will be deleted and the new academic plan will be reloaded.
@@ -59,13 +63,16 @@ The profile page displays your username, full name, and photo. At this time, the
 
 <img width="449" alt="profile page" src="https://user-images.githubusercontent.com/34139675/41823218-6dcca544-77ca-11e8-8c26-cbd8df797c21.png">
 
+## Log out 
+You can also click the 'Log out' link to exist from the app.
+
 # Technologies Used:
 HTML, CSS, Responsive Design, JAVASCRIPT, jQuery, AJAX, node.js, Implement REST API, mocha, heroku, mLab, express, testing, modulirzation, router, chai, http-chai, heroku, TravisCI, React, and Redux. 
 
 # Future work
 More features can be added to the app. For example, photo uploading feature can be added to the up during registration or after login. In addition to this, the dashboard can be modified to show the total credit hours registered for each semester and total credit hours planned. 
 
-#Note
+# Note
 1. The app may not work in Internet Explorer 11 because of some modern techniques used in developing the app.
 2. The app was forced to refresh the 'Plan my Program' page in order to reload course catalog data. The actions and reducers would have been designed differently to avoid such forced refresh of a page.
 

@@ -37,6 +37,10 @@ class SelectionsPage extends React.Component {
 
 	}
 
+	removeDuplicates(){
+			
+	}
+
 	formCheckbox(params){
 		if(params){
 			this.setState({
