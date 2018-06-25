@@ -2,8 +2,7 @@
 
 .form-signin {
 	max-width: 600px;
-	margin-top: 0;
-	padding-bottom: 5px; 
+
 }
 
 .reg-form {
@@ -14,8 +13,13 @@
 .program-selection {
 	border: 1px solid brown;
   width: 100%;
+  font-size: 18px;
+  background-color: white;
 }
 
+.validation {
+  color: red;
+}
 textarea:focus, input:focus{
     outline: none;
 }

@@ -9,7 +9,6 @@ const path = require('path');
 
 require('dotenv').config();
 
-
 const {PORT, DATABASE_URL, TEST_DATABASE_URL, CLIENT_ORIGIN} = require('./config'); 
 
 const {app, runServer, closeServer} = require('./serverConnection');
@@ -28,20 +27,15 @@ app.use(morgan('common'));
 // ... other app.use middleware setups
 app.use(express.static(path.join(__dirname, "client", "build")))
 
-
 app.use(cors({
 	origin: CLIENT_ORIGIN
 }));
 
-
 //course catalog router
 app.use('/', courseCatalogRouter);
 
-
 //student academic plan router
 app.use('/', acadPlanRouter);
-
-
 
 //User authenticatio
 const { router: usersRouter } = require('./userauth/users');
@@ -72,19 +66,12 @@ app.get('/api/protected', jwtAuth, (req, res) => {
   });
 });
 
-//
 
-/*
 //Requests made to non-existent endpoint
 app.use('*', function(req, res) {
 	res.status(404).json({message: 'Not Found'});
 });
-*/
 
-// Right before your app.listen(), add this:
-app.get("*", (req, res) => {  
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
 
 //run server
 if (require.main === module) {

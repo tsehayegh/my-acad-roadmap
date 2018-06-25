@@ -11,6 +11,9 @@ export function RegistrationPage(props) {
     if (props.loggedIn) {
         return <Redirect to="/dashboard" />;
     }
+    
+
+    
     return (
         <div className="container">
         <div className="row">

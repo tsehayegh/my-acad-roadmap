@@ -23,6 +23,7 @@ export class LoginForm extends React.Component {
         if (this.props.loggedIn) {
             return <Redirect to="/dashboard" />;
         }
+
         let error;
         if (this.props.error) {
             error = (
@@ -66,6 +67,7 @@ export class LoginForm extends React.Component {
                         name="username"
                         id="username"
                         validate={[required, nonEmpty]}
+                        placeholder="Example: test"
                     />
                     <label htmlFor="password">Password</label>
                     <Field
@@ -74,6 +76,7 @@ export class LoginForm extends React.Component {
                         name="password"
                         id="password"
                         validate={[required, nonEmpty]}
+                        placeholder="Example: asdfghjklq"
                     />
                     <div className="col-lg text-center">
                         <button className="btn btn-lg btn-primary" disabled={this.props.pristine || this.props.submitting}>

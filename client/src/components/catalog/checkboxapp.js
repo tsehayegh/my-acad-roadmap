@@ -62,9 +62,7 @@ class CheckboxApp extends React.Component {
           this.setState({
             existingPlan: acadplans.acadplans
           })
-
         }
-
       })
       .catch(err => {
         console.log(err);
@@ -85,7 +83,6 @@ class CheckboxApp extends React.Component {
     let checkedPlan = [];
     if (this.selectedCheckboxes.has(label)) {
       this.selectedCheckboxes.delete(label);
-
       const cPlan = `${this.state.semester} ${this.state.year}, ${label}`;
       let tempPlan = this.state.plan;
       let newPlanArray = [].concat.apply([], tempPlan);
@@ -97,7 +94,6 @@ class CheckboxApp extends React.Component {
           plan: newPlanArray
         })
       };
-
       this.setState({
         selectedCount: this.state.selectedCount - 1
       })
@@ -105,15 +101,12 @@ class CheckboxApp extends React.Component {
     } else {
       this.selectedCheckboxes.add(label);
       checkedPlan = checkedPlan.concat(`${this.state.semester} ${this.state.year}, ${label}`);
-
       let newArray = [];
       newArray = newArray.concat(this.state.plan, checkedPlan);
       let flatPlan = [].concat.apply([], newArray);
-
       this.setState({
         plan: flatPlan
       });
-
       this.setState({
         selectedCount: this.state.selectedCount + 1
       })
@@ -132,29 +125,6 @@ class CheckboxApp extends React.Component {
       newPlan: e
     })
   }
-
-  notify(type){
-    return () => {
-      switch (type) {
-        case 'info':
-          toast.info('Info message', {
-            autoClose: 3000
-          });
-          break;
-        case 'success':
-          toast.success('Success message', {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-          break;
-        case 'warning':
-          toast.warn('Warning message');
-          break;
-        case 'error':
-          toast.error('Error message');
-          break;
-      }
-    };
-  };
 
   handleButton = () => {
       this.setState({
@@ -192,13 +162,11 @@ class CheckboxApp extends React.Component {
               .then(() => {
                   this.setState({
                     buttonStatus: true
-                  })  
-                                      
+                  })                                        
                   this.props.history.push({
                     pathname: '/dashboard',
                     state: {detail: plans}
                   });
-
               })
               .catch(err => {
                 console.log(err);
@@ -216,7 +184,6 @@ class CheckboxApp extends React.Component {
         }
         const searchQuery = `?username=${plans.username}`;
         const userId = this.state.existingPlan.map(plans => plans.id)[0];
-        
         plans.id = userId;
         fetch(`${API_BASE_URL}/acadplan/${userId}`, {
           method: 'PUT',
@@ -252,8 +219,6 @@ class CheckboxApp extends React.Component {
     />
   )
 
-
-
   createCheckboxes = () => (
     this.props.groupcourses.map(courseLists => 
       courseLists.map((course, index) => 
@@ -265,9 +230,7 @@ class CheckboxApp extends React.Component {
       semester: event,
       inputBoxStatus: event.trim() === 'Choose...'
     });
-
     this.handleButton();
-
   }
 
   setYear = (event) =>{
@@ -275,8 +238,6 @@ class CheckboxApp extends React.Component {
       year: event,
       checkboxStatus: (event < new Date().getFullYear() || isNaN(event.trim()) || event.trim().length !== 4)
     })
-
-
     this.handleButton();
   }
 
@@ -295,7 +256,6 @@ class CheckboxApp extends React.Component {
               <form onSubmit={this.handleFormSubmit}>
                 <label>
                   Enter a year (YYYY), select a semester and courses to plan your program
-                  
                 </label>
                 <InputGroupList 
                   setYear={this.setYear}
@@ -307,20 +267,18 @@ class CheckboxApp extends React.Component {
                   selectedCount={this.state.selectedCount}
                 />
                 <h5>
-                <label className="selection">
-                  Select Courses from the Group (Count:
-                  <span className="badge badge-warning badge-pill">
-                     {this.state.selectedCount}
-                  </span>
-                  )
-                </label>
+                  <label className="selection">
+                      Select Courses from the Group (Count:
+                      <span className="badge badge-warning badge-pill">
+                         {this.state.selectedCount}
+                      </span>
+                    )</label>
                 </h5>
                   {this.createCheckboxes()}
                   <button className={`btn btn-lg btn-success`} 
                           disabled={this.state.buttonStatus} 
                           type="submit"
                           >Save</button>
-
               </form>
             </div>
           </div>
@@ -332,15 +290,12 @@ class CheckboxApp extends React.Component {
 
 
 function mapStateToProps(state, ownProps){
- 
   let groupId ='';
   if(ownProps.match) {
     groupId = ownProps.match.params.group;
   }
-
   let courses =[];
   let programcode = '';
-  
   if(state.catalogReducer.coursecatalog){
     courses = state.catalogReducer.coursecatalog.map(catalog => 
               catalog.courses.map(courses => 

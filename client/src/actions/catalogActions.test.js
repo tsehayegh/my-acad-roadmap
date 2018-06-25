@@ -9,12 +9,9 @@ import {
 	SET_SEMESTER,
 	setYear,
 	SET_YEAR
-
-} from './catalogActions';
-
+    } from './catalogActions';
 
 import {API_BASE_URL} from '../config';
-
 
 describe('fetchCatalogSuccess', () => {
 	it('Should return the action', () => {

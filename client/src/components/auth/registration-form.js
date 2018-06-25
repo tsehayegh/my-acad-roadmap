@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import {registerUser} from '../../actions/users';
 import {login} from '../../actions/auth';
 import Input from './input';
+
 import {required, nonEmpty, matches, length, isTrimmed} from './validators';
 
 import './registration-form.css';
@@ -18,12 +19,15 @@ export class RegistrationForm extends React.Component {
     onSubmit(values) {
         const {username, password, firstName, lastName, programcode} = values;
         const user = {username, password, firstName, lastName, programcode};
+        console.log(user);
         return this.props
             .dispatch(registerUser(user))
             .then(() => this.props.dispatch(login(username, password)));
     }
 
     render() {
+        console.log(this.props);
+
         return (
             <div className="container" id="reg-form">
             <div className="row">
@@ -44,9 +48,10 @@ export class RegistrationForm extends React.Component {
                     <div>
                         <Field name="programcode"
                                 className="program-selection" 
-                                component="select"
-                                validate={[required, nonEmpty]}
-                                type="select">
+                                component='select'
+                                validate={[required, nonEmpty, isTrimmed]}
+                                type="select"
+                                required>
                             <option />
                             <option value="Accounting and Finance, A25800A">Accounting and Finance, A25800A</option>
                         </Field>
