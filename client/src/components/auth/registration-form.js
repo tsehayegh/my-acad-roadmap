@@ -95,7 +95,7 @@ export class RegistrationForm extends React.Component {
                         Register
                     </button>
                 </div>
-                <label>Already registered? <Link to='/'> Log in </Link> here</label>
+                <label>Already registered, <Link to='/'> Log in </Link></label>
             </form>
             </div>
             </div>

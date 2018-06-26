@@ -151,7 +151,6 @@ class CheckboxApp extends React.Component {
   }
 
 
-
   onSubmit = () => {
     if((this.state.existingPlan.length === 0 && this.state.semester.trim() !== '' && this.state.year.trim() !== '')){
       const plans = {
@@ -181,7 +180,7 @@ class CheckboxApp extends React.Component {
               })
     } else {
       if(this.state.existingPlan.length > 0 && this.state.semester.trim() !== '' && this.state.year.trim() !== ''){
-        console.log(this.state.plan.map(course => this.dedupe(course, ',')));
+
         let tempPlan = this.state.plan;
         const newPlanArray = [].concat.apply([], tempPlan);
         const plans = {

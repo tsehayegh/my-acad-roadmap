@@ -13,9 +13,9 @@ export function RegistrationPage(props) {
     }
     
 
-    
+
     return (
-        <div className="container">
+        <div className="container" id="registration-page">
         <div className="row">
             <RegistrationForm />
         </div>

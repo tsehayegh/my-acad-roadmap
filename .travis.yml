@@ -9,7 +9,8 @@
  script:
    - npm run build
    - npm test
-
+ env:
+  - CI=true
  deploy:
    provider: script
    skip_cleanup: true
@@ -18,7 +19,3 @@
   
   install:
     - npm ci
-
-  before-install:
-  - '[ "${TRAVIS_NODE_VERSION}" != "0.8" ] || npm install -g npm@1.4.28'
-  - npm install -g npm@latest
