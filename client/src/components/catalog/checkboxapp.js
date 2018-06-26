@@ -144,6 +144,14 @@ class CheckboxApp extends React.Component {
     this.onSubmit();
   }
 
+  dedupe = (str, delimiter) => {
+      return str.split(delimiter || ',').reverse().filter(function(e, i, arr) {
+          return arr.indexOf(e, i+1) === -1;
+      }).reverse();
+  }
+
+
+
   onSubmit = () => {
     if((this.state.existingPlan.length === 0 && this.state.semester.trim() !== '' && this.state.year.trim() !== '')){
       const plans = {
@@ -173,6 +181,7 @@ class CheckboxApp extends React.Component {
               })
     } else {
       if(this.state.existingPlan.length > 0 && this.state.semester.trim() !== '' && this.state.year.trim() !== ''){
+        console.log(this.state.plan.map(course => this.dedupe(course, ',')));
         let tempPlan = this.state.plan;
         const newPlanArray = [].concat.apply([], tempPlan);
         const plans = {

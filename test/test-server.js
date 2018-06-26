@@ -264,8 +264,6 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 		});
 	});
 
-
-
 });
 
 
