@@ -43,7 +43,7 @@ export class Navbar extends React.Component {
 		if (programcode.length > 1) {
 			programcode = programcode[1].trim();
 		} 
-		this.props.dispatch(fetchCatalog(`${programcode}`));
+		return this.props.dispatch(fetchCatalog(`${programcode}`));
 	}
 
 	render() {

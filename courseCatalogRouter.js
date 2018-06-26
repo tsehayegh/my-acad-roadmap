@@ -48,6 +48,4 @@ courseCatalogRouter.get('/api/catalog/:programCode', (req, res) => {
 });
 
 
-
-
 module.exports = {courseCatalogRouter};
