@@ -22,6 +22,7 @@ class SelectionsPage extends React.Component {
 
 	componentDidMount() {
 		let programcode = this.props.currentUser.programcode.split(',');
+
 		if (programcode.length > 1) {
 			programcode = programcode[1].trim();
 		} 
