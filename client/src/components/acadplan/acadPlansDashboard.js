@@ -20,7 +20,7 @@ import {API_BASE_URL} from '../../config';
 import './acadPlansDashboard.css';
 
 
-class AcadPlanDashboard extends React.Component {
+export class AcadPlanDashboard extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -187,7 +187,6 @@ class AcadPlanDashboard extends React.Component {
 }
 
 function mapStateToProps(state, ownProps){
-
 	return{
 		acadplans: state.catalogReducer.acadplans,
 		currentUser: state.auth.currentUser,

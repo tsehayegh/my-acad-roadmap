@@ -15,7 +15,7 @@ import './navbar.css';
 
 import Home from './home';
 
-class Navbar extends React.Component {
+export class Navbar extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -23,7 +23,6 @@ class Navbar extends React.Component {
 			selectedMenuBar: 0
 		}
 	}
-
 
 	logOut(e) {
 		e.preventDefault();

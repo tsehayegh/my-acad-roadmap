@@ -53,7 +53,7 @@ export class LoginForm extends React.Component {
                 <div className="col-12">
 
                 <form
-                    className="form-signin"
+                    className="form-signin" id="form-login"
                     id="form-signin"
                     onSubmit={this.props.handleSubmit(values =>
                         this.onSubmit(values)
@@ -83,10 +83,9 @@ export class LoginForm extends React.Component {
                             Log in
                         </button>
                     </div>
-                    <label> Not registered yet, Register Now </label>
-                    <div className="col-lg text-center">
-                        <Link to="/register" className="btn btn-lg btn-primary btn-Link" disabled={this.props.pristine || this.props.submitting}>Register</Link>
-                    </div>
+                    <label> Not registered yet, 
+                        <Link to='/register'> Register </Link> Now
+                        </label>
                 </form>
                 </div>
                 </div>

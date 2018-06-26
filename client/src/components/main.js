@@ -1,25 +1,15 @@
 import React from 'react';
-
 import {connect} from 'react-redux';
-
 import {BrowserRouter as Router, 
 	Route} from 'react-router-dom';
 
 import Navbar from './navbar';
-
 import SelectionsPage from './catalog/selectionsPage';
-
 import CheckboxApp from './catalog/checkboxapp';
-
 import AcadPlansDashboard from './acadplan/acadPlansDashboard';
-
 import LoginForm from './auth/login-form';
-
 import RegistrationPage from './auth/registration-page';
-
-
 import UserProfile from './auth/user-profile';
-
 import Home from './home';
 
 export class Main extends React.Component {
