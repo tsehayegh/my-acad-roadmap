@@ -20,8 +20,15 @@ export class Navbar extends React.Component {
 		super(props);
 		this.state = {
 			dropdownOpen: false,
-			selectedMenuBar: 0
+			selectedMenuBar: 0,
+			key: 0
 		}
+	}
+
+	setKey(e){
+		this.setState({
+			key: e
+		});
 	}
 
 	logOut(e) {
@@ -43,11 +50,16 @@ export class Navbar extends React.Component {
 		if (programcode.length > 1) {
 			programcode = programcode[1].trim();
 		} 
+		this.setState({
+			key: 1
+		});
+
 		return this.props.dispatch(fetchCatalog(`${programcode}`));
 	}
 
 	render() {
 		return(
+
 			<nav className="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
 				<div className="container ">
 				  <Link className="navbar-brand text-white" data-toggle="collapse" to="/home">My Acad Roadmap</Link>
@@ -60,7 +72,9 @@ export class Navbar extends React.Component {
 
 				  <div className="collapse navbar-collapse text-white" id="navbarSupportedContent">
 				    <ul className="nav navbar-nav mr-auto">
-				      <li className="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent">
+				      <li className="nav-item" key={1}
+				      		data-toggle="collapse" 
+				      		data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent">
 				        <Link className="nav-link text-white" to="/plan" onClick={e => this.handleOnClick(e.target)}>Plan my program</Link>
 				      </li>
 				      <li className="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent">
@@ -69,9 +83,11 @@ export class Navbar extends React.Component {
 				    </ul>
 
 			        <ul className="nav navbar-nav navbar-right">
-				      <li className="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent" >
+				      <li className="nav-item" onClick={e => this.setKey(2)} key={2}
+				      		data-toggle="collapse" 
+				      		data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent" >
 				      	
-				      	<Link className="nav-link text-white" id="profile"
+				      	<Link className="nav-link text-white" id={this.state.key === 2 ? 'active' : '' }
 				      			to="/profile">
 				      			Profile ({this.props.username})
 				      	</Link>
