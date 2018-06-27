@@ -72,10 +72,10 @@ export class Navbar extends React.Component {
 
 				  <div className="collapse navbar-collapse text-white" id="navbarSupportedContent">
 				    <ul className="nav navbar-nav mr-auto">
-				      <li className="nav-item" onClick={e => this.setKey(1)} key={1}
+				      <li className="nav-item plan" onClick={e => this.setKey(1)} key={1}
 				      		data-toggle="collapse" 
 				      		data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent">
-				        <Link className="nav-link text-white" id={this.state.key === 1 ? 'activeTab' : '' } 
+				        <Link className="nav-link text-white plan-link" id={this.state.key === 1 ? 'activeTab' : '' } 
 				        		to="/plan" 
 				        		onClick={e => this.handleOnClick(e.target)}>Plan my program</Link>
 				      </li>

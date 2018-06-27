@@ -12,11 +12,11 @@
 #active {
 	font-weight: bold;
 	color: black;
-	border-bottom: 4px solid green;
+	background-color: #48b1bf;
 }
 
 #activeTab {
 	font-weight: bold;
 	color: black;
-	border-bottom: 4px solid #fff;
+	border-bottom: 4px solid #48b1bf;
 }
