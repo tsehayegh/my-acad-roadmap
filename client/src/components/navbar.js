@@ -72,29 +72,38 @@ export class Navbar extends React.Component {
 
 				  <div className="collapse navbar-collapse text-white" id="navbarSupportedContent">
 				    <ul className="nav navbar-nav mr-auto">
-				      <li className="nav-item" key={1}
+				      <li className="nav-item" onClick={e => this.setKey(1)} key={1}
 				      		data-toggle="collapse" 
 				      		data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent">
-				        <Link className="nav-link text-white" to="/plan" onClick={e => this.handleOnClick(e.target)}>Plan my program</Link>
+				        <Link className="nav-link text-white" id={this.state.key === 1 ? 'activeTab' : '' } 
+				        		to="/plan" 
+				        		onClick={e => this.handleOnClick(e.target)}>Plan my program</Link>
 				      </li>
-				      <li className="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent">
-				        <Link className="nav-link text-white" to="/dashboard">Dashboard</Link>
+				      <li className="nav-item" onClick={e => this.setKey(2)} key={2}
+				      		data-toggle="collapse" 
+				      		data-target="#navbarSupportedContent" 
+				      		aria-expanded="true" aria-controls="navbarSupportedContent">
+				        <Link className="nav-link text-white" id={this.state.key === 2 ? 'activeTab' : '' }
+				        	to="/dashboard">Dashboard</Link>
 				      </li>
 				    </ul>
 
 			        <ul className="nav navbar-nav navbar-right">
-				      <li className="nav-item" onClick={e => this.setKey(2)} key={2}
+				      <li className="nav-item" onClick={e => this.setKey(3)} key={3}
 				      		data-toggle="collapse" 
 				      		data-target="#navbarSupportedContent" aria-expanded="true" aria-controls="navbarSupportedContent" >
 				      	
-				      	<Link className="nav-link text-white" id={this.state.key === 2 ? 'active' : '' }
+				      	<Link className="nav-link text-white" id={this.state.key === 3 ? 'activeTab' : '' }
 				      			to="/profile">
 				      			Profile ({this.props.username})
 				      	</Link>
 
 				      </li>
 				      <li className="nav-item">
-				      	<Link className="nav-link text-white" to ='/login' onClick={e => this.logOut(e)}>Log out</Link>
+				      	<Link className="nav-link text-white"
+				      		to ='/login' 
+				      		onClick={e => this.logOut(e)}>Log out
+				      	</Link>
 				      </li>
 				    </ul>
 

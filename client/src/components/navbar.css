@@ -25,9 +25,11 @@ html {
     border-bottom: 4px solid #fff;
 }
 
-.nav-link:global(.active) {
-  background-color: green;
+.nav-link:global(.activeTab) {
+  border-bottom: 4px solid #fff;
 }
+
+
 
 
 @media (max-width: 575.98px) {
