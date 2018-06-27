@@ -19,7 +19,6 @@ import {API_BASE_URL} from '../../config';
 
 import './acadPlansDashboard.css';
 
-
 export class AcadPlanDashboard extends React.Component {
 	constructor(props){
 		super(props);

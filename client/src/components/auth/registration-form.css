@@ -6,8 +6,7 @@
 }
 
 .reg-form {
-  max-width: 600px;
-  height: 100%;
+  max-width: 800px;
 }
 
 .program-selection {
@@ -32,6 +31,7 @@ textarea:focus, input:focus{
   .reg-form {
     width: 100%;
   }
+
 }
 
 @include media-breakpoint-up(sm) {

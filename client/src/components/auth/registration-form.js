@@ -25,8 +25,6 @@ export class RegistrationForm extends React.Component {
     }
 
     render() {
-        console.log(this.props);
-
         return (
             <div className="container" id="reg-form">
             <div className="row">
