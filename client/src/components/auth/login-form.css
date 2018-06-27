@@ -1,7 +1,7 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: rgb(229, 228, 226, 0.5);
+  background-color: rgba(229,228,226, 0.5);
   font-family: 'Lato' sans-serif;
 }
 
@@ -12,9 +12,8 @@ body {
   margin: 0 auto;
   background-color: rgb(176, 224, 230);
   border: 1px solid brown;
-  
-  margin-bottom:  20px;
-
+  margin-bottom: 50px;
+  margin-top: 20px;
 }
 .form-signin .form-signin-heading{
   margin-bottom: 10px;
@@ -66,9 +65,9 @@ body {
   text-align: center;
   font-weight: bold;
   text-shadow: 1px 2px;
-  color: #2A52BE;
+  color: #4CAF50;
   display: block;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 #login-form {
@@ -91,7 +90,7 @@ body {
   }
     #login-form {
     margin-bottom: 0;
-    margin-top: 0;
+    height: 100%;
   }
 }
 

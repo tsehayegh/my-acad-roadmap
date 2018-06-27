@@ -16,9 +16,7 @@ import './selectionPage.css';
 
 class SelectionPage extends React.Component {
  	componentDidMount() {
- 		console.log(this.props);
  		const searchQuery = `?username=${this.props.currentUser}`;
-
 		let programcode = this.props.currentUser.programcode.split(',');
 		if (programcode.length > 1) {
 			programcode = programcode[1].trim();
@@ -64,12 +62,8 @@ class SelectionPage extends React.Component {
 	    handleFormSubmit = formSubmitEvent => {
 	    formSubmitEvent.preventDefault();
 	    for (const checkbox of this.selectedCheckboxes) {
-	      
 	      this.setNewPlan(checkbox);
-	      console.log(checkbox, 'is selected.');
 	    }
-
-	    console.log(this.state.newPlan);
 	  }
 
 	  setNewPlan(currentPlan){
