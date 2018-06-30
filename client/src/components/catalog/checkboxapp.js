@@ -2,13 +2,11 @@ import React from 'react';
 
 import {connect} from 'react-redux';
 
-
 import { fetchCatalog,
       createNewPlan, 
       fetchAcadPlans} from '../../actions/catalogActions'
 
 import { ToastContainer, toast } from 'react-toastify';
-
 
 import {API_BASE_URL} from '../../config';
 
@@ -21,7 +19,6 @@ import SelectionsPage from './selectionsPage';
 import InputGroupList from './inputGroupList';
 
 import './checkboxapp.css'
-
 
 
 class CheckboxApp extends React.Component {
@@ -149,20 +146,27 @@ class CheckboxApp extends React.Component {
   }
 
   removeDuplicates = (dupPlan) => {
-    return dupPlan.filter(function(item, index) {
-      return dupPlan.indexOf(item) !== -1
-    });
+      return dupPlan.filter(function(elem, pos, arr) {
+        return arr.indexOf(elem) === pos;
+      });
   }
 
-
   onSubmit = () => {
-    if((this.state.existingPlan.length === 0 && this.state.semester.trim() !== '' && this.state.year.trim() !== '')){
+    const dupPlan = this.state.plan;
+    const uniquePlan =this.removeDuplicates(dupPlan);
+
+    this.setState({
+      plan: uniquePlan
+    });
+
+    if((this.state.existingPlan.length === 0 && 
+      this.state.semester.trim() !== '' && this.state.year.trim() !== '')){
       const plans = {
         username: this.props.currentUser.username,
         firstname: this.props.currentUser.firstName,
         lastname: this.props.currentUser.lastName,
         programcode: this.props.currentUser.programcode,
-        plan: this.state.plan
+        plan: uniquePlan
       }
       const searchQuery = `?username=${plans.username}`;
       this.props
@@ -187,12 +191,19 @@ class CheckboxApp extends React.Component {
 
         let tempPlan = this.state.plan;
         const newPlanArray = [].concat.apply([], tempPlan);
+        const uniqueNewPlanArray = this.removeDuplicates(newPlanArray);
+
+
+        this.setState({
+          plan: uniqueNewPlanArray
+        });
+
         const plans = {
           username: this.props.currentUser.username,
           firstname: this.props.currentUser.firstName,
           lastname: this.props.currentUser.lastName,
           programcode: this.props.currentUser.programcode,
-          plan: newPlanArray
+          plan: uniqueNewPlanArray
         }
         const searchQuery = `?username=${plans.username}`;
         const userId = this.state.existingPlan.map(plans => plans.id)[0];
@@ -239,8 +250,6 @@ class CheckboxApp extends React.Component {
         this.createCheckbox(`${course[0]}, ${course[1]}, ${course[2]}, ${course[3]}, ${course[4]}`, index)))
   )
 
-
-
   setSemester = (event) => {
     this.setState({
       semester: event,
@@ -261,7 +270,7 @@ class CheckboxApp extends React.Component {
     this.setState({
       exceedsMaxGroupSelection: true
     });
-    console.log(this.selectedCheckboxes);
+
 
     if(this.state.exceedsMaxGroupSelection){
       this.selectedCheckboxes.clear();
@@ -269,11 +278,10 @@ class CheckboxApp extends React.Component {
         selectedCount: 0
       })
     }
-    console.log(this.selectedCheckboxes);
+ 
   }
 
   render() {
-    console.log(this.state.exceedsMaxGroupSelection)
     return (
       <SelectionsPage>
         <div className="container" id="checkbox-creator">

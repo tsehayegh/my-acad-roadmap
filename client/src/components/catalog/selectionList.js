@@ -47,16 +47,18 @@ class SelectionList extends React.Component {
 				<ul className="list-group form-control-lg" id="selection-list">
 					<label>Select a Group of Courses</label>
 					{this.props.groups.map((group,index) => 
-						<li className="list-group-item" onClick={() => this.setKey(index)} key={index}>
+						<li className="list-group-item" 
+							onClick={() => this.setKey(index)} 
+							key={index}
+									data-toggle="tooltip" 
+									data-placement="right" 
+									title={howTo}
+									trigger='hover focus'>
 							Group {group}:  
 							<Link to={'/plan/' + group} 
 									className={this.state.linkstatus} 
 									id={index === this.state.key ? 'active' : '' }
 									value={this.state.key}
-									data-toggle="tooltip" 
-									data-placement="right" 
-									title={howTo}
- 
 									> 
 								{ } Take <span className="badge badge-info badge-pill"> {this.props.coursecatalog[0].selection[index]}</span> courses from...
 							</Link>

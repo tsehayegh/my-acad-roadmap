@@ -30,7 +30,7 @@ export class Checkbox extends React.Component {
     const { label } = this.props;
     const { isChecked } = this.state;
     const checkStatus = (this.state.isChecked && checker);
-
+    const course = label.split(',')[1];    
     return (
         <div className="form-ckeck form-control-lg">
           <label className="form-check-label">
@@ -38,7 +38,7 @@ export class Checkbox extends React.Component {
               className="form-check-input"
               type="checkbox"
               value={label}
-              id={label}
+              id={label.split(',')[1]}
               checked={isChecked}
               onChange={this.toggleCheckboxChange}
               disabled={this.props.checkboxStatus}
@@ -51,7 +51,6 @@ export class Checkbox extends React.Component {
 }
 
 function mapStateToProps(state, ownProps){
-
   const toArray = [...ownProps.selectedCheckboxes];
 
     let groupNumb = '';
@@ -60,20 +59,25 @@ function mapStateToProps(state, ownProps){
       groupNumb = toArray.map(curr => curr.split(',')[3])[0];
       selectionCount=toArray.map(curr => curr.split(',')[4])[0];
     }
-
-    
     let selectedFromCurrentGroup =[];
+    let uniquePlan = [];
     if(ownProps.plan.length > 1) {
       selectedFromCurrentGroup = ownProps.plan.map(courses => 
                               courses.split(',')).filter(arrayCourse => 
                                 Number(arrayCourse[4].trim()) === Number(groupNumb.trim()));
+
+      uniquePlan = ownProps.plan.filter(function(elem, pos, arr) {
+        return arr.indexOf(elem) === pos;
+      });
+
     }
 
   return {
       currentSelection: toArray,
       groupNumb: groupNumb,
       selectionCount: Number(selectionCount),
-      selectedFromCurrentGroup: selectedFromCurrentGroup
+      selectedFromCurrentGroup: selectedFromCurrentGroup,
+      uniquePlan: uniquePlan
     }
 
 };
