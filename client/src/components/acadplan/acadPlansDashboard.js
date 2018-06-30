@@ -1,15 +1,11 @@
 
-
 import React from 'react';
 
 import {toast } from 'react-toastify';
 
-
 import {connect} from 'react-redux';
 
 import {fetchAcadPlans} from '../../actions/catalogActions'
-
-//import AcadPlansList from './acadPlansList';
 
 import requiresLogin from '../auth/requires-login';
 
@@ -47,41 +43,25 @@ export class AcadPlanDashboard extends React.Component {
 		});    
 	}
 
-	  handleButton = (nPlan) => {
-	    if(nPlan.length > 0) {
+	handleButton = (courseToDlete) => {
+	  	console.log(courseToDlete);
+	    if(courseToDlete.length > 10) {
 	        this.setState({
 	          buttonStatus: false
 	        });
+	    } else {
+	    	this.setState({
+	    		buttonStatus: true
+	    	})
 	    }
-	  }
-
-	 notify = (type) =>{
-	 	return() => {
-	 		toast("Default Notification !");
-	 		switch (type) {
-	 			case 'info':
-	 				toast.info('Info message', {
-	 					autoClose: 3000
-	 				});
-	 				break;
- 				case 'success':
- 					toast.success('Course deleted from plan successfully!', {
- 						position: toast.POSITION.BOTTOM_RIGHT,
- 					});
- 					break;
-			    case 'warning':
-			        toast.warn('Warning message');
-			        break;
-			    case 'error':
-			        toast.error('Error message');
-			        break;
-	 		}
-	 	};
-	 };
+	}
 
 	handleSubmit = () => {
+		console.log(this.state.newPlan);
+
 		let tempPlan = this.state.newPlan;
         const newPlanArray = [].concat.apply([], tempPlan);
+        
         const plans = {
           username: this.props.currentUser.username,
           firstname: this.props.currentUser.firstName,
@@ -92,10 +72,10 @@ export class AcadPlanDashboard extends React.Component {
         const searchQuery = `?username=${plans.username}`;
         const userId = this.props.acadplans.map(plans => plans.id)[0];
         
-
         plans.id = userId;
 
-        if(plans.plan.length !== this.state.existingPlan.length){
+        //if(plans.plan.length !== this.state.existingPlan.length){
+
 	        return fetch(`${API_BASE_URL}/acadplan/${userId}`, {
 	          method: 'PUT',
 	          body: JSON.stringify(plans),
@@ -117,7 +97,8 @@ export class AcadPlanDashboard extends React.Component {
 
 	        	})
 	        .then(() => console.log('successful'))
-	    }
+
+	    //}
 	}
 
 
@@ -145,7 +126,7 @@ export class AcadPlanDashboard extends React.Component {
 						
 						<button className={`btn btn-lg btn-success`} 
 								type="submit"
-								onClick={e => this.handleSubmit(e.target)}
+								onClick={this.handleSubmit}
 								disabled={this.state.buttonStatus}
 								>
 								Delete
@@ -170,7 +151,7 @@ export class AcadPlanDashboard extends React.Component {
 														elem.includes(semester))).map(planList => 
 															planList.map(courseInfo => 
 															<li className="list-group-item" key={courseInfo[2]}>
-																{courseInfo[1]}, {courseInfo[2]}, {courseInfo[3]} credit hours
+																{courseInfo[1]}, {courseInfo[2]}, {courseInfo[3]}
 															</li>
 										))					
 									}

@@ -2,6 +2,10 @@
 # My Acad Roadmap
 
 # https://my-acad-roadmap.herokuapp.com/
+	You can yes the following username and password to log in as a guest:
+
+	username: test
+	password: asdfghjklq
 
 # Introduction and Functionality
 According to National Center for Education Statistics, some 20 million students attend American colleges and universities. Educational counselors and advisors in secondary and higher education institutions advise millions of students the classes they have take every semester. If students and educational institutions know in advance the courses that students are supposed to take every semester then, the students know to course to take every semester and the institions know how many students will take each course every semester. This benefits both the students and institutions to plan and allocate resources accurately. My Acad Roadmap, short for My Academic Roadmap, helps students to plan their program of study for the entire duration of the study.

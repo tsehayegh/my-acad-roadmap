@@ -19,6 +19,7 @@ export class RegistrationForm extends React.Component {
     onSubmit(values) {
         const {username, password, firstName, lastName, programcode} = values;
         const user = {username, password, firstName, lastName, programcode};
+        console.log(user);
         return this.props
             .dispatch(registerUser(user))
             .then(() => this.props.dispatch(login(username, password)));
@@ -26,9 +27,7 @@ export class RegistrationForm extends React.Component {
 
     render() {
         return (
-            <div className="container" id="reg-form">
-            <div className="row">
-            
+
             <form
                 className="form-signin" id="form-signin"
                 onSubmit={this.props.handleSubmit(values =>
@@ -61,6 +60,7 @@ export class RegistrationForm extends React.Component {
                         required>
                     <option />
                     <option value="Accounting and Finance, A25800A">Accounting and Finance, A25800A</option>
+                    <option value="Computer-Integrated Machining Technology, A50210">Computer-Integrated Machining Technology, A50210</option>
                 </Field>
 
                 <label htmlFor="username">Username</label>
@@ -95,8 +95,7 @@ export class RegistrationForm extends React.Component {
                 </div>
                 <label>Already registered, <Link to='/'> Log in </Link></label>
             </form>
-            </div>
-            </div>
+
         )
     }
 }

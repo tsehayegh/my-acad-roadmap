@@ -25,21 +25,41 @@ class EditAcadPlans extends React.Component {
 		this.setState({
 		  courseToDelete: event
 		});
+
+		this.props.handleButton(event);
 		this.flattenArray(event);
 	}
 
 	flattenArray = (courseToDelete) => {
+		console.log(courseToDelete);
+
+		console.log(this.props.acadplans.map(plans => plans.plan));
+
       let tempPlan = this.props.acadplans.map(plans => plans.plan);
+
       let newPlanArray = [].concat.apply([], tempPlan);
+      console.log(newPlanArray);
+
       const i = newPlanArray.indexOf(courseToDelete);
+
+      console.log(courseToDelete);
+      console.log(newPlanArray);
+
+      console.log(i);
+
       if(i !== -1){
         const deletePlan = newPlanArray.splice(i, 1);
+        console.log(deletePlan);
+
         this.props.setNewPlan(newPlanArray);
-        this.props.handleButton(newPlanArray);
+        console.log(newPlanArray);
+
         this.setState({
           plan: newPlanArray
         })
       };
+      
+      
 	}
 
 	render(){
@@ -87,8 +107,8 @@ class EditAcadPlans extends React.Component {
 												planList.map(courseInfo => 
 												<option className="list-group-item" 
 														key={courseInfo[2]} 
-														value={`${courseInfo[0]},${courseInfo[1]},${courseInfo[2]},${courseInfo[3]}`}>
-														{courseInfo[0]}, {courseInfo[1]}, {courseInfo[2]}, {courseInfo[3]}
+														value={`${courseInfo[0]},${courseInfo[1]},${courseInfo[2]},${courseInfo[3]},${courseInfo[4]},${courseInfo[5]}`}>
+														{courseInfo[0]}, {courseInfo[1]}, {courseInfo[2]}, {courseInfo[3]}, {courseInfo[4]}, {courseInfo[5]}
 												</option>
 							))					
 						}

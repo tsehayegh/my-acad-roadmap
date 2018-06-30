@@ -33,6 +33,7 @@ class CheckboxApp extends React.Component {
       inputBoxStatus: true,
       clearSelection: false,
       selectedCount: 0,
+      exceedsMaxGroupSelection: false,
       year: '',
       semester: '',
       semesterSelection:['Spring', 'Summer', 'Fall'],
@@ -40,7 +41,8 @@ class CheckboxApp extends React.Component {
       existingPlan: {},
       oldPlan: [],
       newPlan: [],
-      joinedPlan: []
+      joinedPlan: [],
+      courseAlreadyExists: false
     }
   }
 
@@ -60,7 +62,8 @@ class CheckboxApp extends React.Component {
               plan: [...existPlan]
             }) 
           this.setState({
-            existingPlan: acadplans.acadplans
+            existingPlan: acadplans.acadplans,
+            oldPlan: acadplans.acadplans.plan
           })
         }
       })
@@ -99,18 +102,20 @@ class CheckboxApp extends React.Component {
       })
 
     } else {
-      this.selectedCheckboxes.add(label);
-      checkedPlan = checkedPlan.concat(`${this.state.semester} ${this.state.year}, ${label}`);
-      let newArray = [];
-      newArray = newArray.concat(this.state.plan, checkedPlan);
-      let flatPlan = [].concat.apply([], newArray);
-      this.setState({
-        plan: flatPlan
-      });
-      this.setState({
-        selectedCount: this.state.selectedCount + 1
-      })
-    }
+          this.selectedCheckboxes.add(label);
+          checkedPlan = checkedPlan.concat(`${this.state.semester} ${this.state.year}, ${label}`);
+          let newArray = [];
+          newArray = newArray.concat(this.state.plan, checkedPlan);
+          let flatPlan = [].concat.apply([], newArray);
+          this.setState({
+            plan: flatPlan
+          });
+          this.setState({
+            selectedCount: this.state.selectedCount + 1
+          })
+      }
+
+      this.handleButton();
   }
 
   setNewPlan(nPlan){
@@ -119,7 +124,6 @@ class CheckboxApp extends React.Component {
     })
   };
 
-
   handleChange(e){
     this.setState({
       newPlan: e
@@ -127,16 +131,16 @@ class CheckboxApp extends React.Component {
   }
 
   handleButton = () => {
+    const selectedCheckboxes = [...this.selectedCheckboxes]
+    if(selectedCheckboxes.length > 0){
+      this.setState({
+        buttonStatus: false
+      });
+    }else {
       this.setState({
         buttonStatus: true
-      }); 
-    for (let checkbox of this.selectedCheckboxes) {
-      if(checkbox && this.state.semester !== '' && this.state.year.trim().length === 4){
-        this.setState({
-          buttonStatus: false
-        });
-      }
-    }
+      });  
+    }   
   }
 
   handleFormSubmit = formSubmitEvent => {
@@ -144,10 +148,10 @@ class CheckboxApp extends React.Component {
     this.onSubmit();
   }
 
-  dedupe = (str, delimiter) => {
-      return str.split(delimiter || ',').reverse().filter(function(e, i, arr) {
-          return arr.indexOf(e, i+1) === -1;
-      }).reverse();
+  removeDuplicates = (dupPlan) => {
+    return dupPlan.filter(function(item, index) {
+      return dupPlan.indexOf(item) !== -1
+    });
   }
 
 
@@ -204,12 +208,10 @@ class CheckboxApp extends React.Component {
           this.props.dispatch(fetchAcadPlans(searchQuery));
         })
         .then( () => {
-              
               this.props.history.push({
                         pathname: '/dashboard',
                         state: {detail: plans}
                         })
-              
         })
         .then(() => console.log('Updated!'))
                     
@@ -222,23 +224,29 @@ class CheckboxApp extends React.Component {
       label={label}
       handleCheckboxChange={this.toggleCheckbox}
       key={label}
-      handleButtonStatus={this.handleButton}
       checkboxStatus={this.state.checkboxStatus}
+      selectedCountPerGroup={this.props.selectedCountPerGroup}
+      selectedCheckboxes={this.selectedCheckboxes}
+      plan={this.state.plan}
+      groupcourses={this.props.groupcourses}
+      setExceedsMaxGroupSelection={this.setExceedsMaxGroupSelection}
     />
   )
 
   createCheckboxes = () => (
     this.props.groupcourses.map(courseLists => 
       courseLists.map((course, index) => 
-        this.createCheckbox(`${course[0]}, ${course[1]}, ${course[2]}`, index)))
+        this.createCheckbox(`${course[0]}, ${course[1]}, ${course[2]}, ${course[3]}, ${course[4]}`, index)))
   )
+
+
 
   setSemester = (event) => {
     this.setState({
       semester: event,
       inputBoxStatus: event.trim() === 'Choose...'
     });
-    this.handleButton();
+    
   }
 
   setYear = (event) =>{
@@ -246,16 +254,26 @@ class CheckboxApp extends React.Component {
       year: event,
       checkboxStatus: (event < new Date().getFullYear() || isNaN(event.trim()) || event.trim().length !== 4)
     })
-    this.handleButton();
+    
   }
 
-  countSelectedCourses(){
+  setExceedsMaxGroupSelection=()=>{
     this.setState({
-      selectedCount: this.state.selectedCount + 1
-    })
+      exceedsMaxGroupSelection: true
+    });
+    console.log(this.selectedCheckboxes);
+
+    if(this.state.exceedsMaxGroupSelection){
+      this.selectedCheckboxes.clear();
+      this.setState({
+        selectedCount: 0
+      })
+    }
+    console.log(this.selectedCheckboxes);
   }
 
   render() {
+    console.log(this.state.exceedsMaxGroupSelection)
     return (
       <SelectionsPage>
         <div className="container" id="checkbox-creator">
@@ -282,6 +300,7 @@ class CheckboxApp extends React.Component {
                       </span>
                     )</label>
                 </h5>
+                 <label>Title, Course Code, Credit Hours, Group, Max Selection </label>
                   {this.createCheckboxes()}
                   <button className={`btn btn-lg btn-success`} 
                           disabled={this.state.buttonStatus} 
@@ -305,11 +324,12 @@ function mapStateToProps(state, ownProps){
   let courses =[];
   let programcode = '';
   if(state.catalogReducer.coursecatalog){
-    courses = state.catalogReducer.coursecatalog.map(catalog => 
+      courses = state.catalogReducer.coursecatalog.map(catalog => 
               catalog.courses.map(courses => 
               courses.split(','))).map(course => 
               course.filter(elem => 
               Number(elem[3]) === Number(groupId)));
+
     programcode= state.catalogReducer.coursecatalog.map(catalog => `${catalog.programTitle}`);
   }
   return {

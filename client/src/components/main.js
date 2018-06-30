@@ -5,6 +5,7 @@ import {BrowserRouter as Router,
 
 import Navbar from './navbar';
 import SelectionsPage from './catalog/selectionsPage';
+
 import CheckboxApp from './catalog/checkboxapp';
 import AcadPlansDashboard from './acadplan/acadPlansDashboard';
 import LoginForm from './auth/login-form';
@@ -28,7 +29,8 @@ export class Main extends React.Component {
 
 						<Route exact path='/profile' component={UserProfile} />
 
-						<Route exact path='/plan' component={SelectionsPage} /> 
+						<Route exact path='/plan' component={SelectionsPage} />
+						
 
 						<Route exact path='/plan/:group' component={CheckboxApp}/>
 				</div>

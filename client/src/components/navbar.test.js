@@ -22,11 +22,9 @@ describe('<Navbar />', () => {
 
 	it('Should call handleOnClick when plan-link is called', () => {
 		const callback = jest.fn();
-		const wrapper = shallow(<Navbar handleOnClick={callback()} />);
+		const wrapper = shallow(<Navbar dispatch={e => callback(e.target)} />);
 		const link = wrapper.find('.plan-link');
-		link.simulate('click', {
-			preventDefault() {}
-		})
+		link.simulate('click');
 	})
 
 })

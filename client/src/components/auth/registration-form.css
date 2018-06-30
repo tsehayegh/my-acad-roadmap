@@ -5,14 +5,32 @@
 	margin-top: 45px;
 }
 
-.reg-form {
-  max-width: 800px;
+#reg-form {
+  width: 800px;
 }
 
 .program-selection {
 	border: 1px solid brown;
   font-size:18px;
+  max-width: 330px;
+  margin-right: 20px;
 }
+
+select.program-selection:not([size]):not([multiple]) {
+    height: calc(1.8rem + 2px);
+    width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 15px;
+}
+
+.program-selection{
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 15px;
+}
+
 
 
 textarea:focus, input:focus{

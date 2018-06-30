@@ -1,7 +1,6 @@
 
 import {API_BASE_URL} from '../config';
 
-
 export const FETCH_CATALOG_SUCCESS = 'FETCH_CATALOG_SUCCESS';
 export const fetchCatalogSuccess = (coursecatalog) => ({
 	type: FETCH_CATALOG_SUCCESS,

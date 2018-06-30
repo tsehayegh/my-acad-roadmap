@@ -31,11 +31,16 @@ class SelectionList extends React.Component {
 
 	setKey(key){
 		this.setState({
-			key
-		})
+			key: key,
+			groupId: key + 1
+
+		});
+		this.props.selectedGroup();
+		this.props.setCoursesToSelectPerGroup(this.props.coursecatalog[0].selection[key], key+1);
 	}
 
 	render() {
+		const howTo =`(1) Select a group from this list, (2) Select a semester, (3) Enter a 4-digit year (Ex. 2018), (4) Select a course or courses you want to take, (5) Select another group if you want to add more course, (6) Click the 'Save' button to save your plan`;
 		return (
 			<div className="container">
 			<div className="selection-list">
@@ -44,7 +49,15 @@ class SelectionList extends React.Component {
 					{this.props.groups.map((group,index) => 
 						<li className="list-group-item" onClick={() => this.setKey(index)} key={index}>
 							Group {group}:  
-							<Link to={'/plan/' + group} className={this.state.linkstatus} id={index === this.state.key ? 'active' : '' }> 
+							<Link to={'/plan/' + group} 
+									className={this.state.linkstatus} 
+									id={index === this.state.key ? 'active' : '' }
+									value={this.state.key}
+									data-toggle="tooltip" 
+									data-placement="right" 
+									title={howTo}
+ 
+									> 
 								{ } Take <span className="badge badge-info badge-pill"> {this.props.coursecatalog[0].selection[index]}</span> courses from...
 							</Link>
 						</li>
@@ -63,7 +76,7 @@ SelectionList.propTypes = {
 function mapStateToProps(state, ownProps){
 	const groups = Array.from(new Set(state.catalogReducer.coursecatalog.map(catalog => 
 							catalog.courses.map(courses => 
-							courses.split(',')[3]
+							courses.split(',')[3].trim()
 						))[0]));
 	return {
 			coursecatalog: state.catalogReducer.coursecatalog,

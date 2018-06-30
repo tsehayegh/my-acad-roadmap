@@ -11,7 +11,7 @@ import requiresLogin from '../auth/requires-login';
 
 
 import SelectionList from './selectionList';
-
+import SelectionListInfo from './selectionListInfo';
 import './selectionsPage.css';
 
 class SelectionsPage extends React.Component {
@@ -21,26 +21,44 @@ class SelectionsPage extends React.Component {
 	}
 
 	componentDidMount() {
-		let programcode = this.props.currentUser.programcode.split(',');
-
+		let programcode = this.props.currentUser.programcode.trim().split(',');
 		if (programcode.length > 1) {
 			programcode = programcode[1].trim();
 		} 
-		this.props.dispatch(fetchCatalog(`${programcode}`));
-		
+		return this.props.dispatch(fetchCatalog(`${programcode}`));
 	}
+
 	constructor(props){
 		super(props);
 		this.state = {
-			linkstatus: 'enabled-link'
+			linkstatus: 'enabled-link',
+			selectedGroup: false,
+			couresToSelectPerGroup: 0,
+			selectedGroupId: 0,
+			selectedCountPerGroup:0
 		}
 		this.formCheckbox = this.formCheckbox.bind(this);
-
 	}
 
-	removeDuplicates(){
-			
+
+	setSelectedGroup =() => {
+		this.setState({
+			selectedGroup: true
+		})
 	}
+
+	setCoursesToSelectPerGroup = (count, groupId) => {
+		this.setState({
+			couresToSelectPerGroup: count,
+			selectedGroupId: groupId
+		});
+	}
+
+	setSelectCountPerGroup(c){
+	    this.setState({
+	      selectedCountPerGroup: c
+	    })
+  	}
 
 	formCheckbox(params){
 		if(params){
@@ -55,15 +73,43 @@ class SelectionsPage extends React.Component {
 	} 
 
 	render() {
+	
+
+		let howToPlan = '';
+		if(this.props.location && this.props.location.pathname === '/plan') {
+			howToPlan = ( 
+					<div className="container" id="checkbox-creator">
+	          			<div className="row">
+	            			<div className="col-sm-12">
+	            				<h5>How to plan your program:</h5>
+	            				<ol>
+	            					<li>Select a group on the left hand side</li>
+	            					<li>Select a semester</li>
+	            					<li>Enter a 4-digit year (Ex. 2018)</li>
+	            					<li>Select a course or courses you want to take</li>
+	            					<li>Select another group if you want to add more course</li>
+	            					<li>Click the 'Save' button to save your plan </li>
+	            				</ol>
+	            			</div>
+	            		</div>
+	            	</div>
+	            	)
+			
+		}
 		return (
 			<div className="container" id="selections-page">
 			<h3 className="program"><strong>Program</strong>: {this.props.currentUser.programcode} </h3>
 			<h4 className="text-center"><strong>Plan my Program </strong></h4>
 				<div className="row">
 					<div className="col-sm-5">
-						<SelectionList />
+						<SelectionList 
+							selectedGroup={this.setSelectedGroup}
+							setCoursesToSelectPerGroup={this.setCoursesToSelectPerGroup}
+							selectedCountPerGroup={this.selectedCountPerGroup}
+						/>
 					</div>
-					<div className="col-sm-7">	
+					<div className="col-sm-7">
+						{howToPlan}	
 						{this.props.children}
 					</div>									
 				</div>

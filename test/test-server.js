@@ -13,11 +13,10 @@ const {Coursecatalog, Acadplan} = require('../models');
 
 chai.use(chaiHttp);
 
+
 function generateRandomValues(arrayDocument){
 	return arrayDocument[Math.floor(Math.random()*arrayDocument.length)];
 }
-
-
 const seedDocuments = {
 	programCode: ['A25800A'],
 	programTitle: ['Accounting and Finance'],
