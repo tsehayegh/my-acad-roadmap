@@ -58,7 +58,6 @@ export class AcadPlanDashboard extends React.Component {
 
 	handleSubmit = () => {
 		console.log(this.state.newPlan);
-
 		let tempPlan = this.state.newPlan;
         const newPlanArray = [].concat.apply([], tempPlan);
         
@@ -73,32 +72,27 @@ export class AcadPlanDashboard extends React.Component {
         const userId = this.props.acadplans.map(plans => plans.id)[0];
         
         plans.id = userId;
+        return fetch(`${API_BASE_URL}/acadplan/${userId}`, {
+          method: 'PUT',
+          body: JSON.stringify(plans),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(() => {
+          return this.props.dispatch(fetchAcadPlans(searchQuery));
+        })
+        .then(() => {
+        	this.setState({
+        		buttonStatus: true
+        	});
+        	return this.props.history.push({
+                        pathname: '/dashboard',
+                        state: {detail: plans}
+                        });
 
-        //if(plans.plan.length !== this.state.existingPlan.length){
-
-	        return fetch(`${API_BASE_URL}/acadplan/${userId}`, {
-	          method: 'PUT',
-	          body: JSON.stringify(plans),
-	          headers: {
-	            'Content-Type': 'application/json'
-	          }
-	        })
-	        .then(() => {
-	          return this.props.dispatch(fetchAcadPlans(searchQuery));
-	        })
-	        .then(() => {
-	        	this.setState({
-	        		buttonStatus: true
-	        	});
-	        	return this.props.history.push({
-	                        pathname: '/dashboard',
-	                        state: {detail: plans}
-	                        });
-
-	        	})
-	        .then(() => console.log('successful'))
-
-	    //}
+        	})
+        .then(() => console.log('successful'))
 	}
 
 
@@ -134,11 +128,11 @@ export class AcadPlanDashboard extends React.Component {
 						
 					</div>
 		}
-
 		return (
 			<div className="container" id="dashboard">
 				<h3><strong>Program </strong>: {this.props.currentUser.programcode} </h3>
 				<h4><strong>Dashboard </strong></h4>
+				
 				<div className="row">
 						{semesters.map(semester =>
 							<div className="col-sm-6" key={semester}>

@@ -30,7 +30,9 @@ export class Checkbox extends React.Component {
     const { label } = this.props;
     const { isChecked } = this.state;
     const checkStatus = (this.state.isChecked && checker);
-    const course = label.split(',')[1];    
+    const course = label.split(',')[1]; 
+
+
     return (
         <div className="form-ckeck form-control-lg">
           <label className="form-check-label">
