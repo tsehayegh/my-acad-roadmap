@@ -35,7 +35,8 @@ class SelectionsPage extends React.Component {
 			selectedGroup: false,
 			couresToSelectPerGroup: 0,
 			selectedGroupId: 0,
-			selectedCountPerGroup:0
+			selectedCountPerGroup:0,
+			information: ''
 		}
 		this.formCheckbox = this.formCheckbox.bind(this);
 	}
@@ -72,6 +73,13 @@ class SelectionsPage extends React.Component {
 		}
 	} 
 
+	
+	clearInformation = () =>{
+	    this.setState({
+	      information: ''
+	    });
+  	}
+
 	render() {
 	
 
@@ -89,6 +97,7 @@ class SelectionsPage extends React.Component {
 	            					<li>Select a course or courses you want to take</li>
 	            					<li>Select another group if you want to add more course</li>
 	            					<li>Click the 'Save' button to save your plan </li>
+	            					<li>To change a course, go to Dashboard, delete the course, and come back to this page</li>
 	            				</ol>
 	            			</div>
 	            		</div>
@@ -106,6 +115,7 @@ class SelectionsPage extends React.Component {
 							selectedGroup={this.setSelectedGroup}
 							setCoursesToSelectPerGroup={this.setCoursesToSelectPerGroup}
 							selectedCountPerGroup={this.selectedCountPerGroup}
+							clearInformation={this.clearInformation}
 						/>
 					</div>
 					<div className="col-sm-7">

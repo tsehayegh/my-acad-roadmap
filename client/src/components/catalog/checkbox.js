@@ -11,8 +11,14 @@ export class Checkbox extends React.Component {
       listStatus: 'enabled',
       selectedCountPerGroup: 0,
       checkboxState: true
+
     }
   }
+
+  componentDidMount(){
+    this.props.clearInformation();
+  }
+
 
   toggleCheckboxChange = (event) => {
     const { handleCheckboxChange, label} = this.props;
@@ -21,39 +27,58 @@ export class Checkbox extends React.Component {
         isChecked: !isChecked
       }
     ));
-    
+    this.props.clearInformation();
+
     const maxSelection = Number(label.split(',')[4]);
     const groupNumb = label.split(',')[3];
+    const courseName = label.split(',')[1];
+
     const selectedCheckboxes = [...this.props.selectedCheckboxes];
     const selectedCheckboxesFromGroup = selectedCheckboxes.map(courses =>
                                         courses.split(',')).filter(arrayCourse => 
                                         Number(arrayCourse[3].trim()) === Number(groupNumb.trim()));
-    const withinLimit = selectedCheckboxesFromGroup.length < maxSelection;
+
+  
 
 
+    const pPlan = this.props.plan;
+    let flatPlan = [].concat.apply([], pPlan);
+    const courseNames = [].concat.apply([],flatPlan.map(courses => courses.split(',')[2]));
+    const selectedCourseName = courseNames.filter(course => course.trim() === courseName.trim());
 
+    const groups = [].concat.apply([],flatPlan.map(courses => courses.split(',')[4]));
+    const groupPlanned = groups.filter(group => Number(group.trim()) === Number(groupNumb.trim()));
+
+    console.log(flatPlan);
+    console.log(groupPlanned);
+
+    const withinLimit = (groupPlanned.length < maxSelection) && (selectedCourseName.length === 0);
+    console.log(withinLimit);
     handleCheckboxChange(label, withinLimit);
 
   }
 
   render() {
-    console.log(this.props);
-    
     const { label } = this.props;
-    const course = label.split(',')[1]; 
+    const courseName = label.split(',')[1]; 
+    const pPlan = this.props.plan;
+    let flatPlan = [].concat.apply([], pPlan);
+    const courseNames = [].concat.apply([],flatPlan.map(courses => courses.split(',')[2]));
+    const selectedCourseName = courseNames.filter(course => course.trim() === courseName.trim());
+    const strikeOut = selectedCourseName.length > 0 ? 'strikeOut' : "form-check-label";
+
     return (
         <div className="form-ckeck form-control-lg">
-          <label className="form-check-label">
+          <label className={strikeOut}>
             <input
               className="form-check-input"
               type="checkbox"
               value={label}
-              id={course}
-              name={course}
+              id={courseName}
+              name={courseName}
               checked={[...this.props.selectedCheckboxes].indexOf(label) !== -1}
-              onChange={(e) => this.toggleCheckboxChange(e, course)}
+              onChange={(e) => this.toggleCheckboxChange(e, courseName)}
               disabled={this.props.checkboxStatus}
-
             />
             {label}
           </label>

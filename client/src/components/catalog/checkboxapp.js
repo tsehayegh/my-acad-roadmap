@@ -39,7 +39,8 @@ class CheckboxApp extends React.Component {
       oldPlan: [],
       newPlan: [],
       joinedPlan: [],
-      courseAlreadyExists: false
+      courseAlreadyExists: false,
+      information: ''
     }
   }
 
@@ -100,6 +101,9 @@ class CheckboxApp extends React.Component {
 
     } else {
         if(withinLimit){
+          this.setState({
+            information: ''
+          });
           this.selectedCheckboxes.add(label);
           checkedPlan = checkedPlan.concat(`${this.state.semester} ${this.state.year}, ${label}`);
           let newArray = [];
@@ -110,6 +114,10 @@ class CheckboxApp extends React.Component {
           });
           this.setState({
             selectedCount: this.state.selectedCount + 1
+          })
+        } else {
+          this.setState({
+            information: 'Maximum selection reached or course already planned'
           })
         }
       }
@@ -249,6 +257,7 @@ class CheckboxApp extends React.Component {
       plan={this.state.plan}
       groupcourses={this.props.groupcourses}
       setExceedsMaxGroupSelection={this.setExceedsMaxGroupSelection}
+      clearInformation={this.clearInformation}
     />
   )
 
@@ -279,7 +288,6 @@ class CheckboxApp extends React.Component {
       exceedsMaxGroupSelection: true
     });
 
-
     if(this.state.exceedsMaxGroupSelection){
       this.selectedCheckboxes.clear();
       this.setState({
@@ -287,6 +295,16 @@ class CheckboxApp extends React.Component {
       })
     }
  
+  }
+
+  clearInformation = () =>{
+    this.setState({
+      information: ''
+    });
+  }
+  
+  refreshPage(){
+    window.location.reload();
   }
 
   render() {
@@ -318,11 +336,18 @@ class CheckboxApp extends React.Component {
                     )</label>
                 </h5>
                  <label>Title, Course Code, Credit Hours, Group, Max Selection </label>
+                 <label className="warning">{this.state.information}</label>
                   {this.createCheckboxes()}
                   <button className={`btn btn-lg btn-success`} 
                           disabled={this.state.buttonStatus} 
                           type="submit"
                           >Save</button>
+
+                  <button className={`btn btn-lg btn-warning`} 
+                          disabled={this.state.buttonStatus} 
+                          type="submit"
+                          onClick={this.refreshPage}
+                          >Start Over</button>
               </form>
             </div>
           </div>

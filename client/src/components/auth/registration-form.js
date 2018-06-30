@@ -50,7 +50,6 @@ export class RegistrationForm extends React.Component {
                         validate={[required, nonEmpty, isTrimmed]}
                 />
                 
-
                 <label htmlFor="programcode">Academic Program</label>
                 <Field name="programcode"
                         className="program-selection" 
@@ -60,7 +59,6 @@ export class RegistrationForm extends React.Component {
                         required>
                     <option />
                     <option value="Accounting and Finance, A25800A">Accounting and Finance, A25800A</option>
-                    <option value="Computer-Integrated Machining Technology, A50210">Computer-Integrated Machining Technology, A50210</option>
                 </Field>
 
                 <label htmlFor="username">Username</label>
