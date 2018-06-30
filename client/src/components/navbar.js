@@ -55,6 +55,7 @@ export class Navbar extends React.Component {
 		});
 
 		return this.props.dispatch(fetchCatalog(`${programcode}`));
+		
 	}
 
 	goToDashboard(e){
@@ -64,11 +65,8 @@ export class Navbar extends React.Component {
         	});
 	}
 
-	goToProfile(e){
-		e.preventDefault();
-        this.props.history.push({
-            pathname: '/profile'
-        	});
+	refreshPage(){
+		window.location.reload();
 	}
 
 	render() {
@@ -90,7 +88,7 @@ export class Navbar extends React.Component {
 					        <Link className="nav-link text-white plan-link" 
 					        		id={this.state.key === 1 ? 'activeTab' : '' } 
 					        		to="/plan" 
-					        		onClick={e => this.handleOnClick(e.target)}>
+					        		onClick={this.refreshPage}>
 					        		Plan my program
 					        </Link>
 					      </li>
@@ -99,7 +97,7 @@ export class Navbar extends React.Component {
 					        <Link className="nav-link text-white" 
 					        		id={this.state.key === 2 ? 'activeTab' : '' }
 					        		to="/dashboard" 
-					        		onClick={e => this.goToDashboard(e.target)}>
+					        		onClick={this.refreshPage}>
 					        		Dashboard
 					        </Link>
 					      </li>
@@ -111,7 +109,7 @@ export class Navbar extends React.Component {
 					      	<Link className="nav-link text-white" 
 					      			id={this.state.key === 3 ? 'activeTab' : '' }
 					      			to="/profile"
-					      			onClick={e => this.goToProfile(e.target)}>
+					      			onClick={this.refreshPage}>
 					      			Profile ({this.props.username})
 					      	</Link>
 					      </li>

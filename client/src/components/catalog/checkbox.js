@@ -29,17 +29,18 @@ export class Checkbox extends React.Component {
                                         courses.split(',')).filter(arrayCourse => 
                                         Number(arrayCourse[3].trim()) === Number(groupNumb.trim()));
     const withinLimit = selectedCheckboxesFromGroup.length < maxSelection;
+
+
+
     handleCheckboxChange(label, withinLimit);
 
   }
 
   render() {
-    //const checker = (this.props.currentSelection.length > this.props.selectionCount);
-    const { label } = this.props;
-    //const { isChecked } = this.state;
-    //const checkStatus = (this.state.isChecked && checker);
-    const course = label.split(',')[1]; 
+    console.log(this.props);
     
+    const { label } = this.props;
+    const course = label.split(',')[1]; 
     return (
         <div className="form-ckeck form-control-lg">
           <label className="form-check-label">
