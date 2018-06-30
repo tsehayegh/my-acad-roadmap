@@ -56,11 +56,13 @@ It displays all of the courses planned for each semester and an option to delete
 <img width="457" alt="dashboard page" src="https://user-images.githubusercontent.com/34139675/41823076-8c795198-77c7-11e8-873a-607e81f8f03f.png">
 
 ## Plan my program Page
-In the 'Plan my Program' page, you will be able to select courses from any group, select a semester and enter a year, and select the courses you want to take for the selected semester. Click the 'Save' and it will take you to the Dashboard page. Note that, you can't enter a year before you select a semester and you can't select courses before you selected a semester. Moreover, you will not be able to change semester and year if you have selected at least one course.
+In the 'Plan my Program' page, you will be able to select courses from any group, select a semester and enter a year, and select the courses you want to take for the selected semester. Click the 'Save' and it will take you to the Dashboard page. Note that, you can't enter a year before you select a semester and you can't select courses before you selected a semester. Moreover, you will not be able to change semester and year if you have selected at least one course. You will see error messages if the course is already selected or exceeds maximum selection per group. Moreover, you can also start over the planning process. 
 
 <img width="453" alt="plan my program page 1" src="https://user-images.githubusercontent.com/34139675/41823153-035c2064-77c9-11e8-8088-cac0c504df57.png">
 
 <img width="451" alt="plan my program page 2" src="https://user-images.githubusercontent.com/34139675/41823166-55afca6e-77c9-11e8-9697-1e811ea14252.png">
+
+<img width="470" alt="plan my program page 3" src="https://user-images.githubusercontent.com/34139675/42129264-12f7eee4-7c8e-11e8-898e-455e9c541b94.png">
 
 ## Profile Page
 The profile page displays your username, full name, and photo. At this time, the photo displayed will be the programmers/developer's picture. But for the future, more features can be added the possibility of uploading a user's photo during registration.
