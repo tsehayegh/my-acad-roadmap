@@ -79,7 +79,7 @@ class CheckboxApp extends React.Component {
     this.selectedCheckboxes = new Set();
   }
 
-  toggleCheckbox = label => {
+  toggleCheckbox = (label, withinLimit) => {
     let checkedPlan = [];
     if (this.selectedCheckboxes.has(label)) {
       this.selectedCheckboxes.delete(label);
@@ -99,6 +99,7 @@ class CheckboxApp extends React.Component {
       })
 
     } else {
+        if(withinLimit){
           this.selectedCheckboxes.add(label);
           checkedPlan = checkedPlan.concat(`${this.state.semester} ${this.state.year}, ${label}`);
           let newArray = [];
@@ -110,6 +111,7 @@ class CheckboxApp extends React.Component {
           this.setState({
             selectedCount: this.state.selectedCount + 1
           })
+        }
       }
 
       this.handleButton();
@@ -125,6 +127,12 @@ class CheckboxApp extends React.Component {
     this.setState({
       newPlan: e
     })
+  }
+
+  resetSelectedCount(){
+    this.setState({
+      selectedCount: 0
+    });
   }
 
   handleButton = () => {
@@ -299,10 +307,11 @@ class CheckboxApp extends React.Component {
                   semesterSelection={this.state.semesterSelection}
                   inputBoxStatus={this.state.inputBoxStatus}
                   selectedCount={this.state.selectedCount}
+
                 />
                 <h5>
                   <label className="selection">
-                      Select Courses from the Group (Count:
+                      Select Courses from the Group (Total:
                       <span className="badge badge-warning badge-pill">
                          {this.state.selectedCount}
                       </span>

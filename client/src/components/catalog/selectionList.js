@@ -18,6 +18,7 @@ class SelectionList extends React.Component {
 		if (programcode.length > 1) {
 			programcode = programcode[1].trim();
 		} 
+		
 		return this.props.dispatch(fetchCatalog(`${programcode}`));
 	}
 
