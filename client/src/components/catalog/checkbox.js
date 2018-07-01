@@ -19,7 +19,6 @@ export class Checkbox extends React.Component {
     this.props.clearInformation();
   }
 
-
   toggleCheckboxChange = (event) => {
     const { handleCheckboxChange, label} = this.props;
     this.setState(({ isChecked }) => (
@@ -34,26 +33,21 @@ export class Checkbox extends React.Component {
     const courseName = label.split(',')[1];
 
     const selectedCheckboxes = [...this.props.selectedCheckboxes];
+
     const selectedCheckboxesFromGroup = selectedCheckboxes.map(courses =>
                                         courses.split(',')).filter(arrayCourse => 
                                         Number(arrayCourse[3].trim()) === Number(groupNumb.trim()));
 
-  
-
-
     const pPlan = this.props.plan;
     let flatPlan = [].concat.apply([], pPlan);
+
     const courseNames = [].concat.apply([],flatPlan.map(courses => courses.split(',')[2]));
     const selectedCourseName = courseNames.filter(course => course.trim() === courseName.trim());
 
     const groups = [].concat.apply([],flatPlan.map(courses => courses.split(',')[4]));
     const groupPlanned = groups.filter(group => Number(group.trim()) === Number(groupNumb.trim()));
 
-    console.log(flatPlan);
-    console.log(groupPlanned);
-
     const withinLimit = (groupPlanned.length < maxSelection) && (selectedCourseName.length === 0);
-    console.log(withinLimit);
     handleCheckboxChange(label, withinLimit);
 
   }

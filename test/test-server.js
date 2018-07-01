@@ -246,7 +246,6 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 			return Acadplan
 				.findOne()
 				.then(function(acadplans){
-					console.log(acadplans.id);
 					updateData.id = acadplans.id;
 					return chai.request(app)
 						.put(`/api/acadplan/${acadplans.id}`)
@@ -257,7 +256,6 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 					return Acadplan.findById(updateData.id);
 				})
 				.then(function(acadplans){
-					console.log(updateAcadPlan, acadplans.plan);
 					expect(JSON.stringify(updateAcadPlan)).to.equal(JSON.stringify(acadplans.plan));
 				})	
 		});

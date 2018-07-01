@@ -11,7 +11,7 @@ import requiresLogin from '../auth/requires-login';
 
 
 import SelectionList from './selectionList';
-import SelectionListInfo from './selectionListInfo';
+
 import './selectionsPage.css';
 
 class SelectionsPage extends React.Component {
@@ -108,7 +108,7 @@ class SelectionsPage extends React.Component {
 		return (
 			<div className="container" id="selections-page">
 			<h3 className="program"><strong>Program</strong>: {this.props.currentUser.programcode} </h3>
-			<h4 className="text-center"><strong>Plan my Program </strong></h4>
+			<h4 className="text-left"><strong>Plan my Program </strong></h4>
 				<div className="row">
 					<div className="col-sm-5">
 						<SelectionList 

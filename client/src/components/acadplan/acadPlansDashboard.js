@@ -1,8 +1,6 @@
 
 import React from 'react';
 
-import {toast } from 'react-toastify';
-
 import {connect} from 'react-redux';
 
 import {fetchAcadPlans} from '../../actions/catalogActions'
@@ -57,10 +55,8 @@ export class AcadPlanDashboard extends React.Component {
 	}
 
 	handleSubmit = () => {
-		console.log(this.state.newPlan);
 		let tempPlan = this.state.newPlan;
         const newPlanArray = [].concat.apply([], tempPlan);
-        
         const plans = {
           username: this.props.currentUser.username,
           firstname: this.props.currentUser.firstName,
@@ -132,7 +128,6 @@ export class AcadPlanDashboard extends React.Component {
 			<div className="container" id="dashboard">
 				<h3><strong>Program </strong>: {this.props.currentUser.programcode} </h3>
 				<h4><strong>Dashboard </strong></h4>
-				
 				<div className="row">
 						{semesters.map(semester =>
 							<div className="col-sm-6" key={semester}>

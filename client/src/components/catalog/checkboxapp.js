@@ -2,11 +2,9 @@ import React from 'react';
 
 import {connect} from 'react-redux';
 
-import { fetchCatalog,
+import {
       createNewPlan, 
       fetchAcadPlans} from '../../actions/catalogActions'
-
-import { ToastContainer, toast } from 'react-toastify';
 
 import {API_BASE_URL} from '../../config';
 

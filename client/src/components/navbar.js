@@ -13,8 +13,6 @@ import { connect } from 'react-redux';
 
 import './navbar.css';
 
-import Home from './home';
-
 export class Navbar extends React.Component {
 	constructor(props){
 		super(props);
@@ -55,7 +53,7 @@ export class Navbar extends React.Component {
 		});
 
 		return this.props.dispatch(fetchCatalog(`${programcode}`));
-		
+
 	}
 
 	goToDashboard(e){
@@ -72,7 +70,7 @@ export class Navbar extends React.Component {
 	render() {
 		return(
 
-			<nav className="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+			<nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
 				<div className="container ">
 				  <Link className="navbar-brand text-white" data-toggle="collapse" to="/home">My Acad Roadmap</Link>
 

@@ -29,7 +29,8 @@ export class RegistrationForm extends React.Component {
         return (
 
             <form
-                className="form-signin" id="form-signin"
+                className="form-signin" 
+                id="form-signin"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>

@@ -47,9 +47,6 @@ From this page, you will be able to navigate to several pages.
 
 <img width="461" alt="main page" src="https://user-images.githubusercontent.com/34139675/41823028-fdaf86bc-77c6-11e8-8089-16a5b2c74b2c.png">
 
-<img width="461" alt="main page" src="https://user-images.githubusercontent.com/34139675/41823028-fdaf86bc-77c6-11e8-8089-16a5b2c74b2c.png">
-
-
 ## Dashboard Page
 It displays all of the courses planned for each semester and an option to delete a course from the plan if you changed your mind. If you decided to delete a course, select a semester, a course and click the 'Delete' button. The course will be deleted and the new academic plan will be reloaded.
 
@@ -65,7 +62,7 @@ In the 'Plan my Program' page, you will be able to select courses from any group
 <img width="470" alt="plan my program page 3" src="https://user-images.githubusercontent.com/34139675/42129264-12f7eee4-7c8e-11e8-898e-455e9c541b94.png">
 
 ## Profile Page
-The profile page displays your username, full name, and photo. At this time, the photo displayed will be the programmers/developer's picture. But for the future, more features can be added the possibility of uploading a user's photo during registration.
+The profile page displays your username, full name, and photo. At this time, the photo displayed will be the programmer's/developer's picture only. But for the future, more features can be added the possibility of uploading a user's photo during registration.
 
 <img width="449" alt="profile page" src="https://user-images.githubusercontent.com/34139675/41823218-6dcca544-77ca-11e8-8c26-cbd8df797c21.png">
 
@@ -81,6 +78,8 @@ More features can be added to the app. For example, photo uploading feature can 
 # Note
 1. The app may not work in Internet Explorer 11 because of some modern techniques used in developing the app.
 2. The app was forced to refresh the 'Plan my Program' page in order to reload course catalog data. The actions and reducers would have been designed differently to avoid such forced refresh of a page.
+3. The user registration and authentication modules were written by Thinkful. I customized it to fit with my app. Thank you Thinkful for this.
+
 
 
 
