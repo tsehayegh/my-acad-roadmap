@@ -34,13 +34,14 @@ describe('<AcadPlanDashboard', () => {
 	it('Renders without crashing', () => {
 
 		shallow(<AcadPlanDashboard />);
+		const callback = jest.fn();
+		const wrapper = mount(<AcadPlanDashboard onClick={callback} />);
+		const programcodew = 'A2500A';
+		wrapper.insance().handleSubmit(true);
+		wrapper.update();
+		wrapper.simulate('click');
+		expect(callback).toHabeBeenCalledWith(programcode);
 	});
-
-	it('Renders without crashing', () => {
-		const wrapper = shallow(<AcadPlanDashboard fetchAcadPlans={jest.fn()} />);
-		console.log(wrapper);
-		expect(wrapper.hasClass('container').toEqual(true));
-	})
 
 })
 

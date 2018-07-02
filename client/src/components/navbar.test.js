@@ -6,9 +6,15 @@ import {shallow} from 'enzyme';
 import { Navbar } from './navbar';
 
 describe('<Navbar />', () => {
+
 	it('Should render without crashing', () => {
 		shallow(<Navbar />);
 	});
+
+	it('Renders a navbar', () => {
+        const wrapper = shallow(<Navbar />);
+        expect(wrapper.hasClass('navbar')).toEqual(true);
+	})
 
 	it('Should call setKey when nav-item is clicked', () => {
 		const callback = jest.fn();

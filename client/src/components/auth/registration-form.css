@@ -19,9 +19,9 @@
 select.program-selection:not([size]):not([multiple]) {
     height: calc(1.8rem + 2px);
     width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-right: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 15px;
 }
 
 .program-selection{

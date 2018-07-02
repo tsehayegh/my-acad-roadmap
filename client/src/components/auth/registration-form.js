@@ -26,15 +26,18 @@ export class RegistrationForm extends React.Component {
     }
 
     render() {
+        const style = {
+            borderRadius: '5px',
+            maxWidth: '360px'
+        };
         return (
-
             <form
                 className="form-signin" 
-                id="form-signin"
+                id="form-signin" style={style}
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                <h2>My Acad Roadmap</h2>
+                <h1 className="text-center">My Acad Roadmap</h1>
                 <label htmlFor="firstName">First name</label>
                 <Field component={Input} 
                         type="text" 

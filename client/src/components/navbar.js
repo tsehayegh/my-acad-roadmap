@@ -74,7 +74,7 @@ export class Navbar extends React.Component {
 				<div className="container ">
 				  <Link className="navbar-brand text-white" data-toggle="collapse" to="/home">My Acad Roadmap</Link>
 
-				  <button type="button" className="navbar-toggler navbar-toggler-righ collapsed"  
+				  <button type="button" className="navbar-toggler navbar-toggler-right collapsed"  
 				  		data-toggle="collapse" data-target="#navbarSupportedContent" 
 				  		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				    <span className="navbar-toggler-icon"></span>
@@ -83,10 +83,12 @@ export class Navbar extends React.Component {
 				  	<div className="collapse navbar-collapse text-white" id="navbarSupportedContent">
 					    <ul className="nav navbar-nav mr-auto">
 					      <li className="nav-item plan" onClick={e => this.setKey(1)} key={1}>
+					        
 					        <Link className="nav-link text-white plan-link" 
 					        		id={this.state.key === 1 ? 'activeTab' : '' } 
 					        		to="/plan" 
 					        		onClick={this.refreshPage}>
+
 					        		Plan my program
 					        </Link>
 					      </li>

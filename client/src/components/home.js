@@ -19,7 +19,7 @@ class Home extends React.Component {
 					<ol>
 						<li>Select a group of courses</li>
 						<li>Select a semester</li>
-						<li>Select one or more course you want to plan to take</li>
+						<li>Select one or more course you want to plan</li>
 						<li>Save the courses you selected</li>
 						<li>See your program plan for all semesters</li>
 						<li>Delete a course from any semester</li>

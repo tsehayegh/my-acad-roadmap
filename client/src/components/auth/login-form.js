@@ -19,6 +19,9 @@ export class LoginForm extends React.Component {
     }
 
     render() { 
+        const style = {
+            borderRadius: '5px'
+        };
 
         if (this.props.loggedIn) {
             return <Redirect to="/dashboard" />;
@@ -44,7 +47,7 @@ export class LoginForm extends React.Component {
         )
 
         return (
-            <div className="container" id="login-form">
+            <div className="container" id="login-form" style={style}>
                 <div className="row">
                 <div className="col-12">
                     <h1 className="app-name">My Acad Roadmap </h1>
@@ -55,7 +58,7 @@ export class LoginForm extends React.Component {
 
                 <form
                     className="form-signin"
-                    id="form-signin"
+                    id="form-signin" style={style}
                     onSubmit={this.props.handleSubmit(values =>
                         this.onSubmit(values)
                     )}>

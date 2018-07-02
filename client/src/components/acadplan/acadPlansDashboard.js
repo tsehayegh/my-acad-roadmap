@@ -17,8 +17,8 @@ export class AcadPlanDashboard extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			userid: 'peace',
-			programcode: 'A10500',
+			userid: '',
+			programcode: '',
 			semester: '',
 			newPlan: [],
 			existingPlan: [],
@@ -55,6 +55,8 @@ export class AcadPlanDashboard extends React.Component {
 	}
 
 	handleSubmit = () => {
+		console.log(this.props.currentUser.programcode);
+		
 		let tempPlan = this.state.newPlan;
         const newPlanArray = [].concat.apply([], tempPlan);
         const plans = {
@@ -93,7 +95,6 @@ export class AcadPlanDashboard extends React.Component {
 
 
 	render(){
-
 		const semesters = Array.from(new Set(this.props.acadplans.map(plans => 
 						plans.plan.map(semester => 
 						semester.split(',')[0]
