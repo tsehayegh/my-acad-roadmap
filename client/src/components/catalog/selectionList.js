@@ -41,7 +41,12 @@ class SelectionList extends React.Component {
 	}
 
 	render() {
-		const howTo =`(1) Select a group from this list, (2) Select a semester, (3) Enter a 4-digit year (Ex. 2018), (4) Select a course or courses you want to take, (5) Select another group if you want to add more course, (6) Click the 'Save' button to save your plan`;
+		const howTo =`(1) Select a group from this list, 
+						(2) Select a semester, 
+						(3) Enter a 4-digit year (Ex. 2018), 
+						(4) Select a course or courses you want to take, 
+						(5) Select another group if you want to add more course, 
+						(6) Click the 'Save' button to save your plan`;
 		return (
 			<div className="container">
 			<div className="selection-list">

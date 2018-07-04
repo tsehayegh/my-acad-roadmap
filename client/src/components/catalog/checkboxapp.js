@@ -327,7 +327,7 @@ class CheckboxApp extends React.Component {
                 />
                 <h5>
                   <label className="selection">
-                      Select Courses from the Group (Total:
+                      Select Courses(Total:
                       <span className="badge badge-warning badge-pill">
                          {this.state.selectedCount}
                       </span>

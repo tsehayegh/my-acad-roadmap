@@ -2,7 +2,7 @@
 # My Acad Roadmap
 
 # https://my-acad-roadmap.herokuapp.com/
-	You can use the following username and password to log in as a guest:
+	You can use the follow credentials to demonstrate the app:
 
 	username: test
 	password: asdfghjklq

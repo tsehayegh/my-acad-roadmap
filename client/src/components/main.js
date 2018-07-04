@@ -17,7 +17,7 @@ export class Main extends React.Component {
 	render() {
 		return(
 			<Router>
-				<div>
+				<div className="mian-router">
 					<Navbar />	
 						<Route exact path='/' component={LoginForm}/>
 						
@@ -30,8 +30,7 @@ export class Main extends React.Component {
 						<Route exact path='/profile' component={UserProfile} />
 
 						<Route exact path='/plan' component={SelectionsPage} />
-						
-
+			
 						<Route exact path='/plan/:group' component={CheckboxApp}/>
 				</div>
 			</Router>

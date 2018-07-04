@@ -1,20 +1,9 @@
  language: node_js
  node_js: 
-  - "stable"
+  - node
  services:
     - mongodb
  cache:
    directories:
      - node_modules
- script:
-   - npm install
-   - npm test
-   - npm run build
- env:
-  - CI=true
- deploy:
-   provider: pages
-   skip_cleanup: true
-   local_dir: build
-   on:
-     branch: master
+
