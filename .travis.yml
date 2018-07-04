@@ -1,9 +1,15 @@
- language: node_js
- node_js: 
-  - node
- services:
-    - mongodb
- cache:
-   directories:
-     - node_modules
-
+language: node_js
+node_js:
+- node
+services:
+- mongodb
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: h1YeSdsG40UwErE5fek1N+8Mp2LN/Gq+OhIA2RWmvD1MVGyahfOoTX1YPiIQw7RQIWFjNnescEdAe4PVIp5y/mYVNJABxbEFfUaUqT8/0JksOh31r09fdMh26zJ/tLPi8ZoOALihI5nfU03cjixG1XYzWZhAzn6u+ZvlA2gK1MnoXAU5tAzYY8ELvt6fQTQLsohUP+dctxcTvxoEIkPygdGD2rciA4cGF9xW7sARLzqYslSLnkTR7d3Pm73yh4cqTlKz02pdLdj22Vy0Wa3a5OuHskGqmXBLuzEdpZkSmFsZ4B6qaFvRCnKNSXETqxJZsGV21MlstKv+PxBK1cm69XTM+UeoyDsnlQxDcPeOqSzyIcqw0kcY4AzLOiHKlbU/slSWAmnROQ0ufdJ6cNeqvfFnxdaWhMMpoh7Z5WbezcPRNOgAQB+65gFNHC42LCCDhBygbRd5itQ+JRVQGj/qfIXLXHp5DdMqWI1xlWKPkQMGZg0ljktTIMgZwFH5FiTu897AJNCle8okxrSiooxF4KW0a9ArH05Zf91mckcGrozVAaB1thuYL7Douj+AKZLKDbDe/hzZxjq+oEq5JgbJEow0X3yscFUX3hDaTOrJ5IJLAZKFh7qi9cvT+HoobBwIKPpx4sffR8BubAWPN4YrAiTurLRY8x7vOTu7VznuwvA=
+  app: my-acad-roadmap
+  on:
+    repo: tsehayegh/my-acad-roadmap
