@@ -1,15 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import requiresLogin from './auth/requires-login';
-
-
 import {fetchCatalog} from '../actions/catalogActions';
-
-import { Link } from 'react-router-dom';
-
-import { connect } from 'react-redux';
 
 import './navbar.css';
 
@@ -74,9 +70,13 @@ export class Navbar extends React.Component {
 				<div className="container ">
 				  <Link className="navbar-brand text-white" data-toggle="collapse" to="/home">My Acad Roadmap</Link>
 
-				  <button type="button" className="navbar-toggler navbar-toggler-right collapsed"  
-				  		data-toggle="collapse" data-target="#navbarSupportedContent" 
-				  		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				  <button type="button" 	
+				  			className="navbar-toggler navbar-toggler-right collapsed"  
+				  			data-toggle="collapse" 
+				  			data-target="#navbarSupportedContent" 
+				  			aria-controls="navbarSupportedContent" 
+				  			aria-expanded="false" 
+				  			aria-label="Toggle navigation">
 				    <span className="navbar-toggler-icon"></span>
 				  </button>
 

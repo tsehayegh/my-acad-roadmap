@@ -4,7 +4,7 @@ const mongoose =require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-////Course Catalog
+//Course Catalog models
 const courseCatalogSchema = mongoose.Schema({
 	"programCode": {type: String, required: true},
 	"programTitle": {type: String, required: true},
@@ -27,7 +27,7 @@ courseCatalogSchema.methods.serialize  = function() {
 const Coursecatalog = mongoose.model("coursecatalog", courseCatalogSchema);
 
 
-//Student Academic Plan
+//Student Academic Plan model
 const acadPlanSchema = mongoose.Schema({
 	"username": {type: String, required: true},
 	"firstname": {type: String, required: true},
@@ -47,5 +47,7 @@ acadPlanSchema.methods.serialize = function() {
 	}
 }
 const Acadplan = mongoose.model("Acadplan", acadPlanSchema);
+
+//export the models
 
 module.exports = {Coursecatalog, Acadplan}

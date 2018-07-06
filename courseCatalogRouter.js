@@ -1,5 +1,6 @@
 'use strict';
 
+//Course Catalog Router
 const express = require('express');
 const courseCatalogRouter = express.Router();
 
@@ -13,7 +14,7 @@ const { Coursecatalog } = require('./models');
 
 courseCatalogRouter.use(bodyParser.json());
 
-
+//GET-end point: course catalog
 courseCatalogRouter.get('/api/catalog', (req, res) => {
 	const searchFields = ['programCode']
 	const queryFields = {};

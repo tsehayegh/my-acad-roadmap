@@ -1,3 +1,5 @@
+
+//Setup the client side testing
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 

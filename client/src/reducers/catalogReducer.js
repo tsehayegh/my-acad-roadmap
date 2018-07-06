@@ -1,7 +1,8 @@
+//Manage the Redux actions
+
 import * as actions from '../actions/catalogActions';
 
 import initialState from './initialState';
-
 
 const catalogReducer = (state=initialState, action) => {
 	if (action.type === actions.FETCH_CATALOG_SUCCESS){

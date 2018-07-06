@@ -66,16 +66,7 @@ app.get('/api/protected', jwtAuth, (req, res) => {
   });
 });
 
-//
-
-/*
 //Requests made to non-existent endpoint
-app.use('*', function(req, res) {
-	res.status(404).json({message: 'Not Found'});
-});
-*/
-
-// Right before your app.listen(), add this:
 app.get("*", (req, res) => {  
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
@@ -87,3 +78,4 @@ if (require.main === module) {
 }
 
 module.exports = {app, runServer, closeServer};
+

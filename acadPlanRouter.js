@@ -1,3 +1,6 @@
+'use strict';
+
+//Academic plan Router
 
 const express = require('express');
 const acadPlanRouter = express.Router();
@@ -11,6 +14,7 @@ const { Acadplan } = require('./models');
 
 acadPlanRouter.use(bodyParser.json());
 
+//GET -end point: academic plan
 acadPlanRouter.get('/api/dashboard', (req, res) => {
 	const searchFields = ['username']
 	const queryFields = {};
@@ -49,6 +53,7 @@ acadPlanRouter.get('/api/dashboard/:id', (req, res) => {
 	}
 });
 
+//POT-end point: academic plan
 acadPlanRouter.post('/api/acadplan', (req, res) => {
 
 	const requiredFields = ['username', 'firstname', 'lastname', 'programcode', 'plan'];

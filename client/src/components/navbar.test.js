@@ -1,4 +1,5 @@
 
+//Testing the Navbar component
 import React from 'react';
 
 import {shallow} from 'enzyme';

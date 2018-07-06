@@ -1,5 +1,7 @@
 'use strict';
 
+//Testing server side of the app
+//Firt create dummy data and use them to test the server side of the app
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const faker = require('faker');

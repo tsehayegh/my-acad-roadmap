@@ -28,8 +28,8 @@ describe('fetchCatalog', () => {
         const coursecatalog = {
         	acadplans: []
         };
-        const programcode = 'A25800A';
 
+        const programcode = 'A25800A';
         const returnFromFetch = `${API_BASE_URL}/catalog/A25800A`;
 
         global.fetch = jest.fn().mockImplementation(() =>
@@ -40,7 +40,6 @@ describe('fetchCatalog', () => {
                 }
             })
         );
-
 
         const dispatch = jest.fn();
         return fetchCatalog(programcode)(dispatch).then(() => {
