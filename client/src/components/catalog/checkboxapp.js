@@ -333,7 +333,7 @@ class CheckboxApp extends React.Component {
                       </span>
                     )</label>
                 </h5>
-                 <label>Title, Course Code, Credit Hours, Group, Max Selection </label>
+                 <h5><label>Title, Course Code, Credit Hours, Group, Max Selection </label></h5>
                  <label className="warning">{this.state.information}</label>
                   {this.createCheckboxes()}
                   <button className={`btn btn-lg btn-success`} 

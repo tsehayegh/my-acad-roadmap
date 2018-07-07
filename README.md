@@ -69,6 +69,10 @@ The profile page displays your username, full name, and photo. At this time, the
 ## Log out 
 You can also click the 'Log out' link to exist from the app.
 
+# Documentation of API.
+
+
+
 # Technologies Used:
 HTML, CSS, Responsive Design, JAVASCRIPT, jQuery, AJAX, node.js, Implement REST API, mocha, heroku, mLab, mongoose, express, testing, modulirzation, router, chai, http-chai, heroku, TravisCI, React, and Redux. 
 
