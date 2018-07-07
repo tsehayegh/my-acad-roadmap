@@ -13,3 +13,6 @@ deploy:
   app: my-acad-roadmap
   on:
     repo: tsehayegh/my-acad-roadmap
+
+script:
+  - npm test && client/npm test
