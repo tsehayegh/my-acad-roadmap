@@ -177,7 +177,7 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 		it('should return all academic plans', function(){
 			let res;
 			return chai.request(app)
-				.get(`/api/dashboard/?username=segen`)
+				.get('/api/dashboard/?username=segen')
 				.then(function(_res) {
 					res = _res;
 					expect(res).to.have.status(200);
@@ -189,7 +189,7 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 
 		});
 
-		it('should return course catalog with right fields', function(){
+		it('should return academic plans with right fields', function(){
 			let resAcadplans;
 			return chai.request(app)
 				.get('/api/dashboard/?username=segen')
