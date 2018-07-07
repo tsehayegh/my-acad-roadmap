@@ -2,7 +2,7 @@
 //Testing the Navbar component
 import React from 'react';
 
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 
 import { Navbar } from './navbar';
 
@@ -33,5 +33,4 @@ describe('<Navbar />', () => {
 		const link = wrapper.find('.plan-link');
 		link.simulate('click');
 	})
-
 })

@@ -32,15 +32,14 @@ jest.mock('../../actions/catalogActions', () => Object.assign({},
 
 describe('<AcadPlanDashboard', () => {
 	it('Renders without crashing', () => {
-
 		shallow(<AcadPlanDashboard />);
 		const callback = jest.fn();
 		const wrapper = mount(<AcadPlanDashboard onClick={callback} />);
-		const programcodew = 'A2500A';
+		const programcode = 'A2500A';
 		wrapper.insance().handleSubmit(true);
 		wrapper.update();
 		wrapper.simulate('click');
-		expect(callback).toHabeBeenCalledWith(programcode);
+		expect(callback).toHaveBeenCalledWith(programcode);
 	});
 
 })
