@@ -107,6 +107,7 @@ export class AcadPlanDashboard extends React.Component {
 		})
 
 		let edit = '';
+		let noPlan = '';
 		if(semesters.length > 0) {
 				edit =	
 					<div className="col-lg text-center">
@@ -124,11 +125,17 @@ export class AcadPlanDashboard extends React.Component {
 						</button>
 						
 					</div>
+		} else {
+			noPlan = 
+				<div>
+					<p>You have not started to plan your academic program yet. Go to 'Plan my Program' to plan your program!</p>
+				</div>
 		}
 		return (
 			<div className="container" id="dashboard">
 				<h3><strong>Program </strong>: {this.props.currentUser.programcode} </h3>
 				<h4><strong>Dashboard </strong></h4>
+				<h5>{noPlan}</h5>
 				<div className="row">
 						{semesters.map(semester =>
 							<div className="col-sm-6" key={semester}>
