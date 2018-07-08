@@ -15,4 +15,4 @@ deploy:
     repo: tsehayegh/my-acad-roadmap
 script:
   - npm test
-  - cd client && npm install && npm test
+  - cd client && npm test
