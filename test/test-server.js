@@ -32,11 +32,11 @@ const seedDocuments = {
 				"Intermediate Accounting I,ACC 220,4,1,10"
 				],
 	programcode: ["Accounting and Finance, A25800A"],
-	username:['test', 'segen'],
-	plan: ["Fall 2018, Writing and Inquiry,ENG 111,3",
-			"Fall 2018, Principles of Financial Accounting,ACC 120,4",
-			"Fall 2018, Principles of Managerial Accounting,ACC 121,4",
-			"Fall 2018,Individual Income Taxes,ACC 129,3"
+	username:['test'],
+	plan: ["Fall 2018, Writing and Inquiry,ENG 111,3,1,10",
+			"Fall 2018, Principles of Financial Accounting,ACC 120,4,1,10",
+			"Fall 2018, Principles of Managerial Accounting,ACC 121,4,1,10",
+			"Fall 2018,Individual Income Taxes,ACC 129,3,1,10"
 			]
 
 }
