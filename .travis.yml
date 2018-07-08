@@ -13,9 +13,12 @@ deploy:
   app: my-acad-roadmap
   on:
     repo: tsehayegh/my-acad-roadmap
-
 script:
-  - npm run lint
   - npm test
-after_success:
-  - npm run coverage
+
+env:
+  - REACT=0.13
+  - REACT=0.14
+  - REACT=15.4
+  - REACT=15
+  - REACT=16
