@@ -70,9 +70,56 @@ The profile page displays your username, full name, and photo. At this time, the
 You can also click the 'Log out' link to exist from the app.
 
 # Documentation of API.
-
-
-
+	This api, https://my-acad-roadmap.herokuapp.com/api, provides access to course catalog and academic plans
+	# Overview
+	A user should register for the app to access the course catalog and plan for academic programs.
+	# Authentication
+	A user can register for the app and use the created username and password to access the API
+	# Error Codes
+	A user should enter valid input values during registration, no known error at this time.
+	# Rate limit
+	No limit.
+	
+	GET
+	https://my-acad-roadmap.herokuapp.com/api/catalog
+	GET end point: pulls all course catalogs
+	
+	GET
+	https://my-acad-roadmap.herokuapp.com/api/catalog/:programcode
+	GET end point: pulls course catalog for specific program code
+	
+	GET
+	https://my-acad-roadmap.herokuapp.com/api/dashboard
+	GET end point: pulls all academic plans
+	
+	GET
+	https://my-acad-roadmap.herokuapp.com/api/dashboard/:id
+	GET end point: pulls academic plans for a given record id
+	
+	POST
+	https://my-acad-roadmap.herokuapp.com/api/acadplan
+	POST end point: adds academic plans to the plans collection
+	
+	PUT
+	https://my-acad-roadmap.herokuapp.com/api/acadplan/:id
+	PUT end point: updates changes to an academic plan
+	
+	POST
+	https://my-acad-roadmap.herokuapp.com/api/auth/login
+	POST end point: user provides username and password to login - authentication
+	
+	POST
+	https://my-acad-roadmap.herokuapp.com/api/auth/refresh
+	POST end point: the user exchanges a valid JWT for new one - authentication
+	
+	POST
+	https://my-acad-roadmap.herokuapp.com/api/users
+	POST end point: register a new user
+	
+	GET
+	https://my-acad-roadmap.herokuapp.com/api/user
+	GET end point: pulls a user
+	
 # Technologies Used:
 HTML, CSS, Responsive Design, JAVASCRIPT, jQuery, AJAX, node.js, Implement REST API, mocha, heroku, mLab, mongoose, express, testing, modulirzation, router, chai, http-chai, heroku, TravisCI, React, and Redux. 
 
