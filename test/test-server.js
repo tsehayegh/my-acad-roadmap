@@ -32,7 +32,7 @@ const seedDocuments = {
 				"Intermediate Accounting I,ACC 220,4,1,10"
 				],
 	programcode: ["Accounting and Finance, A25800A"],
-	username:['segen'],
+	username:['test'],
 	plan: ["Fall 2018, Writing and Inquiry,ENG 111,3,1,10",
 			"Fall 2018, Principles of Financial Accounting,ACC 120,4,1,10",
 			"Fall 2018, Principles of Managerial Accounting,ACC 121,4,1,10",
@@ -130,7 +130,7 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 	after(function(){
 		return closeServer();
 	});
-
+/*
 	describe('GET endpoint - course catalog', function(){
 		this.timeout(15000);
 		it('should return all course catalogs', function(){
@@ -148,6 +148,7 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 
 		});
 
+	*/
 		it('should return course catalogs with right fields', function(){
 			let resCoursecatalog;
 			return chai.request(app)
