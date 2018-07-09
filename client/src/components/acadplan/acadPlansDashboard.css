@@ -11,6 +11,20 @@
 }
 
 #semester-plan {
-	margin-top: 30px;
-	
+	margin-top: 20px;
+}
+
+.list-group-item {
+	background-color: azure;
+	padding-top: 10px;
+}
+
+.delete-course{
+	padding: 0;
+	font-size: 24px;
+	float: right;
+}
+
+.delete-course:hover {
+	background-color: red;
 }

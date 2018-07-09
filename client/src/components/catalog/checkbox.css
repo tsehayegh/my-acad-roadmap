@@ -22,3 +22,12 @@
 .strikeOut {
 	padding-left: 20px;
 }
+
+.delete {
+	margin-left: 20px;
+	font-size: 1.8em;
+}
+
+.delete:hover {
+	background-color: red;
+}
