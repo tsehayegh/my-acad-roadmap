@@ -169,7 +169,8 @@ export class AcadPlanDashboard extends React.Component {
 																>
 																{courseInfo[0]}, {courseInfo[1]}, {courseInfo[2]}, {courseInfo[3]}
 																<span id={courseInfo[2]} 
-																	className="delete-course" 
+																	className="delete-course"
+																	tabIndex="0" 
 																	key={courseInfo[2]}
 																	onClick={(event) => this.handleSubmit(event)}>
 																	&#10007;
