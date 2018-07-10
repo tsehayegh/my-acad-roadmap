@@ -308,9 +308,9 @@ class CheckboxApp extends React.Component {
   render() {
     return (
       <SelectionsPage>
-        <div className="container" id="checkbox-creator">
-          <div className="row">
-            <div className="col-sm-12">
+        <div className="checkbox-creator" id="checkbox-creator">
+          
+            <div className="checkboxes">
               <form onSubmit={this.handleFormSubmit}>
                 <label>
                   Enter a year (YYYY), select a semester and courses to plan your program
@@ -352,7 +352,7 @@ class CheckboxApp extends React.Component {
               </form>
             </div>
           </div>
-        </div>
+        
       </SelectionsPage>
     )
   }

@@ -37,7 +37,7 @@ export class RegistrationForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                <h1 className="text-center">My Acad Roadmap</h1>
+                <h1 className="app-name">My Acad Roadmap</h1>
                 <label htmlFor="firstName">First name</label>
                 <Field component={Input} 
                         type="text" 

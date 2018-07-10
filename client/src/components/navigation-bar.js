@@ -66,7 +66,7 @@ export class Navbar extends React.Component {
 	toggleNavbar(){
 		const x = document.getElementById('navbar');
 		if(x.className === 'topnav') {
-			x.className += ' responsive';
+			x.className += 'responsive';
 		} else {
 			x.className='topnav';
 		}
@@ -74,56 +74,50 @@ export class Navbar extends React.Component {
 
 	render() {
 		return(
-			<section className="container">
-				<nav className="topnav row" id="navbar">
-					<div className="app-name">
-						<Link className="nav-app nav-link"
-							  to="/home"
-							  onClick={this.refreshPage}
-							>
-							My Acad Roadmap
-						</Link>
-					</div>
-						
-							<Link className="nav-plan nav-link"
-								  to="/plan"
-								  onClick={this.refreshPage}
-								>
-								Plan My Program
-							</Link>
+			<nav className="topnav" id="navbar">
+				<Link className="nav-app nav-link"
+					  to="/"
+					  onClick={this.refreshPage}
+					  >
+					  My Acad Roadmap
+				</Link>
 
-							<Link className="nav-dashboard nav-link"
-								  to="/dashboard"
-								  onClick={this.refreshPage}
-								>
-								Dashboard
-							</Link>
+				<Link className="/plan"
+					  to="/plan"
+					  onClick={this.refreshPage}
+					>
+					Plan My Program
+				</Link>
 
-							<Link className="nav-profile nav-link"
-								  to="/profile"
-								  onClick={this.refreshPage}
-								>
-								Profile
-							</Link>
+				<Link className="nav-dashboard nav-link"
+					  to="/dashbora"
+					  onClick={this.refreshPage}
+					>
+					Dashboard
+				</Link>
 
-					      	<Link className="nav-logout nav-link"
-					      		to ='/' 
-					      		onClick={e => this.logOut(e)}>Log out
-					      	</Link>
+				<Link className="nav-profile nav-link"
+					  to="/profile"
+					  onClick={this.refreshPage}
+					>
+					Profile
+				</Link>
 
-					  		<a href="javascript:void(0);" 
-					  				className="icon"
-					  				onClick={this.toggleNavbar}
-					  				>
-					  				<i className="fas fa-bars"></i>
-					  		</a>
-				  		
+		      	<Link className="nav-logout nav-link text-white"
+		      		to ='/' 
+		      		onClick={e => this.logOut(e)}>Log out
+		      	</Link>
+		  		<a href="javascript:void(0);" 
+		  				className="icon"
+		  				onClick={this.toggleNavbar}
+		  				>
+		  		</a>
+			</nav>
 
-				</nav>
-			</section>
 
 
 			/*
+
 			<nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
 
 				<div className="container">

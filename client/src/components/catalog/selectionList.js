@@ -48,7 +48,7 @@ class SelectionList extends React.Component {
 						(5) Select another group if you want to add more course, 
 						(6) Click the 'Save' button to save your plan`;
 		return (
-			<div className="container">
+			
 			<div className="selection-list">
 				<ul className="list-group form-control-lg" id="selection-list">
 					<label>Select a Group of Courses</label>
@@ -72,7 +72,7 @@ class SelectionList extends React.Component {
 					)}
 				</ul>
 			</div>
-			</div>
+			
 		)
 	}
 }

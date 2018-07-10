@@ -153,13 +153,12 @@ export class AcadPlanDashboard extends React.Component {
 		}
 
 		return (
-			<div className="container" id="dashboard">
+			<div className="dashboard row" id="dashboard">
 				<h3><strong>Program </strong>: {this.props.currentUser.programcode} </h3>
 				<h4><strong>Dashboard </strong></h4>
 				<h5>{noPlan}</h5>
-				<div className="row">
 						{semesters.map(semester =>
-							<div className="col-sm-6" key={semester}>
+							<div className="semester-plan-container" key={semester}>
 								<ul className="list-group" key={semester} id="semester-plan">
 									<h3>{semester}</h3> 
 									{this.props.acadplans.map(plans => 
@@ -178,7 +177,9 @@ export class AcadPlanDashboard extends React.Component {
 																	key={courseInfo[2]}
 																	onClick={(event) => this.handleSubmit(event)}>
 																	&#10007;
+
 																</span>
+																
 															</li>
 										))					
 									}
@@ -186,7 +187,7 @@ export class AcadPlanDashboard extends React.Component {
 							</div>
 						
 						)}
-				</div>
+				
 			</div>
 		)
 	}

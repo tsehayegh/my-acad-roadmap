@@ -15,10 +15,10 @@ export function RegistrationPage(props) {
 
 
     return (
-        <div className="container" id="registration-page">
-        <div className="row">
+        <div className="registration-page row" id="registration-page">
+
             <RegistrationForm />
-        </div>
+
         </div>
     );
 }

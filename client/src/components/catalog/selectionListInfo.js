@@ -6,7 +6,7 @@ import './selectionListInfo.css';
 export default class SelectionListInfo extends React.Component {
 	render() {
 		return (
-			<div className="container">
+			<div className="row">
 			<div className="selection-list-info">
 				<ul className="list-group form-control-lg" id="selection-list-info">
 					<h2>How to plan your program</h2>

@@ -11,3 +11,20 @@
 #checkbox-creator{
 	font-size: 18px;
 }
+
+
+@media only screen and (min-width: 768px) {
+	.how-to {
+		width: 50%;
+		float: right;
+	}
+}
+
+
+
+
+
+
+
+
+

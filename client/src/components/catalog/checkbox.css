@@ -2,32 +2,16 @@
 
 .form-ckeck {
 	border: 1px solid black;
+	border-radius: 5px;
 
 }
 
 .form-check-label {
-	margin-left: 20px;
-	
+	margin-left: 5px;
 }
 
 .form-check-input{
-	border: 4px solid black;
+	margin: 10px;
 	transform: scale(1.5);
 }
 
-.form-check-input + .form-check-label {
-	font-weight: bold;
-}
-
-.strikeOut {
-	padding-left: 20px;
-}
-
-.delete {
-	margin-left: 20px;
-	font-size: 1.8em;
-}
-
-.delete:hover {
-	background-color: red;
-}

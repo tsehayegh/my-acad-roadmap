@@ -63,7 +63,7 @@ export class Checkbox extends React.Component {
 
     return (
         <div className="form-ckeck form-control-lg">
-          <label className={strikeOut}>
+          <label className="form-check-label">
             <input
               className="form-check-input"
               type="checkbox"

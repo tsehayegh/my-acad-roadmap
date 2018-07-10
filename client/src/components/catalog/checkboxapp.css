@@ -4,10 +4,30 @@
 	text-align: center;
 }
 
-.selection {
-	margin-top: 15px;
+.selection .badge {
+	padding: 1px 9px 2px;
+	font-size: 14px;
+	font-weight: bold;
+	white-space: nowrap;
+	color: #ffffff;
+	border-radius: 9px;
+	background-color: #f89406;
 }
 
 .container form{
 	font-size: 20px;
+}
+
+li {
+  padding: 5px;
+  font-size: 18px;
+  margin-left: 5px;
+  text-align: left;
+}
+
+@media only screen and (min-width: 768px) {
+	.checkbox-creator {
+		width: 50%;
+		float: right;
+	}
 }

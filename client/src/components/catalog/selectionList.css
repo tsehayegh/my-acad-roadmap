@@ -20,3 +20,25 @@
 	color: black;
 	background-color:  #71f1b8;
 }
+
+.list-group-item .badge {
+	padding: 1px 9px 2px;
+	font-size: 14px;
+	font-weight: bold;
+	white-space: nowrap;
+	color: #ffffff;
+	border-radius: 9px;
+	background-color: #468847;
+}
+
+
+
+
+
+@media only screen and (min-width: 768px) {
+	.selection-list {
+		width: 45%;
+		float: left;
+		margin-right: 5px;
+	}
+}

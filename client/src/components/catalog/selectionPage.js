@@ -89,7 +89,7 @@ class SelectionPage extends React.Component {
 		
 		return(
 			<SelectionsPage>
-				<div className="container">
+				<div className="row">
 				<h2>Select Course(s)</h2>
 				<form onSubmit={this.handleFormSubmit}>
 				<ul className="list-group">
