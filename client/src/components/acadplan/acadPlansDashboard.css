@@ -2,7 +2,7 @@
 #dashboard {
 	padding: 20px; 
 	font-size: 20px;
-	margin-top: 30px;
+	margin-top: 50px;
 	background-color: #fff;
 }
 
@@ -15,7 +15,6 @@
 }
 
 .list-group-item {
-	background-color: azure;
 	padding-top: 10px;
 }
 

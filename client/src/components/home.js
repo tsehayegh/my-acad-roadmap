@@ -6,11 +6,14 @@ import { connect  } from 'react-redux';
 import './home.css';
 
 class Home extends React.Component {
-	render() {
-		if (this.props.loggedIn) {
-            return <Redirect to="/dashboard" />;
-        }
 
+	handleClick(e){
+		e.preventDefault();
+       	<Redirect to="/login" />;
+
+	}
+
+	render() {
         const infoTop = <label>
 					The app, My Acad Roadmap, short for My Academic Roadmap, helps you to plan your program of study. 
         </label>
@@ -27,24 +30,12 @@ class Home extends React.Component {
 					</ol>
 
 		return(
-			<div id="accordion" className="home">
-			  <div className="card">
-			    <div className="card-header" id="headingOne">
-			      	<div className="mb-0">
-				      	{infoTop}
-				        <button className="btn btn-lg btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-				          <strong>Features...</strong> 
-				        </button>
-			      	</div>
-			    </div>
-			    <div id="collapseOne" className="collapse hide infoBotton" aria-labelledby="headingOne" data-parent="#accordion">
-			      <div className="card-body">
-			      	<p>You will be able to: </p>
+			<section className="container home">
+				    {infoTop}
+				    <br />
+				         <strong>You will be able to:</strong> 
 			        {infoBottom}
-			      </div>
-			    </div>
-			  </div>
-			</div>
+			</section>
 		)
 	}
 }

@@ -6,7 +6,7 @@ import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import requiresLogin from './auth/requires-login';
 import {fetchCatalog} from '../actions/catalogActions';
-
+import Home from './home';
 import './navbar.css';
 
 export class Navbar extends React.Component {
@@ -67,8 +67,14 @@ export class Navbar extends React.Component {
 		return(
 
 			<nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-				<div className="container ">
-				  <Link className="navbar-brand text-white" data-toggle="collapse" to="/home">My Acad Roadmap</Link>
+
+				<div className="container">
+				  <Link className="navbar-brand nav-link text-white" 
+				  		to="/"
+				  		onClick={this.refreshPage}>
+
+				  		My Acad Roadmap
+				  </Link>
 
 				  <button type="button" 	
 				  			className="navbar-toggler navbar-toggler-right collapsed"  

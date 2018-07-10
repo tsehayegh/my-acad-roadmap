@@ -19,9 +19,9 @@ export class Main extends React.Component {
 			<Router>
 				<div className="mian-router">
 					<Navbar />	
-						<Route exact path='/' component={LoginForm}/>
+						<Route exact path='/login' component={LoginForm}/>
 						
-						<Route exact path='/home' component={Home}/>
+						<Route exact path='/' component={Home}/>
 
 						<Route exact path='/dashboard' component={AcadPlansDashboard} />
 

@@ -74,6 +74,10 @@ export class AcadPlanDashboard extends React.Component {
       }; 
 	}
 
+	handleKeyPress(event){
+		
+	}
+
 	handleSubmit = (event) => {
 		event.preventDefault();
 		const plan = [].concat.apply([],this.props.acadplans.map(plans => plans.plan));
@@ -189,7 +193,6 @@ export class AcadPlanDashboard extends React.Component {
 }
 
 function mapStateToProps(state, ownProps){
-	console.log(state);
 	return{
 		acadplans: state.catalogReducer.acadplans,
 		currentUser: state.auth.currentUser,

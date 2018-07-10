@@ -20,7 +20,8 @@ export class LoginForm extends React.Component {
 
     render() { 
         const style = {
-            borderRadius: '5px'
+            borderRadius: '5px',
+            marginTop: '5px'
         };
 
         if (this.props.loggedIn) {
@@ -53,9 +54,6 @@ export class LoginForm extends React.Component {
                     <h1 className="app-name">My Acad Roadmap </h1>
                     
                     <Home />
-                    
-                <div className="col-12">
-
                 <form
                     className="form-signin"
                     id="form-signin" style={style}
@@ -91,7 +89,7 @@ export class LoginForm extends React.Component {
                         <Link to='/register'> Register </Link> Now
                         </label>
                 </form>
-                </div>
+
                 </div>
                </div>
             </div>

@@ -1,12 +1,10 @@
 
-.mb-0,
-.card-header,
-.card-body,
-.infoBotton {
-	background-color: rgb(176, 224, 230);
 
-}
 
 .home {
 	font-size: 20px;
+	position: relative;
+	margin-top: 60px;
+	border: none;
 }
+

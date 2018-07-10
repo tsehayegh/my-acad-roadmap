@@ -9,7 +9,7 @@ export class UserProfile extends React.Component {
     render() {
         return (
             <div className="container user-profile">
-                <h4><strong>User Profile </strong></h4>
+                <h4><strong>Profile </strong></h4>
                 <div className="row">
 
                 <div className="col">
