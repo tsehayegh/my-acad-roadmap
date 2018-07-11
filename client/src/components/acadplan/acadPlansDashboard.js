@@ -163,7 +163,7 @@ export class AcadPlanDashboard extends React.Component {
 				</p>
 				<h5>{noPlan}</h5>
 						{semesters.map(semester =>
-							<div className="semester-plan-container" key={semester}>
+							<div className="semester-plan-container" key={semester} aria-live="polite">
 								<ul className="list-group" key={semester} id="semester-plan">
 									<h3>{semester}</h3> 
 									{this.props.acadplans.map(plans => 

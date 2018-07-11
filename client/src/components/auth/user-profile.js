@@ -11,21 +11,20 @@ export class UserProfile extends React.Component {
             <div className="user-profile row">
                 <h4><strong>Profile </strong></h4>
                 <div className="row">
-
-                <div className="col">
-                    <div>
-                        <strong>Username:</strong> {this.props.username}
+                    <div className="col profile">
+                        <div>
+                            <strong>Username:</strong> {this.props.username}
+                        </div>
+                        <div>
+                            <strong>Name:</strong> {this.props.name}
+                        </div>
+                        <div>
+                            <strong>Academic Program:</strong> {this.props.programcode} 
+                        </div>
                     </div>
-                    <div>
-                        <strong>Name:</strong> {this.props.name}
+                    <div className="col photo">
+                        <img className="sample-img" src={require('./tse.jpeg')} alt={this.props.name} />
                     </div>
-                    <div>
-                        <strong>Academic Program:</strong> {this.props.programcode} 
-                    </div>
-                </div>
-                <div className="col text-center">
-                    <img className="sample-img" src={require('./tse.jpeg')} alt={this.props.name} />
-                </div>
                 </div>
             </div>
         )

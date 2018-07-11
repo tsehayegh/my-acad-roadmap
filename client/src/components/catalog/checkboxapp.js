@@ -325,14 +325,16 @@ class CheckboxApp extends React.Component {
                   selectedCount={this.state.selectedCount}
 
                 />
-                <h5>
-                  <label className="selection">
-                      Select Courses(Total Selected:
-                      <span className="badge badge-warning badge-pill">
-                         {this.state.selectedCount}
-                      </span>
-                    )</label>
-                </h5>
+                  <br />
+                  <br />
+                <label className="selection">
+                    Select Courses(Total Selected:
+                    <span className="badge badge-warning badge-pill">
+                       {this.state.selectedCount}
+                    </span>
+                  )</label>
+                  <br />
+                  <br />
                  <h5>
                     <label>Title, Course Code, Credit Hours, Group, Max Selection</label>
                   </h5>

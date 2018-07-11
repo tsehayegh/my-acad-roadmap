@@ -64,7 +64,6 @@ export class Navbar extends React.Component {
 	}
 
 	toggleNavbar(){
-
 		const x = document.getElementById('navbar');
 		if(x.className === 'topnav row') {
 			x.className += ' responsive';
@@ -76,7 +75,7 @@ export class Navbar extends React.Component {
 
 	render() {
 		return(
-			<section className="container">
+			<section className="container" role="navigation">
 				<nav className="topnav row" id="navbar">
 					<div className="app-header">
 						<Link className="nav-app nav-link"

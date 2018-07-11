@@ -92,10 +92,10 @@ class SelectionsPage extends React.Component {
 	        				<h4>How to plan your program:</h4>
 	        				<p>
 	        						All academic programs have a set of courses that a student has to take in toder to graduate. 
-	        						A student has to take pre-specified courses from the group courses. For example, for this particular academic program, a student has to take
+	        						Student have to take pre-specified courses from group of courses. For example, for this particular academic program, a student has to take
 	        						one course from the second group. Courses are grouped based on their contents and requirements for an academic program.
-	        						The app helps students to plan all needed courses for the academic program so the students know the courses they
-	        						will take every semester.
+	        						The app helps students to plan all needed courses for their academic programs so the students know the courses they
+	        						will take each semester and year.
 	        				</p>
 	        				<br/>
 	        				<br/>

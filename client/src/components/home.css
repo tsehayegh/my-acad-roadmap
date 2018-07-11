@@ -2,12 +2,13 @@
 
 .home-page {
 	background-color: #fff;
+	margin-top: 0;
 }
 
 .home {
 	font-size: 20px;
 	border: none;
-	padding-top: 30px;
+	padding-top: 20px;
 	margin: 10px;
 }
 

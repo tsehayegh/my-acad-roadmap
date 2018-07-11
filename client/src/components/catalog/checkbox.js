@@ -62,7 +62,8 @@ export class Checkbox extends React.Component {
     const strikeOut = selectedCourseName.length > 0 ? 'strikeOut' : "form-check-label";
 
     return (
-        <div className="form-ckeck form-control-lg">
+        <div className="form-ckeck form-control-lg"
+              aria-live="polite">
           <label className="form-check-label"
                 tabIndex="0"
                 onClick={(e) => this.toggleCheckboxChange(e)}

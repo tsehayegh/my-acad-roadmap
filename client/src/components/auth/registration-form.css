@@ -16,9 +16,6 @@
   margin-right: 20px;
 }
 
-.form-signin button {
-
-}
 
 .program-selection{
   width: 100%;
@@ -39,7 +36,8 @@
 }
 
 
-textarea:focus, input:focus{
+textarea:focus, 
+input:focus{
     outline: none;
 }
 

@@ -2,6 +2,7 @@
 body, html {
   font-size: 20px;
   font-family: 'Lato' sans-serif;
+  background-color: #E9E7DA;
 }
 
 * {
@@ -56,11 +57,13 @@ body, html {
 
 .container {
   width: 100%;
-  position: absolute;
+  position: fixed;
+
   top:0;
   left: 0;
   margin: 0 auto;
   text-align: center;
+  background-color: #007bff!important;
 }
 
 .topnav {
@@ -70,7 +73,7 @@ body, html {
   width: 100%;
   display: block;
   margin: 0 auto;
-  border: 1px solid black;
+  padding: 5px;
   vertical-align: middle;
 }
 
@@ -162,10 +165,9 @@ input,
 select,
 label {
   font-size: 20px;
-  margin-lef: 10px;
-  padding-top: 10px;
-  line-height: 1.4em;
-  vertical-align: middle;
+  margin-lef: 5px;
+
+
 }
 
 input,
