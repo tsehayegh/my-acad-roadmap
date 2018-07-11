@@ -5,10 +5,12 @@
 
 #selections-page {
 	margin-top: 40px;
-	padding-top: 20px;
+	padding-top: 30px;
 	background-color: #fff;
+	font-size: 18px;
 }
-#checkbox-creator{
+
+.selections-page li{
 	font-size: 18px;
 }
 

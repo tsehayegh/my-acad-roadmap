@@ -63,7 +63,10 @@ export class Checkbox extends React.Component {
 
     return (
         <div className="form-ckeck form-control-lg">
-          <label className="form-check-label">
+          <label className="form-check-label"
+                tabIndex="0"
+                onClick={(e) => this.toggleCheckboxChange(e)}
+                onKeyPress={(e) => this.toggleCheckboxChange(e)}>
             <input
               className="form-check-input"
               type="checkbox"
@@ -71,7 +74,7 @@ export class Checkbox extends React.Component {
               id={courseName}
               name={courseName}
               checked={[...this.props.selectedCheckboxes].indexOf(label) !== -1}
-              onChange={(e) => this.toggleCheckboxChange(e, courseName)}
+              onChange={(e) => this.toggleCheckboxChange(e)}
               disabled={this.props.checkboxStatus}
             />
             {label}

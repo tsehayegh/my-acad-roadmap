@@ -64,19 +64,21 @@ export class Navbar extends React.Component {
 	}
 
 	toggleNavbar(){
+
 		const x = document.getElementById('navbar');
-		if(x.className === 'topnav') {
+		if(x.className === 'topnav row') {
 			x.className += ' responsive';
 		} else {
-			x.className='topnav';
+			x.className='topnav row';
 		}
+		
 	}
 
 	render() {
 		return(
 			<section className="container">
 				<nav className="topnav row" id="navbar">
-					<div className="app-name">
+					<div className="app-header">
 						<Link className="nav-app nav-link"
 							  to="/home"
 							  onClick={this.refreshPage}
@@ -84,7 +86,8 @@ export class Navbar extends React.Component {
 							My Acad Roadmap
 						</Link>
 					</div>
-						
+					
+					<div className="nav-menu">
 							<Link className="nav-plan nav-link"
 								  to="/plan"
 								  onClick={this.refreshPage}
@@ -111,14 +114,14 @@ export class Navbar extends React.Component {
 					      		onClick={e => this.logOut(e)}>Log out
 					      	</Link>
 
-					  		<a href="javascript:void(0);" 
+					  		<a href="#" 
 					  				className="icon"
 					  				onClick={this.toggleNavbar}
 					  				>
-					  				<i className="fas fa-bars"></i>
+					  				<i className="fa fa-bars" aria-hidden ="true"></i>
 					  		</a>
 				  		
-
+				</div>
 				</nav>
 			</section>
 

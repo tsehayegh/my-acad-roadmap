@@ -31,14 +31,16 @@
 	background-color: #468847;
 }
 
-
-
-
+.selection-list {
+	padding: 20px 0;
+}
+.selection-list li {
+	font-size: 18px;
+}
 
 @media only screen and (min-width: 768px) {
 	.selection-list {
 		width: 45%;
 		float: left;
-		margin-right: 5px;
 	}
 }

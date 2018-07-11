@@ -10,8 +10,17 @@
 	margin-left: 5px;
 }
 
+.form-check-label label:focus {
+
+}
+
 .form-check-input{
 	margin: 10px;
 	transform: scale(1.5);
 }
+
+.form-checkbox-input:active {
+ transform: scale(5);
+}
+
 

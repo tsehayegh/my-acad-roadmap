@@ -51,7 +51,9 @@ class SelectionList extends React.Component {
 			
 			<div className="selection-list">
 				<ul className="list-group form-control-lg" id="selection-list">
-					<label>Select a Group of Courses</label>
+					<label>Select one of the group of courses below and a list of courses in that group will be displayed on the right hand side or below</label>
+					<br/>
+					<br/>
 					{this.props.groups.map((group,index) => 
 						<li className="list-group-item" 
 							onClick={() => this.setKey(index)} 

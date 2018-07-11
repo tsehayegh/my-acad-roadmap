@@ -5,7 +5,7 @@ import './inputGroupList.css';
 class InputGroupList extends React.Component {
 	render(){
 		return(
-		<div className="input-group-list" id="input-group-list">
+		<div className="input-group-list row" id="input-group-list">
 			  <div className="form-row" id="input-group-row">
 
 			    <div className="form-group">
