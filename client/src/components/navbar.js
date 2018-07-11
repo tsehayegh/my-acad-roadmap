@@ -81,7 +81,7 @@ export class Navbar extends React.Component {
 					<div className="app-header">
 						<Link className="nav-app nav-link"
 							  to="/home"
-							  
+							  onClick={this.refreshPage}
 							>
 							<i className="fa fa-graduation-cap"></i>
 							My Acad Roadmap
