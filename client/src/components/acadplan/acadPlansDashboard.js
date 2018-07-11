@@ -150,6 +150,11 @@ export class AcadPlanDashboard extends React.Component {
 				<div>
 					<p>You have not started to plan your academic program yet. Go to 'Plan my Program' to plan your program!</p>
 				</div>
+		} else {
+			noPlan=	<p>Courses you have planned for your academic program to take in each each semester. 
+						You can delete a course from the academic plan by clicking the 'X' icon at the end of
+						each course. 
+				</p>
 		}
 
 		return (
@@ -157,11 +162,7 @@ export class AcadPlanDashboard extends React.Component {
 				<h3><strong>Program </strong>: {this.props.currentUser.programcode} </h3>
 				<h4><strong>Dashboard </strong></h4>
 				<br/>
-				<p>Courses you have planned for your academic program to take in each each semester. 
-						You can delete a course from the academic plan by clicking the 'X' icon at the end of
-						each course. 
-				</p>
-				<h5>{noPlan}</h5>
+				{noPlan}
 						{semesters.map(semester =>
 							<div className="semester-plan-container" key={semester} aria-live="polite">
 								<ul className="list-group" key={semester} id="semester-plan">
@@ -175,7 +176,7 @@ export class AcadPlanDashboard extends React.Component {
 															<li className="list-group-item dashboard-list" 
 																key={courseInfo[2]}
 																>
-																{courseInfo[0]}, {courseInfo[1]}, {courseInfo[2]}, {courseInfo[3]}
+																{courseInfo[1]}, {courseInfo[2]}, {courseInfo[3]}
 																<span id={courseInfo[2]} 
 																	className="delete-course"
 																	tabIndex="0"
@@ -183,8 +184,7 @@ export class AcadPlanDashboard extends React.Component {
 																	key={courseInfo[2]}
 																	onClick={(event) => this.handleSubmit(event)}
 																	onKeyPress={event => this.handleSubmit(event)}>
-																	&#10007;
-
+																	&times;
 																</span>
 
 															</li>

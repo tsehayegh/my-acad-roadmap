@@ -89,7 +89,6 @@ class SelectionsPage extends React.Component {
 		if(this.props.location && this.props.location.pathname === '/plan') {
 			howToPlan = ( 
 						<div className="checkbox-creator how-to" id="checkbox-creator">	
-	        				<h4>How to plan your program:</h4>
 	        				<p>
 	        						All academic programs have a set of courses that a student has to take in toder to graduate. 
 	        						Student have to take pre-specified courses from group of courses. For example, for this particular academic program, a student has to take
@@ -99,12 +98,13 @@ class SelectionsPage extends React.Component {
 	        				</p>
 	        				<br/>
 	        				<br/>
+	        				<h4>How to plan your program:</h4>
 	        				<ol>
 	        					<li>Select a group on the left hand side</li>
 	        					<li>Select a semester</li>
 	        					<li>Enter a 4-digit year (Ex. 2018)</li>
 	        					<li>Select a course or courses you want to take</li>
-	        					<li>Select another group if you want to add more course</li>
+	        					<li>Select another group if you want to add more courses</li>
 	        					<li>Click the 'Save' button to save your plan </li>
 	        					<li>To change a course, go to Dashboard, delete the course, and come back to this page to add it</li>
 	        				</ol>

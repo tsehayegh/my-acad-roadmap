@@ -77,11 +77,13 @@ export class Navbar extends React.Component {
 		return(
 			<section className="container" role="navigation">
 				<nav className="topnav row" id="navbar">
+
 					<div className="app-header">
 						<Link className="nav-app nav-link"
 							  to="/home"
 							  onClick={this.refreshPage}
 							>
+							<i className="fa fa-graduation-cap"></i>
 							My Acad Roadmap
 						</Link>
 					</div>

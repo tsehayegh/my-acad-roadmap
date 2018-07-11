@@ -66,7 +66,6 @@ export class Checkbox extends React.Component {
               aria-live="polite">
           <label className="form-check-label"
                 tabIndex="0"
-                onClick={(e) => this.toggleCheckboxChange(e)}
                 onKeyPress={(e) => this.toggleCheckboxChange(e)}>
             <input
               className="form-check-input"
