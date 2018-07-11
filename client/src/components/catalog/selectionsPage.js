@@ -90,9 +90,9 @@ class SelectionsPage extends React.Component {
 			howToPlan = ( 
 						<div className="checkbox-creator how-to" id="checkbox-creator">	
 	        				<p>
-	        						All academic programs have a set of courses that a student has to take in toder to graduate. 
-	        						Student have to take pre-specified courses from group of courses. For example, for this particular academic program, a student has to take
-	        						one course from the second group. Courses are grouped based on their contents and requirements for an academic program.
+	        						All academic programs have a set of courses that a student has to take in order to graduate. 
+	        						Students have to take pre-specified courses from group of courses. For example, for this particular academic program, a student has to take
+	        						10 course from the first group, 1 course from the second group, etc. . Courses are grouped based on their contents and requirements for an academic program.
 	        						The app helps students to plan all needed courses for their academic programs so the students know the courses they
 	        						will take each semester and year.
 	        				</p>

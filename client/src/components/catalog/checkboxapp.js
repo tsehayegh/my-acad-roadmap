@@ -345,12 +345,6 @@ class CheckboxApp extends React.Component {
                           disabled={this.state.buttonStatus} 
                           type="submit"
                           >Save</button>
-
-                  <button className={`btn btn-lg btn-warning`} 
-                          disabled={this.state.buttonStatus} 
-                          type="submit"
-                          onClick={this.refreshPage}
-                          >Start Over</button>
               </form>
             </div>
           </div>
