@@ -47,9 +47,7 @@ export class Navbar extends React.Component {
 		this.setState({
 			key: 1
 		});
-
 		return this.props.dispatch(fetchCatalog(`${programcode}`));
-
 	}
 
 	goToDashboard(e){
@@ -70,14 +68,12 @@ export class Navbar extends React.Component {
 		} else {
 			x.className='topnav row';
 		}
-		
 	}
 
 	render() {
 		return(
 			<section className="container" role="navigation">
 				<nav className="topnav row" id="navbar">
-
 					<div className="app-header">
 						<Link className="nav-app nav-link"
 							  to="/home"
@@ -91,7 +87,7 @@ export class Navbar extends React.Component {
 					<div className="nav-menu">
 							<Link className="nav-plan nav-link"
 								  to="/plan"
-									onClick={this.refreshPage}  
+								  onClick={this.refreshPage}  
 								>
 								Plan My Program
 							</Link>
