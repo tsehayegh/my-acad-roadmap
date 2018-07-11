@@ -16,7 +16,7 @@ import Home from './home';
 export class Main extends React.Component {
 	render() {
 		return(
-			<Router forceRefresh={true}>
+			<Router>
 				<div className="mian-router" role="main">
 					<Navbar />	
 						<Route exact path='/' component={LoginForm}/>
