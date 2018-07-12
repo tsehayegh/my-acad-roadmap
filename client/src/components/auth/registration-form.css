@@ -24,16 +24,29 @@
   padding-right: 15px;
 }
 
-.app-name {
-  font-size: 34px;
-  margin: auto;
+.reg-form {
+  max-width: 600px;
+  background-color: #fff;
   text-align: center;
-  font-weight: bold;
-  text-shadow: 1px 2px;
-  color: #4CAF50;
-  display: block;
-  margin-bottom: 15px;
+  margin: 10px auto;
+  border-radius: 5px;
+  border: 1px solid brown;
 }
+
+
+.reg-app-header {
+  height: 45px;
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 0;
+  margin-top: 10px;
+  vertical-align: middle;
+  color: #4B0082;
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+                 0px -5px 35px rgba(255,255,255,0.3);
+}
+
 
 
 textarea:focus, 

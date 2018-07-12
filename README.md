@@ -25,15 +25,12 @@ In this app, My Acad Road, users will be able to:
 ### Landing Page
 The landing page contains short information about the app, a space to log in, and an option to register if you are a new user of the app. 
 
-<img width="483" alt="landing page 1" src="https://user-images.githubusercontent.com/34139675/41820311-db70288c-779d-11e8-83bf-4243277db157.png">
+<img width="411" alt="home page" src="https://user-images.githubusercontent.com/34139675/42606349-183f9170-854b-11e8-90ef-9d684515a162.png">
 
-You can also click 'Features...' and it will list some features of the app. You click it again to collapse the display.
+If you have already registered for the app, enter your user name and password. Note that the password is encrypted using modern encryption techniques so your password is less valunarable to hacking. If you entered wrong user name or password, a warning message in red color will be displayed. 
 
-<img width="479" alt="landing page 2" src="https://user-images.githubusercontent.com/34139675/41820334-48d3fa70-779e-11e8-9d7f-7f24607c8fbc.png">
+![registration page](https://user-images.githubusercontent.com/34139675/42606751-427ba0d0-854d-11e8-8078-70a541bafa79.png)
 
-If you have already registered for the app, enter your user name and password. Note that the password encrypted so using modern encryption techniques so your password is less valunarable hacking. If you entered wrong user name or password, a warning message in red color will be displayed. 
-
-<img width="465" alt="login page" src="https://user-images.githubusercontent.com/34139675/41821219-4d0ff668-77ab-11e8-8bf2-dc2b1e9118b1.png">
 
 
 If this is your first time using the app, then click the 'Register' button and it will take you to the registration page. In the registration page, you will be able to enter your first name, last name, choose your academic program, username, 10 character password and confirm your password. Once you click 'Register' button, it will take you to a dashboard page. You can also go back to 'Log in' page if you realized that you have already registered for the app.

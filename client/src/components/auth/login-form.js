@@ -49,47 +49,51 @@ export class LoginForm extends React.Component {
         return (
             <div className="login" id="login-form" style={style}>
                 <div className="row">
-                <div className="col-12">
-                    <h1 className="app-name">My Acad Roadmap </h1>
+                    <div className="login-app">
+                        <p className="login-app-header">
+                            <i className="fa fa-graduation-cap"></i>
+                            My Acad Roadmap 
+                        </p>
+                    </div>
                     
                     <Home />
-                <form
-                    className="form-signin"
-                    id="form-signin" style={style}
-                    onSubmit={this.props.handleSubmit(values =>
-                        this.onSubmit(values)
-                    )}>
-                    <label className="warning">{error}</label>
-                     
-                    <label htmlFor="username">Username</label>
-                    <Field
-                        component={Input}
-                        type="text"
-                        name="username"
-                        id="username"
-                        validate={[required, nonEmpty]}
-                        placeholder="Example: test"
-                    />
-                    <label htmlFor="password">Password</label>
-                    <Field
-                        component={Input}
-                        type="password"
-                        name="password"
-                        id="password"
-                        validate={[required, nonEmpty]}
-                        placeholder="Example: asdfghjklq"
-                    />
-                    <div className="col-lg text-center">
-                        <button className="btn btn-lg btn-primary" disabled={this.props.pristine || this.props.submitting}>
-                            Log in
-                        </button>
-                    </div>
-                    <label> Not registered yet, 
-                        <Link to='/register'> Register </Link> Now
-                        </label>
-                </form>
+                    <form
+                        className="form-signin"
+                        id="form-signin" style={style}
+                        onSubmit={this.props.handleSubmit(values =>
+                            this.onSubmit(values)
+                        )}>
+                        <label className="warning">{error}</label>
+                         
+                        <label htmlFor="username">Username (Demo: test)</label>
+                        <Field
+                            component={Input}
+                            type="text"
+                            name="username"
+                            id="username"
+                            validate={[required, nonEmpty]}
+                            placeholder="Username"
+                        />
+                        <label htmlFor="password">Password (Demo: asdfghjklq)</label>
+                        <Field
+                            component={Input}
+                            type="password"
+                            name="password"
+                            id="password"
+                            validate={[required, nonEmpty]}
+                            placeholder="Password"
+                        />
+                        <div className="col-lg text-center">
+                            <button className="btn btn-lg btn-primary" disabled={this.props.pristine || this.props.submitting}>
+                                Log in
+                            </button>
+                        </div>
+                        <label> Not registered yet, 
+                            <Link to='/register'> Register </Link> Now
+                            </label>
+                    </form>
 
-                </div>
+                
                </div>
             </div>
 

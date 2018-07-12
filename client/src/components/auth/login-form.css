@@ -40,7 +40,6 @@ body {
   z-index: 2;
 }
 .form-signin input[type="text"] {
-
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -80,6 +79,25 @@ body {
 
 #form-signin {
   max-width: 330px;
+}
+
+.login-app {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login-app-header {
+  height: 45px;
+  display: block;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 0;
+  margin-top: 10px;
+  vertical-align: middle;
+  color: #4B0082;
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+                 0px -5px 35px rgba(255,255,255,0.3);
 }
 
 
@@ -141,7 +159,6 @@ body {
 
 @media only screen and (min-width: 992px){
   #login-form {
-
     position: absolute;
     top: 50%;
     left: 50%;

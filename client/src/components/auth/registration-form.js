@@ -31,73 +31,83 @@ export class RegistrationForm extends React.Component {
             maxWidth: '360px'
         };
         return (
-            <form
-                className="form-signin" 
-                id="form-signin" style={style}
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}>
-                <h1 className="app-name">My Acad Roadmap</h1>
-                <label htmlFor="firstName">First name</label>
-                <Field component={Input} 
-                        type="text" 
-                        name="firstName" 
-                        className="col-6"
-                        validate={[required, nonEmpty, isTrimmed]}
-                />
+            <div className="reg-form row">
 
-                <label htmlFor="lastName">Last name</label>
-                <Field component={Input} 
-                        type="text" 
-                        name="lastName" 
-                        className="col-6"
-                        validate={[required, nonEmpty, isTrimmed]}
-                />
-                
-                <label htmlFor="programcode">Academic Program</label>
-                <Field name="programcode"
-                        className="program-selection" 
-                        component='select'
-                        validate={[required, nonEmpty, isTrimmed]}
-                        type="select"
-                        required>
-                    <option />
-                    <option value="Accounting and Finance, A25800A">Accounting and Finance, A25800A</option>
-                </Field>
-
-                <label htmlFor="username">Username</label>
-                <Field
-                    component={Input}
-                    type="text"
-                    name="username"
-                    validate={[required, nonEmpty, isTrimmed]}
-                />
-                <label htmlFor="password">Password</label>
-                <Field
-                    component={Input}
-                    type="password"
-                    name="password"
-                    validate={[required, passwordLength, isTrimmed]}
-                />
-                <label htmlFor="passwordConfirm">Confirm password</label>
-                <Field
-                    component={Input}
-                    type="password"
-                    name="passwordConfirm"
-                    validate={[required, nonEmpty, matchesPassword]}
-                />
-
-                <div className="col-lg text-center">
-                    <button
-                        className="btn btn-lg btn-primary btn-Link"
-                        type="submit"
-                        disabled={this.props.pristine || this.props.submitting}>
-                        Register
-                    </button>
+                <div className="reg-app">
+                    <p className="reg-app-header">
+                        <i className="fa fa-graduation-cap"></i>
+                        My Acad Roadmap 
+                    </p>
                 </div>
-                <label>Already registered, <Link to='/'> Log in </Link></label>
-            </form>
 
+                <form
+                    className="form-signin" 
+                    id="form-signin" style={style}
+                    onSubmit={this.props.handleSubmit(values =>
+                        this.onSubmit(values)
+                    )}>
+
+                    
+                    <label htmlFor="firstName">First name</label>
+                    <Field component={Input} 
+                            type="text" 
+                            name="firstName" 
+                            className="col-6"
+                            validate={[required, nonEmpty, isTrimmed]}
+                    />
+
+                    <label htmlFor="lastName">Last name</label>
+                    <Field component={Input} 
+                            type="text" 
+                            name="lastName" 
+                            className="col-6"
+                            validate={[required, nonEmpty, isTrimmed]}
+                    />
+                    
+                    <label htmlFor="programcode">Academic Program</label>
+                    <Field name="programcode"
+                            className="program-selection" 
+                            component='select'
+                            validate={[required, nonEmpty, isTrimmed]}
+                            type="select"
+                            required>
+                        <option />
+                        <option value="Accounting and Finance, A25800A">Accounting and Finance, A25800A</option>
+                    </Field>
+
+                    <label htmlFor="username">Username</label>
+                    <Field
+                        component={Input}
+                        type="text"
+                        name="username"
+                        validate={[required, nonEmpty, isTrimmed]}
+                    />
+                    <label htmlFor="password">Password</label>
+                    <Field
+                        component={Input}
+                        type="password"
+                        name="password"
+                        validate={[required, passwordLength, isTrimmed]}
+                    />
+                    <label htmlFor="passwordConfirm">Confirm password</label>
+                    <Field
+                        component={Input}
+                        type="password"
+                        name="passwordConfirm"
+                        validate={[required, nonEmpty, matchesPassword]}
+                    />
+
+                    <div className="col-lg text-center">
+                        <button
+                            className="btn btn-lg btn-primary btn-Link"
+                            type="submit"
+                            disabled={this.props.pristine || this.props.submitting}>
+                            Register
+                        </button>
+                    </div>
+                    <label>Already registered, <Link to='/'> Log in </Link></label>
+                </form>
+            </div>
         )
     }
 }
