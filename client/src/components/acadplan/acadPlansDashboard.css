@@ -20,13 +20,13 @@
 }
 
 .delete-course{
-	text-align: left;
+	text-align: right;
+	margin-right: 5px;
 	border-radius: 50%;
 	height: 30px;
 	font-size: 30px;
 	line-height: 30px;
 	text-align: center;
-	float: right;
 	word-wrap: break-word;
 	font-family: 'Roboto', sans-serif;
 	

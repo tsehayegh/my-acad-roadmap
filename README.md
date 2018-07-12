@@ -127,9 +127,8 @@ More features can be added to the app. For example, photo uploading feature can 
 
 # Note
 1. The app may not work in Internet Explorer 11 because of some modern techniques used in developing the app.
-2. It may not also work on some iPhones.
-3. The app was forced to refresh the 'Plan my Program' page in order to reload course catalog data. The actions and reducers would have been designed differently to avoid such forced refresh of a page.
-4. The user registration and authentication modules were written by Thinkful. I customized it to fit with my app. Thank you Thinkful for this.
+2. The app was forced to refresh the 'Plan my Program' page in order to reload course catalog data. The actions and reducers would have been designed differently to avoid such forced refresh of a page.
+3. The user registration and authentication modules were written by Thinkful. I customized it to fit with my app. Thank you Thinkful for this.
 
 
 

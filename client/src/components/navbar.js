@@ -88,14 +88,14 @@ export class Navbar extends React.Component {
 					<div className="nav-menu">
 							<Link className="nav-plan nav-link"
 								  to="/plan"
-								  onClick={this.refreshPage}  
+								  onClick={() => this.refreshPage('/plan')}  
 								>
 								Plan My Program
 							</Link>
 
 							<Link className="nav-dashboard nav-link"
 								  to="/dashboard"
-								  onClick={this.refreshPage}
+								  onClick={() => this.refreshPage('/dashboard')}
 								>
 								Dashboard
 							</Link>
