@@ -58,7 +58,7 @@ export class Navbar extends React.Component {
 	}
 
 	refreshPage(){
-		window.location.reload();
+		window.location.reload(true);
 	}
 
 	toggleNavbar(){
