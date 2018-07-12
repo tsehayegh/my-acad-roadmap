@@ -29,25 +29,22 @@ The landing page contains short information about the app, a space to log in, an
 
 If you have already registered for the app, enter your user name and password. Note that the password is encrypted using modern encryption techniques so your password is less valunarable to hacking. If you entered wrong user name or password, a warning message in red color will be displayed. 
 
-![registration page](https://user-images.githubusercontent.com/34139675/42606751-427ba0d0-854d-11e8-8078-70a541bafa79.png)
+<img width="411" alt="registration page" src="https://user-images.githubusercontent.com/34139675/42606751-427ba0d0-854d-11e8-8078-70a541bafa79.png">
 
+If this is your first time using the app, then click the 'Register' link and it will take you to the registration page. In the registration page, you will be able to enter your first name, last name, choose your academic program, username, 10 characters password and confirm your password. Once you click the 'Register' button, it will take you to a dashboard page. You can also go back to the 'Log in' page if you realized that you have already registered for the app.
 
-
-If this is your first time using the app, then click the 'Register' button and it will take you to the registration page. In the registration page, you will be able to enter your first name, last name, choose your academic program, username, 10 character password and confirm your password. Once you click 'Register' button, it will take you to a dashboard page. You can also go back to 'Log in' page if you realized that you have already registered for the app.
-
-<img width="453" alt="registration page" src="https://user-images.githubusercontent.com/34139675/41820504-e1d675f2-77a0-11e8-945c-81068542937c.png">
-
-If you register and login successfully, then, you will see the main page with a navigation bar and the default page is Dashboard. 
+If you register and login successfully, then, you will see the main page with a navigation bar and the default page is 'Dashboard'. 
 
 ## Main Page
 From this page, you will be able to navigate to several pages. 
 
-<img width="461" alt="main page" src="https://user-images.githubusercontent.com/34139675/41823028-fdaf86bc-77c6-11e8-8089-16a5b2c74b2c.png">
+<img width="411" alt="Main page" src="https://user-images.githubusercontent.com/34139675/42607021-bcc7b756-854e-11e8-8100-bfb7ded40d67.png">
+
 
 ## Dashboard Page
 It displays all of the courses planned for each semester and an option to delete a course from the plan if you changed your mind. If you decided to delete a course, select a semester, a course and click the 'Delete' button. The course will be deleted and the new academic plan will be reloaded.
 
-<img width="457" alt="dashboard page" src="https://user-images.githubusercontent.com/34139675/41823076-8c795198-77c7-11e8-873a-607e81f8f03f.png">
+<img width="411" alt="Dashboard page" src="https://user-images.githubusercontent.com/34139675/42607092-21ee34c0-854f-11e8-8969-70fafd43b7ea.png">
 
 ## Plan my program Page
 In the 'Plan my Program' page, you will be able to select courses from any group, select a semester and enter a year, and select the courses you want to take for the selected semester. Click the 'Save' and it will take you to the Dashboard page. Note that, you can't enter a year before you select a semester and you can't select courses before you selected a semester. Moreover, you will not be able to change semester and year if you have selected at least one course. You will see error messages if the course is already selected or exceeds maximum selection per group. Moreover, you can also start over the planning process. 
