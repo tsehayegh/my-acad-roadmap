@@ -53,9 +53,6 @@ It displays all of the courses planned for each semester and an option to delete
 ## Plan my program Page
 In the 'Plan my Program' page, you will be able to select courses from one of the group of courses, select a semester and enter a year, and select the courses you want to take for the selected semester and year. Click the 'Save' button and it will take you to the Dashboard page. Note that, you can't enter a year before you select a semester and you can't select courses before you selected a semester. Moreover, you will not be able to change semester and year if you have selected at least one course. You will see error messages if the course is already selected or exceeds maximum selection per group. 
 
-<img width="453" alt="plan my program page 1" src="https://user-images.githubusercontent.com/34139675/41823153-035c2064-77c9-11e8-8088-cac0c504df57.png">
-
-
 <img width="453" alt="plan my program page 1" src="https://user-images.githubusercontent.com/34139675/42607651-0585d754-8552-11e8-914b-6f4e1473d704.png">
 
 <img width="453" alt="plan my program page 2" src="https://user-images.githubusercontent.com/34139675/42607712-4f807c92-8552-11e8-887c-ee373112bd60.png">

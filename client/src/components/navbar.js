@@ -57,8 +57,9 @@ export class Navbar extends React.Component {
         	});
 	}
 
-	refreshPage(){
-		window.location.reload(true);
+	refreshPage(path){
+		//window.location.reload(true);
+		this.context.history.push(path);
 	}
 
 	toggleNavbar(){
@@ -77,7 +78,7 @@ export class Navbar extends React.Component {
 					<div className="app-header">
 						<Link className="nav-app nav-link"
 							  to="/home"
-							  onClick={this.refreshPage}
+							  onClick={() => this.refreshPage('/home')}
 							>
 							<i className="fa fa-graduation-cap"></i>
 							My Acad Roadmap
