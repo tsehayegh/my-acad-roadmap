@@ -21,9 +21,11 @@
 
 .delete-course{
 	text-align: right;
-	margin-right: 5px;
+	margin-left: 10px;
+	padding-left: 10px;
 	border-radius: 50%;
 	height: 30px;
+	width: 30px;
 	font-size: 30px;
 	line-height: 30px;
 	text-align: center;

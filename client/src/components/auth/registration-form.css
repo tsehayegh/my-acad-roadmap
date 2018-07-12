@@ -58,6 +58,7 @@ input:focus{
   color: red;
 }
 
+/*
 @media only screen and  (max-width: 575.98px) {
   html, body {
     margin-top: 0;
@@ -68,27 +69,7 @@ input:focus{
   }
 
 }
-
-@include media-breakpoint-up(sm) {
-  html, body {
-    font-size: 1.2rem;
-    margin-top: 20px;
-    padding-top: 20px;
-  }
-
-}
-
-@include media-breakpoint-up(md) {
-  html {
-    font-size: 1.4rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  html {
-    font-size: 1.6rem;
-  }
-}
+*/
 
 @media only screen and (min-width: 768px) 
   and (orientation: portrait) {

@@ -133,7 +133,7 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 
 	describe('GET endpoint - course catalog', function(){
 		this.timeout(15000);
-		/*
+		
 		it('should return all course catalogs', function(){
 			let res;
 			return chai.request(app)
@@ -148,7 +148,7 @@ describe('Testing academic planner app, my-acad-roadmap', function() {
 				});
 
 		});
-		*/
+		
 
 		it('should return course catalogs with right fields', function(){
 			let resCoursecatalog;
