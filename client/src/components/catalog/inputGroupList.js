@@ -24,14 +24,16 @@ class InputGroupList extends React.Component {
 			    </div>
 
 			    <div className="form-group">
-			      	<label htmlFor="inputYear">Year (YYYY)</label>
+			      	<label htmlFor="inputYear">
+			      			Year (YYYY)</label>
 			      	<input type="text" 
-			      		className="form-control" 
-			      		id="inputYear" 
-			      		onChange={e => this.props.setYear(e.target.value)}
-			      		required	
-			      		placeholder="Enter a year, Ex. 2018"
-			      		disabled={this.props.inputBoxStatus || this.props.selectedCount > 0}
+			      			className="form-control" 
+			      			id="inputYear" 
+			      			onChange={e => this.props.setYear(e.target.value)}
+			      			value={this.props.yearValue}
+			      			required
+			      			placeholder="Enter a year, Ex. 2018"
+			      			disabled={this.props.inputBoxStatus || this.props.selectedCount > 0}
 			      	/>
 			    </div>
 			  </div>

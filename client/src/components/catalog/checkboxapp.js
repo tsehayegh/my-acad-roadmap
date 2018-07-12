@@ -24,7 +24,7 @@ class CheckboxApp extends React.Component {
     super(props);
     this.state = {
       buttonStatus: true,
-      checkboxStatus: true,
+      checkboxStatus: false,
       inputBoxStatus: true,
       clearSelection: false,
       selectedCount: 0,
@@ -256,6 +256,7 @@ class CheckboxApp extends React.Component {
       groupcourses={this.props.groupcourses}
       setExceedsMaxGroupSelection={this.setExceedsMaxGroupSelection}
       clearInformation={this.clearInformation}
+      year={this.state.year}
     />
   )
 
@@ -274,9 +275,21 @@ class CheckboxApp extends React.Component {
   }
 
   setYear = (event) =>{
+    let validYear = '';
+    if(event.trim().length > 4){
+      validYear = event.substring(0,4);
+    } else if(event <= 2050) {
+      validYear = event.substring(0,4);
+    } else {
+      validYear = '';
+    }
+
     this.setState({
-      year: event,
-      checkboxStatus: (event < new Date().getFullYear() || isNaN(event.trim()) || event.trim().length !== 4)
+      year: validYear,
+      checkboxStatus: (event >= new Date().getFullYear() && 
+                              !isNaN(event.trim()) && 
+                              event.trim().length === 4 && 
+                              validYear.length === 4)
     })
     
   }
@@ -306,6 +319,7 @@ class CheckboxApp extends React.Component {
   }
 
   render() {
+    console.log(this.state.checkboxStatus);
     return (
       <SelectionsPage>
         <div className="checkbox-creator" id="checkbox-creator">

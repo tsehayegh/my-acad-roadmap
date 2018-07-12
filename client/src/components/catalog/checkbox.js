@@ -21,38 +21,40 @@ export class Checkbox extends React.Component {
 
   toggleCheckboxChange = (event) => {
     const { handleCheckboxChange, label} = this.props;
-    this.setState(({ isChecked }) => (
-      {
-        isChecked: !isChecked
-      }
-    ));
-    this.props.clearInformation();
 
-    const maxSelection = Number(label.split(',')[4]);
-    const groupNumb = label.split(',')[3];
-    const courseName = label.split(',')[1];
+      this.setState(({ isChecked }) => (
+        {
+          isChecked: !isChecked
+        }
+      ));
+      this.props.clearInformation();
 
-    const selectedCheckboxes = [...this.props.selectedCheckboxes];
+      const maxSelection = Number(label.split(',')[4]);
+      const groupNumb = label.split(',')[3];
+      const courseName = label.split(',')[1];
 
-    const selectedCheckboxesFromGroup = selectedCheckboxes.map(courses =>
-                                        courses.split(',')).filter(arrayCourse => 
-                                        Number(arrayCourse[3].trim()) === Number(groupNumb.trim()));
+      const selectedCheckboxes = [...this.props.selectedCheckboxes];
 
-    const pPlan = this.props.plan;
-    let flatPlan = [].concat.apply([], pPlan);
+      const selectedCheckboxesFromGroup = selectedCheckboxes.map(courses =>
+                                          courses.split(',')).filter(arrayCourse => 
+                                          Number(arrayCourse[3].trim()) === Number(groupNumb.trim()));
 
-    const courseNames = [].concat.apply([],flatPlan.map(courses => courses.split(',')[2]));
-    const selectedCourseName = courseNames.filter(course => course.trim() === courseName.trim());
+      const pPlan = this.props.plan;
+      let flatPlan = [].concat.apply([], pPlan);
 
-    const groups = [].concat.apply([],flatPlan.map(courses => courses.split(',')[4]));
-    const groupPlanned = groups.filter(group => Number(group.trim()) === Number(groupNumb.trim()));
+      const courseNames = [].concat.apply([],flatPlan.map(courses => courses.split(',')[2]));
+      const selectedCourseName = courseNames.filter(course => course.trim() === courseName.trim());
 
-    const withinLimit = (groupPlanned.length < maxSelection) && (selectedCourseName.length === 0);
-    handleCheckboxChange(label, withinLimit);
+      const groups = [].concat.apply([],flatPlan.map(courses => courses.split(',')[4]));
+      const groupPlanned = groups.filter(group => Number(group.trim()) === Number(groupNumb.trim()));
+
+      const withinLimit = (groupPlanned.length < maxSelection) && (selectedCourseName.length === 0);
+      handleCheckboxChange(label, withinLimit);
 
   }
 
   render() {
+    console.log(this.props.checkboxStatus)
     const { label } = this.props;
     const courseName = label.split(',')[1]; 
     const pPlan = this.props.plan;
@@ -63,19 +65,22 @@ export class Checkbox extends React.Component {
 
     return (
         <div className="form-ckeck form-control-lg"
-              aria-live="polite">
+              aria-live="polite"
+              disabled={!this.props.checkboxStatus}>
           <label className="form-check-label"
                 tabIndex="0"
-                onKeyPress={(e) => this.toggleCheckboxChange(e)}>
+                onKeyPress={(e) => this.toggleCheckboxChange(e)}
+                disabled={!this.props.checkboxStatus}>
             <input
               className="form-check-input"
               type="checkbox"
+              tabIndex="0"
               value={label}
               id={courseName}
               name={courseName}
               checked={[...this.props.selectedCheckboxes].indexOf(label) !== -1}
               onChange={(e) => this.toggleCheckboxChange(e)}
-              disabled={this.props.checkboxStatus}
+              disabled={!this.props.checkboxStatus}
             />
             {label}
           </label>

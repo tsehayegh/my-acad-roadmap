@@ -22,7 +22,7 @@
 .delete-course{
 	text-align: right;
 	margin-left: 10px;
-	padding-left: 10px;
+	padding: 5px;
 	border-radius: 50%;
 	height: 30px;
 	width: 30px;

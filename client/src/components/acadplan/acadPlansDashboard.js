@@ -27,7 +27,6 @@ export class AcadPlanDashboard extends React.Component {
 	componentDidMount() {
 		const searchQuery= `?username=${this.props.currentUser.username}`;
 		this.props.dispatch(fetchAcadPlans(searchQuery));
-		console.log(this.props.acadplans);
 		this.setState({
 			existingPlan: this.props.acadplans
 		})
@@ -41,7 +40,6 @@ export class AcadPlanDashboard extends React.Component {
 	}
 
 	handleButton = (courseToDlete) => {
-	  	console.log(courseToDlete);
 	    if(courseToDlete.length > 10) {
 	        this.setState({
 	          buttonStatus: false
@@ -57,25 +55,16 @@ export class AcadPlanDashboard extends React.Component {
 		this.setState({
 			existingPlan: this.props.acadplans
 		});
-		console.log(this.state.existingPlan);
-      let tempPlan = this.state.existingPlan.map(plans => plans.plan);
-
-      let newPlanArray = [].concat.apply([], tempPlan);
-
-      const i = newPlanArray.indexOf(courseToDelete);
-
-      if(i !== -1){
-        const deletePlan = newPlanArray.splice(i, 1);
-        this.props.setNewPlan(newPlanArray);
-
-        this.setState({
-          newPlan: newPlanArray
-        })
-      }; 
-	}
-
-	handleKeyPress(event){
-		
+	  let tempPlan = this.state.existingPlan.map(plans => plans.plan);
+	  let newPlanArray = [].concat.apply([], tempPlan);
+	  const i = newPlanArray.indexOf(courseToDelete);
+	  if(i !== -1){
+	    const deletePlan = newPlanArray.splice(i, 1);
+	    this.props.setNewPlan(newPlanArray);
+	    this.setState({
+	      newPlan: newPlanArray
+	    })
+	  }; 
 	}
 
 	handleSubmit = (event) => {
