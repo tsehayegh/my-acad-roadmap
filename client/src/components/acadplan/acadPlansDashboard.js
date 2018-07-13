@@ -138,6 +138,7 @@ export class AcadPlanDashboard extends React.Component {
 			noPlan = 
 				<div>
 					<p>You have not started to plan your academic program yet. Go to 'Plan my Program' to plan your program!</p>
+					<p>Academic program is selected during registration for the app. Accounting & Finance is being used as a proof of concept</p>
 				</div>
 		} else {
 			noPlan=	<p>Courses you have planned for your academic program to take in each each semester. 
