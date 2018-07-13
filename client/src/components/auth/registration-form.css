@@ -57,6 +57,7 @@ input:focus{
   color: red;
 }
 
+
 @media only screen and (min-width: 320px) and (max-width: 767.98px) {
   html, body {
     margin-top: 0;
@@ -80,7 +81,6 @@ input:focus{
   html {
     font-size: 1.4rem;
   }
-
   .reg-form{
     max-width: 600px;
     position: absolute;
@@ -100,4 +100,5 @@ input:focus{
     left: 50%;
     transform: translate(-50%, -50%); 
   } 
+
 }
