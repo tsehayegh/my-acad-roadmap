@@ -41,7 +41,7 @@ export class RegistrationForm extends React.Component {
                 </div>
 
                 <form
-                    className="form-signin" 
+                    className="form-signin reg" 
                     id="form-signin" style={style}
                     onSubmit={this.props.handleSubmit(values =>
                         this.onSubmit(values)
