@@ -24,6 +24,7 @@ export class UserProfile extends React.Component {
                     </div>
                     <div className="col photo">
                         <img className="sample-img" src={require('./tse.jpeg')} alt={this.props.name} />
+                        <p>(Sample photo)</p>
                     </div>
                 </div>
             </div>
