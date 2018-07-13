@@ -205,7 +205,7 @@ li, a {
   }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 767.98px)  {
+@media only screen and (min-width: 320px) and (max-width: 767.98px)  {  
   .topnav a:not(:first-child) {
     display: none;
   }
