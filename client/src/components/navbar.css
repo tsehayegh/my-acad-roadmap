@@ -1,10 +1,62 @@
 
-body, html {
-  font-size: 20px;
+
+body {
+  margin: 0;
+  padding: 0;
   font-family: 'Lato' sans-serif;
-  background-color: #E9E7DA!important;
+  background-color: #E9E7DA;
+  font-size: 18px;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  max-width: 1000px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.row::before,
+.row::after {
+  display: table;
+  content: '';
+}
+
+.row::after {
+  clear: both;
+}
+
+.col-3, .col-4, .col-6, .col-12 {
+  float:left;
+  padding-left: 1.04166666%;
+  padding-right: 1.04166666%;
+}
+
+.col-2, .col-3, .col-4, col-6, .col-12 {
+  width: 100%;
+}
+
+@media only screen and (min-width: 320px) {
+  .col-2 {
+    width: 16.6666666667%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.3333333%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+}
 
 
 .container {
@@ -105,7 +157,7 @@ button[disabled]{
   color: #666666;
 }
 
-button:hover,
+button:active,
 button:focus {
   border: 1px solid #0099cc;
   background-color: #00aacc;
@@ -155,7 +207,7 @@ li {
   }
 }
 
-@media all and (min-width: 320px) and (max-width: 775px)  {
+@media all screen and (min-width: 320px) and (max-width: 775px)  {
   .topnav a:not(:first-child) {
     display: none;
   }
