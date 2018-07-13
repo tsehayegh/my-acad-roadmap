@@ -9,7 +9,7 @@ class Home extends React.Component {
 
 	render() {
 		return(
-			<section className="home-page">
+			<section className="home-page row">
 				<div className="home">
 					<p>
 						The app, My Acad Roadmap, short for My Academic Roadmap, helps you to plan your program of study. 
