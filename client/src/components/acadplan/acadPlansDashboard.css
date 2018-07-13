@@ -47,7 +47,7 @@ li {
   text-align: left;
 }
 
-@media only screen and (min-width: 775px) {
+@media only screen and (min-width: 768px) {
 	.semester-plan-container:nth-child(odd) {
 		width: 49%;
 		float: left;

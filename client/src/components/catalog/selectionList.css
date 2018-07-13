@@ -3,6 +3,9 @@
   pointer-events: none;
 }
 
+.list-group {
+	width: 100%;
+}
 
 .list-group-item {
 	border: 1px solid black;
@@ -30,7 +33,9 @@
 	border-radius: 9px;
 	background-color: #468847;
 }
-
+.list-group-item a{
+	width: 100%;
+}
 .selection-list {
 	padding: 20px 0;
 }

@@ -17,7 +17,7 @@ export class Main extends React.Component {
 	render() {
 		return(
 			<Router>
-				<div className="mian-router row" role="main">
+				<div className="mian-router" role="main">
 					<Navbar />	
 						<Route exact path='/' component={LoginForm}/>
 						
