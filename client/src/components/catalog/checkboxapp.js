@@ -280,19 +280,20 @@ class CheckboxApp extends React.Component {
       validYear = event.substring(0,4);
     } else if(event <= 2050) {
       validYear = event.substring(0,4);
-    } else {
+    } else if(event.trim().length === 4 && Number(event) < new Date().getFullYear()) {
       validYear = '';
     }
 
     this.setState({
       year: validYear,
-      checkboxStatus: (event >= new Date().getFullYear() && 
-                              !isNaN(event.trim()) && 
-                              event.trim().length === 4 && 
-                              validYear.length === 4)
+      checkboxStatus: (Number(validYear) >= new Date().getFullYear() && 
+                              !isNaN(validYear.trim()) && 
+                              validYear.trim().length === 4)
     })
     
   }
+
+
 
   setExceedsMaxGroupSelection=()=>{
     this.setState({
@@ -319,7 +320,7 @@ class CheckboxApp extends React.Component {
   }
 
   render() {
-    console.log(this.state.checkboxStatus);
+    
     return (
       <SelectionsPage>
         <div className="checkbox-creator" id="checkbox-creator">
@@ -337,7 +338,6 @@ class CheckboxApp extends React.Component {
                   semesterSelection={this.state.semesterSelection}
                   inputBoxStatus={this.state.inputBoxStatus}
                   selectedCount={this.state.selectedCount}
-
                 />
                   <br />
                   <br />

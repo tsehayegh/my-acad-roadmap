@@ -10,7 +10,8 @@ export class Checkbox extends React.Component {
       isChecked: false,
       listStatus: 'enabled',
       selectedCountPerGroup: 0,
-      checkboxState: true
+      checkboxState: true,
+      disableDiv: false
 
     }
   }
@@ -55,6 +56,11 @@ export class Checkbox extends React.Component {
 
   render() {
     console.log(this.props.checkboxStatus)
+
+    const divStyle = {
+      display:this.props.checkboxStatus ? 'block': 'none'
+    };
+
     const { label } = this.props;
     const courseName = label.split(',')[1]; 
     const pPlan = this.props.plan;
@@ -62,26 +68,25 @@ export class Checkbox extends React.Component {
     const courseNames = [].concat.apply([],flatPlan.map(courses => courses.split(',')[2]));
     const selectedCourseName = courseNames.filter(course => course.trim() === courseName.trim());
     const strikeOut = selectedCourseName.length > 0 ? 'strikeOut' : "form-check-label";
-
+    
     return (
         <div className="form-ckeck form-control-lg"
               aria-live="polite"
-              disabled={!this.props.checkboxStatus}>
-          <label className="form-check-label"
-                tabIndex="0"
-                onKeyPress={(e) => this.toggleCheckboxChange(e)}
-                disabled={!this.props.checkboxStatus}>
-            <input
-              className="form-check-input"
-              type="checkbox"
               tabIndex="0"
-              value={label}
-              id={courseName}
-              name={courseName}
-              checked={[...this.props.selectedCheckboxes].indexOf(label) !== -1}
-              onChange={(e) => this.toggleCheckboxChange(e)}
-              disabled={!this.props.checkboxStatus}
-            />
+              onKeyPress={(e) => this.toggleCheckboxChange(e)}>
+          <label className="form-check-label">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                tabIndex="0"
+                value={label}
+                id={courseName}
+                name={courseName}
+                checked={[...this.props.selectedCheckboxes].indexOf(label) !== -1}
+                onChange={(e) => this.toggleCheckboxChange(e)}
+                disabled={!this.props.checkboxStatus}
+              />
+            
             {label}
           </label>
         </div>

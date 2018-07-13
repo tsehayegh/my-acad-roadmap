@@ -11,7 +11,7 @@
 }
 
 .form-check-label label:focus {
-
+	background-color: azure;
 }
 
 .form-check-input{
@@ -19,8 +19,10 @@
 	transform: scale(1.5);
 }
 
-.form-checkbox-input:active {
- transform: scale(5);
+.form-checkbox-input input[type="checkbox"]:active {
+ transform: scale(2);
 }
+
+
 
 

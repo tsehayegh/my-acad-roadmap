@@ -14,12 +14,12 @@ class Home extends React.Component {
 					<p>
 						The app, My Acad Roadmap, short for My Academic Roadmap, helps you to plan your program of study. 
 	    			</p>
-				    <br />
+				    
 				     <strong>You will be able to:</strong> 
 					<ol>
 						<li>Select a group of courses</li>
 						<li>Select a semester</li>
-						<li>Select one or more course you want to plan</li>
+						<li>Select one or more course to plan</li>
 						<li>Save the courses you selected</li>
 						<li>See your program plan for all semesters</li>
 						<li>Delete a course from any semester</li>

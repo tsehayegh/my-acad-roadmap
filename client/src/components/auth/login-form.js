@@ -47,8 +47,8 @@ export class LoginForm extends React.Component {
         )
 
         return (
-            <div className="login" id="login-form" style={style}>
-                <div className="row">
+            <div className="login row" id="login-form" style={style}>
+                <div className="col">
                     <div className="login-app">
                         <p className="login-app-header">
                             <i className="fa fa-graduation-cap"></i>
