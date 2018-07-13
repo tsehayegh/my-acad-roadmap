@@ -49,8 +49,7 @@ class SelectionList extends React.Component {
 						(6) Click the 'Save' button to save your plan`;
 		return (
 			
-			<div className="selection-list" 
-					aria-live="polite">
+			<div className="selection-list" aria-live="polite">
 				<ul className="list-group form-control-lg" id="selection-list">
 					<label>Select one of the group of courses below and a list of courses in that group will be displayed on the right hand side or below (if using small screen device).</label>
 					<br/>
